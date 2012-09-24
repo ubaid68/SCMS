@@ -1,0 +1,2 @@
+http://localhost/testyii/index.php/gii/default/login 
+for generating code
