@@ -22,7 +22,8 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'login_id',
-		'et_id',
+		array('name'=>'et_id',
+		'value'=>$model->et->et_name),
 		'user_name',
 		'password',
 		'u_fname',
