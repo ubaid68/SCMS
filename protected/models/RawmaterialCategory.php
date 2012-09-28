@@ -1,22 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "employee_type".
+ * This is the model class for table "rawmaterial_category".
  *
- * The followings are the available columns in table 'employee_type':
- * @property integer $et_id
- * @property string $et_name
- * @property string $et_desp
+ * The followings are the available columns in table 'rawmaterial_category':
+ * @property integer $rmc_id
+ * @property string $rmc_name
+ * @property string $rmc_qmeasures
+ * @property string $rmc_description
  *
  * The followings are the available model relations:
- * @property Employee[] $employees
+ * @property Rawmaterial[] $rawmaterials
  */
-class EmployeeType extends CActiveRecord
+class RawmaterialCategory extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return EmployeeType the static model class
+	 * @return RawmaterialCategory the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +29,7 @@ class EmployeeType extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'employee_type';
+		return 'rawmaterial_category';
 	}
 
 	/**
@@ -39,17 +40,16 @@ class EmployeeType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('et_name, et_desp', 'required'),
-			
-			//specical character ristriction for u_fname and allow atoz and AtoZ alphet
-			array('et_name', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Employee type(name) should contain Only Alphabets.')),
-			
-			array('et_id', 'numerical', 'integerOnly'=>true),
-			array('et_name', 'length', 'max'=>20),
-			array('et_desp', 'length', 'max'=>200),
+			array('rmc_name, rmc_qmeasures, rmc_description', 'required'),
+			array('rmc_name', 'length', 'max'=>50),
+			array('rmc_qmeasures', 'length', 'max'=>10),
+			array('rmc_description', 'length', 'max'=>200),
+			array('rmc_name','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (name) is not Valid.')),
+			array('rmc_qmeasures','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (measures) is not Valid.')),
+
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('et_id, et_name, et_desp', 'safe', 'on'=>'search'),
+			array('rmc_id, rmc_name, rmc_qmeasures, rmc_description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +61,7 @@ class EmployeeType extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'employees' => array(self::HAS_MANY, 'Employee', 'et_id'),
+			'rawmaterials' => array(self::HAS_MANY, 'Rawmaterial', 'rmc_id'),
 		);
 	}
 
@@ -71,9 +71,10 @@ class EmployeeType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'et_id' => 'Employee type id',
-			'et_name' => 'Employee type Name',
-			'et_desp' => 'Et Despcription',
+			'rmc_id' => 'Rmc',
+			'rmc_name' => 'Rmc Name',
+			'rmc_qmeasures' => 'Rmc Qmeasures',
+			'rmc_description' => 'Rmc Description',
 		);
 	}
 
@@ -88,9 +89,10 @@ class EmployeeType extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('et_id',$this->et_id);
-		$criteria->compare('et_name',$this->et_name,true);
-		$criteria->compare('et_desp',$this->et_desp,true);
+		$criteria->compare('rmc_id',$this->rmc_id);
+		$criteria->compare('rmc_name',$this->rmc_name,true);
+		$criteria->compare('rmc_qmeasures',$this->rmc_qmeasures,true);
+		$criteria->compare('rmc_description',$this->rmc_description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

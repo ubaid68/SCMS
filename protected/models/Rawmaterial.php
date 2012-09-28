@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * This is the model class for table "rawmaterial".
+ *
+ * The followings are the available columns in table 'rawmaterial':
+ * @property integer $rm_id
+ * @property integer $rmc_id
+ * @property string $rm_name
+ * @property string $rm_code
+ * @property double $rmp_unit
+ * @property integer $rm_quantity
+ * @property string $rm_reservelevel
+ *
+ * The followings are the available model relations:
+ * @property RawmaterialCategory $rmc
+ * @property SaleRm[] $saleRms
+ * @property Supplies[] $supplies
+ */
+class Rawmaterial extends CActiveRecord
+{
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Rawmaterial the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'rawmaterial';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('rmc_id, rm_name, rm_code, rmp_unit, rm_quantity, rm_reservelevel', 'required'),
+			array('rmc_id, rm_quantity,rm_reservelevel', 'numerical', 'integerOnly'=>true),
+			array('rmp_unit', 'numerical'),
+			array('rm_name, rm_code, rm_reservelevel', 'length', 'max'=>50),
+			
+			array('rm_name','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial is not Valid.')),
+			//array('m_reservelevel','match', 'pattern' => '/^[0-9]+$/u', 'message' => Yii::t('default', 'Rawmaterial is not Valid.')),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('rm_id, rmc_id, rm_name, rm_code, rmp_unit, rm_quantity, rm_reservelevel', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'rmc' => array(self::BELONGS_TO, 'RawmaterialCategory', 'rmc_id'),
+			'saleRms' => array(self::HAS_MANY, 'SaleRm', 'rm_id'),
+			'supplies' => array(self::HAS_MANY, 'Supplies', 'rm_id'),
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'rm_id' => 'Rawmaterial(id)',
+			'rmc_id' => 'Rmc',
+			'rm_name' => 'Rm Name',
+			'rm_code' => 'Rm Code',
+			'rmp_unit' => 'Rmp Unit',
+			'rm_quantity' => 'Rm Quantity',
+			'rm_reservelevel' => 'Rm Reservelevel',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('rm_id',$this->rm_id);
+		$criteria->compare('rmc_id',$this->rmc_id);
+		$criteria->compare('rm_name',$this->rm_name,true);
+		$criteria->compare('rm_code',$this->rm_code,true);
+		$criteria->compare('rmp_unit',$this->rmp_unit);
+		$criteria->compare('rm_quantity',$this->rm_quantity);
+		$criteria->compare('rm_reservelevel',$this->rm_reservelevel,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+}

@@ -636,3 +636,865 @@ REQUEST_URI=/scms_yii/index.php/employee/5
 in C:\wamp\www\scms_yii\protected\views\employee\view.php (31)
 in C:\wamp\www\scms_yii\protected\controllers\EmployeeController.php (56)
 in C:\wamp\www\scms_yii\index.php (13)
+2012/09/25 18:13:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Supplier/index".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Supplier/index')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/Supplier/index
+---
+2012/09/25 18:13:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Supplier/admin".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Supplier/admin')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/Supplier/admin
+---
+2012/09/25 18:13:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/Supplier/
+---
+2012/09/25 18:39:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php
+---
+2012/09/25 18:42:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 18:42:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 18:42:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 18:42:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 18:42:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 18:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/index.php/supplier
+---
+2012/09/25 19:11:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "supplier".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/supplier
+HTTP_REFERER=http://localhost/scms_yii/
+---
+2012/09/25 19:59:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('search')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('search')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier/search')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/supplier/search
+---
+2012/09/25 19:59:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('admin')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('admin')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier/admin')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/supplier/admin
+---
+2012/09/25 19:59:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "action".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('action')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('action')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('supplier/action')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/supplier/action
+---
+2012/09/26 11:20:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'scmsdb.rawmaterialcategory' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `rawmaterialcategory`.
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/26 11:20:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'scmsdb.rawmaterialcategory' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `RawmaterialCategory`.
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/26 11:21:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'scmsdb.rawmaterialcategory' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `RawmaterialCategory`.
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/26 11:21:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'scmsdb.rawmaterialcategory' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `RawmaterialCategory`.
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/26 11:26:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rawmaterial/create".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+---
+2012/09/26 12:37:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Rawmaterial".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial
+HTTP_REFERER=http://localhost/scms_yii/index.php/Rawmaterial
+---
+2012/09/26 12:37:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Rawmaterial".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial
+HTTP_REFERER=http://localhost/scms_yii/index.php/Rawmaterial
+---
+2012/09/26 12:57:04 [error] [exception.CException] exception 'CException' with message 'Property "Rawmaterial.rmc_id_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('rmc_id_id')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2158): CActiveRecord->__get('rmc_id_id')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1515): CHtml::resolveValue(Object(Rawmaterial), 'rmc_id_id')
+#3 C:\wamp\www\scms_yii\protected\views\rawmaterial\_form.php(25): CHtml::activeDropDownList(Object(Rawmaterial), 'rmc_id_id', Array)
+#4 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\scm...')
+#5 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\scm...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\scm...', Array, true)
+#7 C:\wamp\www\scms_yii\protected\views\rawmaterial\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\scm...')
+#9 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\scm...', Array, true)
+#10 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\scm...', Array, true)
+#11 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#12 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(79): CController->render('create', Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#14 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('create')
+#23 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#24 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+HTTP_REFERER=http://localhost/scms_yii/index.php/Rawmaterial
+---
+2012/09/27 08:30:20 [error] [exception.CException] exception 'CException' with message 'Property "Rawmaterial.rmc_qmeasures" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('rmc_qmeasures')
+#1 C:\wamp\www\scms_yii\protected\views\rawmaterial\_form.php(50): CActiveRecord->__get('rmc_qmeasures')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\scm...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\scm...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\scm...', Array, true)
+#5 C:\wamp\www\scms_yii\protected\views\rawmaterial\create.php(18): CController->renderPartial('_form', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\scm...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\scm...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\scm...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#10 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(79): CController->render('create', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('create')
+#21 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:46:25 [error] [php] Object of class Rawmaterial could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1825)
+Stack trace:
+#0 C:\wamp\www\scms_yii\protected\views\rawmaterial\_form.php(38): dropDownList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): RawmaterialController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): RawmaterialController->renderFile()
+#4 C:\wamp\www\scms_yii\protected\views\rawmaterial\create.php(18): RawmaterialController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): RawmaterialController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): RawmaterialController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): RawmaterialController->renderPartial()
+#9 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(79): RawmaterialController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+in C:\wamp\www\scms_yii\protected\views\rawmaterial\_form.php (38)
+in C:\wamp\www\scms_yii\protected\views\rawmaterial\create.php (18)
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (79)
+2012/09/27 08:47:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "YourController/actionWhichEchoesTheTextBox".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('YourController/...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/YourController/actionWhichEchoesTheTextBox
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:47:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "YourController/actionWhichEchoesTheTextBox".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('YourController/...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/YourController/actionWhichEchoesTheTextBox
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:58:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "YourController/actionWhichEchoesTheTextBox".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('YourController/...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/YourController/actionWhichEchoesTheTextBox
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:58:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "YourController/actionWhichEchoesTheTextBox".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('YourController/...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/YourController/actionWhichEchoesTheTextBox
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:58:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "YourController/actionWhichEchoesTheTextBox".' in C:\wamp\www\framework\web\CWebApplication.php:287
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('YourController/...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/scms_yii/index.php/YourController/actionWhichEchoesTheTextBox
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:59:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "actionGetCategory".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('actionGetCatego...')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('actionGetCatego...')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/actionGetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 08:59:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "actionGetCategory".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('actionGetCatego...')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('actionGetCatego...')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/actionGetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:48 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:04:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:05:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:05:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:05:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('getcategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('RawmaterialCate...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/getcategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:11:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:11:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:11:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:11:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:12:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:12:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial/Get...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 09:14:14 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialCategoryController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialCategoryController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialCategoryController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialCategoryController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:14:15 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialCategoryController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialCategoryController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialCategoryController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialCategoryController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:14:17 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialCategoryController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialCategoryController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialCategoryController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialCategoryController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/RawmaterialCategory/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialCategoryController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:14:56 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:15:21 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:15:23 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:15:46 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:175)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (175)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:15:47 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:175)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (175)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:16:03 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:175)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (175)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 09:16:04 [error] [php] Undefined index: rmc_id (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:175)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (175)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 10:28:18 [error] [php] Trying to get property of non-object (C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php:174)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): RawmaterialController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): RawmaterialController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): RawmaterialController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): RawmaterialController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yii\index.php(13): CWebApplication->run()
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+in C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php (174)
+in C:\wamp\www\scms_yii\index.php (13)
+2012/09/27 10:29:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "GetCategory".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('GetCategory')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial/Get...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 10:29:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "GetCategory".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('GetCategory')
+#1 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('GetCategory')
+#2 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('Rawmaterial/Get...')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/scms_yii/index.php/Rawmaterial/GetCategory
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 12:51:52 [error] [exception.CException] exception 'CException' with message 'Property "Rawmaterial.m_reservelevel" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('m_reservelevel')
+#1 C:\wamp\www\framework\validators\CRegularExpressionValidator.php(46): CActiveRecord->__get('m_reservelevel')
+#2 C:\wamp\www\framework\validators\CValidator.php(214): CRegularExpressionValidator->validateAttribute(Object(Rawmaterial), 'm_reservelevel')
+#3 C:\wamp\www\framework\base\CModel.php(158): CValidator->validate(Object(Rawmaterial), NULL)
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(795): CModel->validate(NULL)
+#5 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(73): CActiveRecord->save()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('create')
+#16 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 12:51:59 [error] [exception.CException] exception 'CException' with message 'Property "Rawmaterial.m_reservelevel" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('m_reservelevel')
+#1 C:\wamp\www\framework\validators\CRegularExpressionValidator.php(46): CActiveRecord->__get('m_reservelevel')
+#2 C:\wamp\www\framework\validators\CValidator.php(214): CRegularExpressionValidator->validateAttribute(Object(Rawmaterial), 'm_reservelevel')
+#3 C:\wamp\www\framework\base\CModel.php(158): CValidator->validate(Object(Rawmaterial), NULL)
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(795): CModel->validate(NULL)
+#5 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(73): CActiveRecord->save()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('create')
+#16 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---
+2012/09/27 12:53:56 [error] [exception.CException] exception 'CException' with message 'Property "Rawmaterial.m_reservelevel" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('m_reservelevel')
+#1 C:\wamp\www\framework\validators\CRegularExpressionValidator.php(46): CActiveRecord->__get('m_reservelevel')
+#2 C:\wamp\www\framework\validators\CValidator.php(214): CRegularExpressionValidator->validateAttribute(Object(Rawmaterial), 'm_reservelevel')
+#3 C:\wamp\www\framework\base\CModel.php(158): CValidator->validate(Object(Rawmaterial), NULL)
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(795): CModel->validate(NULL)
+#5 C:\wamp\www\scms_yii\protected\controllers\RawmaterialController.php(73): CActiveRecord->save()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): RawmaterialController->actionCreate()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('create')
+#16 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('rawmaterial/cre...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/scms_yii/index.php/rawmaterial/create
+HTTP_REFERER=http://localhost/scms_yii/index.php/rawmaterial/create
+---

@@ -13,7 +13,10 @@
 )); 
 
 	$list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
-?>
+	
+
+	?>
+
 
 
 

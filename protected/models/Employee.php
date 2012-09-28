@@ -46,15 +46,15 @@ class Employee extends CActiveRecord
 		return array(
 			array('et_id, user_name, password, u_fname, u_lname', 'required'),
 			
-			//specical chaacter ristriction for username
+			//specical character ristriction for username 
 			
 			array('user_name','match', 'pattern' => '/^[A-Za-z0-9]+$/u', 'message' => Yii::t('default', 'Username is not Valid.')),		
 			
-			//specical chaacter ristriction for u_fname
+			//specical character ristriction for u_fname and allow atoz and AtoZ alphets
 			
 			array('u_fname', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'First Name Only Alphabets.')),
 			
-			//specical chaacter ristriction for u_lname
+			//specical character ristriction for u_lname and allow atoz and AtoZ alphets
 			
 			array('u_lname', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Last Name Only Alphabets.')),
 			
@@ -88,8 +88,8 @@ class Employee extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'login_id' => 'Login',
-			'et_id' => 'Employee Type ID',
+			'login_id' => 'Login Id',
+			'et_id' => 'Employee Type',
 			'user_name' => 'User Name',
 			'password' => 'Password',
 			'u_fname' => ' First Name',
