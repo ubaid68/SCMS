@@ -3,14 +3,33 @@
 /* @var $model Rawmaterial */
 /* @var $form CActiveForm */
 ?>
+<?php
+//flash msg for duplication
+?>
 
+<?php if(Yii::app()->user->hasFlash('Duplicate')){ ?>
+
+<div class="flash-error">
+	<?php echo Yii::app()->user->getFlash('Duplicate');  ?>
+</div>
+<?php } ?>
+
+<?php
+//success msg for duplication
+?>
+<?php if(Yii::app()->user->hasFlash('successmsg')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('successmsg');  ?>
+</div>
+<?php } ?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'rawmaterial-form',
 	'enableAjaxValidation'=>false,
 )); 
-	$list=CHtml::listData(RawmaterialCategory::model()->findAll(), 'rmc_id', 'rmc_name');
+$list=CHtml::listData(RawmaterialCategory::model()->findAll(), 'rmc_id', 'rmc_name');
 
 	
 	?>
@@ -34,7 +53,7 @@
 	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($model,'rmc_id'); ?>
+				<?php echo $form->labelEx($model,'rmc_id'); ?>
 			<?php echo CHtml::activeDropDownList($model,'rmc_id',$list,
 			array(
 			'prompt'=>'Select Category',

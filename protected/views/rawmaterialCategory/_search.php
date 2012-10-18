@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'rmc_qmeasures'); ?>
-		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>20,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row">

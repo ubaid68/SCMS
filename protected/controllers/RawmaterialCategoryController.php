@@ -70,9 +70,26 @@ class RawmaterialCategoryController extends Controller
 		if(isset($_POST['RawmaterialCategory']))
 		{
 			$model->attributes=$_POST['RawmaterialCategory'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->rmc_id));
+			
+			try
+			{
+				if($model->save())
+				{
+				
+				Yii::app()->user->setFlash('rmcategorysuccess','Rawmaterial Category Added Successfully');
+				$this->refresh();
+				//$this->redirect(array('view','id'=>$model->pc_id));		
+				}
+				
+			
+			}
+			
+			catch(Exception $ex){
+				Yii::app()->user->setFlash('rmcategoryduplicate','Rawmaterial Category Duplicate Entry..');
+				$this->refresh();
+			}
 		}
+		
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -168,10 +185,13 @@ class RawmaterialCategoryController extends Controller
 			Yii::app()->end();
 		}
 	}
-	
+
 	public function actionGetCategory()
    {      
-		if($_POST['Rawmaterial']['rmc_id'] == ''){
+		//var_dump($_POST);
+		
+		if($_POST['Rawmaterial']['rmc_id'] == '')
+		{
 			echo "Select Category";
 		}
 		else
@@ -179,8 +199,6 @@ class RawmaterialCategoryController extends Controller
 			echo RawmaterialCategory::model()->findByPk((int)$_POST['Rawmaterial']['rmc_id'])->rmc_qmeasures ; 
 			//echo $_POST['Rawmaterial']['rmc_id'];
 		}
+		
    }
-
-   
-   
-}
+ }

@@ -18,6 +18,7 @@
  */
 class Employee extends CActiveRecord
 {
+	public $etype;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -46,17 +47,22 @@ class Employee extends CActiveRecord
 		return array(
 			array('et_id, user_name, password, u_fname, u_lname', 'required'),
 			
+			
+			array('user_name', 'length', 'min'=>3, 'max'=>50),
+			array('password', 'length', 'min'=>6, 'max'=>50),
+			array('u_fname', 'length', 'min'=>3, 'max'=>50),
+			array('u_lname', 'length', 'min'=>3, 'max'=>50),
 			//specical character ristriction for username 
 			
 			array('user_name','match', 'pattern' => '/^[A-Za-z0-9]+$/u', 'message' => Yii::t('default', 'Username is not Valid.')),		
 			
 			//specical character ristriction for u_fname and allow atoz and AtoZ alphets
 			
-			array('u_fname', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'First Name Only Alphabets.')),
+			array('u_fname', 'match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'First Name Only Alphabets.')),
 			
 			//specical character ristriction for u_lname and allow atoz and AtoZ alphets
 			
-			array('u_lname', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Last Name Only Alphabets.')),
+			array('u_lname', 'match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Last Name Only Alphabets.')),
 			
 			
 			array('et_id', 'numerical', 'integerOnly'=>true),
@@ -65,6 +71,7 @@ class Employee extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('login_id, et_id, user_name, password, u_fname, u_lname', 'safe', 'on'=>'search'),
+
 		);
 	}
 
@@ -88,11 +95,11 @@ class Employee extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'login_id' => 'Login Id',
+			'login_id' => 'Login ID',
 			'et_id' => 'Employee Type',
 			'user_name' => 'User Name',
 			'password' => 'Password',
-			'u_fname' => ' First Name',
+			'u_fname' => 'First Name',
 			'u_lname' => 'Last Name',
 		);
 	}
@@ -105,11 +112,18 @@ class Employee extends CActiveRecord
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-
+		
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('login_id',$this->login_id);
-		$criteria->compare('et_id',$this->et_id);
+		
+		
+		// --------------- Employee Type Searching ------------//
+		
+		$criteria->with = array( 'et' );
+		$criteria->compare( 'et.et_name', $this->et_id, true );
+		
+		// ----------------------------------------------------//
 		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('u_fname',$this->u_fname,true);

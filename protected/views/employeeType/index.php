@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Employee Types</h1>
+<h1>View Employee Types</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

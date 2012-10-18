@@ -24,6 +24,7 @@ $('.search-form form').submit(function(){
 	return false;
 });
 ");
+$ds='Discounted Price'
 ?>
 
 <h1>Manage Rawmaterials</h1>
@@ -46,14 +47,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'rm_id',
-		'rmc_id',
+		array(
+					'name'=>'rmc_id',
+					'type'=>'raw',
+					'value'=>'$data->rmc->rmc_name',
+				),
+		
+		//'rmc_id',
 		'rm_name',
 		'rm_code',
 		'rmp_unit',
 		'rm_quantity',
-		/*
 		'rm_reservelevel',
-		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

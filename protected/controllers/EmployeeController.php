@@ -32,7 +32,7 @@ class EmployeeController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -71,7 +71,11 @@ class EmployeeController extends Controller
 		{
 			$model->attributes=$_POST['Employee'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->login_id));
+			{	
+				Yii::app()->user->setFlash('empsuccess','Employee  Added Successfully');
+							$this->refresh();
+				//$this->redirect(array('view','id'=>$model->login_id));
+			}	
 		}
 
 		$this->render('create',array(

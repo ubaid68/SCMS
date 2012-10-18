@@ -41,15 +41,15 @@ class RawmaterialCategory extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('rmc_name, rmc_qmeasures, rmc_description', 'required'),
-			array('rmc_name', 'length', 'max'=>50),
-			array('rmc_qmeasures', 'length', 'max'=>10),
-			array('rmc_description', 'length', 'max'=>200),
-			array('rmc_name','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (name) is not Valid.')),
+			array('rmc_name', 'length', 'min'=>3, 'max'=>50),
+			array('rmc_qmeasures', 'length', 'min'=>2, 'max'=>50),
+			array('rmc_description', 'length', 'min'=>5, 'max'=>200),
+			
+			array('rmc_name','match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (name) is not Valid.')),
+			
 			array('rmc_qmeasures','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (measures) is not Valid.')),
 
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('rmc_id, rmc_name, rmc_qmeasures, rmc_description', 'safe', 'on'=>'search'),
+		
 		);
 	}
 
@@ -71,10 +71,10 @@ class RawmaterialCategory extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'rmc_id' => 'Rmc',
-			'rmc_name' => 'Rmc Name',
-			'rmc_qmeasures' => 'Rmc Qmeasures',
-			'rmc_description' => 'Rmc Description',
+			'rmc_id' => 'Rawmaterial Category(ID)',
+			'rmc_name' => 'Rawmaterial Category',
+			'rmc_qmeasures' => 'Quantity Measures',
+			'rmc_description' => 'Description',
 		);
 	}
 

@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create RawmaterialCategory</h1>
+<h1>Add Rawmaterial Category</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

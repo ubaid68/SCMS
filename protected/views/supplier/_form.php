@@ -4,6 +4,16 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php
+//success msg
+?>
+<?php if(Yii::app()->user->hasFlash('suppsuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('suppsuccess');  ?>
+</div>
+<?php } ?>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -16,7 +26,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'Company Name'); ?>
+		<?php echo $form->labelEx($model,'supplier_name'); ?>
 		<?php echo $form->textField($model,'supplier_name',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'supplier_name'); ?>
 	</div>

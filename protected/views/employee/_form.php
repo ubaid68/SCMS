@@ -3,22 +3,26 @@
 /* @var $model Employee */
 /* @var $form CActiveForm */
 ?>
+<?php
+//success msg
+?>
+<?php if(Yii::app()->user->hasFlash('empsuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('empsuccess');  ?>
+</div>
+<?php } ?>
+
 
 <div class="form">
-
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'employee-form',
 	'enableAjaxValidation'=>false,
-)); 
+));
 
-	$list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
-	
-
-	?>
-
-
-
+$list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
+ ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -26,7 +30,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'et_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'et_id',$list); ?>
+		<?php echo CHtml::activeDropDownList($model,'et_id',$list,array('prompt'=>'Select Employee Type')); ?>
 		<?php echo $form->error($model,'et_id'); ?>
 	</div>
 

@@ -33,12 +33,21 @@
 				array('label'=>'Employee', 'url'=>array('/employee'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Employee Type', 'url'=>array('/employeetype'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Supplier', 'url'=>array('/supplier'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Raw-material category', 'url'=>array('/RawmaterialCategory'), 'visible'=>!Yii::app()->user->isGuest),	
 				array('label'=>'Rawmaterial', 'url'=>array('/Rawmaterial'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Raw-material category', 'url'=>array('/RawmaterialCategory'), 'visible'=>!Yii::app()->user->isGuest),	
+				array('label'=>'product category', 'url'=>array('/ProductCategory'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'product', 'url'=>array('/Product'), 'visible'=>!Yii::app()->user->isGuest),
+				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				//array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				
+				array('label'=>'Buy rawmaterial', 'url'=>array('/Supplies'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'SaleType', 'url'=>array('/SaleType'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'customer', 'url'=>array('/Customer'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'purchaser type', 'url'=>array('/PurchaserType'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'sale product', 'url'=>array('/SalePr'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'sale rawmaterial', 'url'=>array('/SaleRm'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

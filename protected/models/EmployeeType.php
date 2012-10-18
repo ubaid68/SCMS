@@ -41,8 +41,11 @@ class EmployeeType extends CActiveRecord
 		return array(
 			array('et_name, et_desp', 'required'),
 			
+			array('et_name', 'length', 'min'=>3, 'max'=>20),
+			array('et_desp', 'length', 'min'=>5, 'max'=>200),
+			
 			//specical character ristriction for u_fname and allow atoz and AtoZ alphet
-			array('et_name', 'match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Employee type(name) should contain Only Alphabets.')),
+			array('et_name', 'match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Employee type(name) should contain Only Alphabets.')),
 			
 			array('et_id', 'numerical', 'integerOnly'=>true),
 			array('et_name', 'length', 'max'=>20),
@@ -50,6 +53,8 @@ class EmployeeType extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('et_id, et_name, et_desp', 'safe', 'on'=>'search'),
+	
+
 		);
 	}
 
@@ -71,9 +76,9 @@ class EmployeeType extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'et_id' => 'Employee type id',
-			'et_name' => 'Employee type Name',
-			'et_desp' => 'Et Despcription',
+			'et_id' => 'Employee Type(ID)',
+			'et_name' => 'Employee Type',
+			'et_desp' => 'Despcription',
 		);
 	}
 

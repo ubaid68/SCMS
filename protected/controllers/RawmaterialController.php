@@ -70,8 +70,28 @@ class RawmaterialController extends Controller
 		if(isset($_POST['Rawmaterial']))
 		{
 			$model->attributes=$_POST['Rawmaterial'];
+			/*
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->rm_id));
+			else
+			{
+				Yii::app()->user->setFlash('error','Sorry!!');
+				$this->refresh();
+			}
+			*/
+			//duplication try catch
+			try{
+					if($model->save())
+					{
+					//$this->redirect(array('view','id'=>$model->rm_id));
+					Yii::app()->user->setFlash('successmsg','Rawmaterial Added Successfully ');
+					$this->refresh();
+					}
+			}catch(Exception $ex){
+				Yii::app()->user->setFlash('Duplicate','Rawmaterial Duplicate Entry..');
+				$this->refresh();
+			}
+			
 		}
 
 		$this->render('create',array(

@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create EmployeeType</h1>
+<h1>Add Employee Type</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

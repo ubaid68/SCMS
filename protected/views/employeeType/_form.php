@@ -3,7 +3,24 @@
 /* @var $model EmployeeType */
 /* @var $form CActiveForm */
 ?>
+<?php//flash msg for duplication
+?>
+<?php if(Yii::app()->user->hasFlash('emptduplicate')){ ?>
 
+<div class="flash-error">
+	<?php echo Yii::app()->user->getFlash('emptduplicate');  ?>
+</div>
+<?php } ?>
+
+<?php
+//success msg
+?>
+<?php if(Yii::app()->user->hasFlash('emptsuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('emptsuccess');  ?>
+</div>
+<?php } ?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

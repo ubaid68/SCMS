@@ -71,7 +71,12 @@ class SupplierController extends Controller
 		{
 			$model->attributes=$_POST['Supplier'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->s_id));
+			{
+				Yii::app()->user->setFlash('suppsuccess','Supplier successfully purchased');
+							$this->refresh();
+				
+				//$this->redirect(array('view','id'=>$model->s_id));
+			}	
 		}
 
 		$this->render('create',array(
@@ -95,7 +100,9 @@ class SupplierController extends Controller
 		{
 			$model->attributes=$_POST['Supplier'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->s_id));
+				Yii::app()->user->setFlash('supsuccess','Supplier Added Successfully');
+							$this->refresh();
+				//$this->redirect(array('view','id'=>$model->s_id));
 		}
 
 		$this->render('update',array(

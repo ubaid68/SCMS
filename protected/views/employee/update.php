@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Employee', 'url'=>array('index')),
+	array('label'=>'View Employee List', 'url'=>array('index')),
 	array('label'=>'Create Employee', 'url'=>array('create')),
 	array('label'=>'View Employee', 'url'=>array('view', 'id'=>$model->login_id)),
 	array('label'=>'Manage Employee', 'url'=>array('admin')),

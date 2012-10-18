@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Rawmaterial Categories</h1>
+<h1>View Rawmaterial Categories</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

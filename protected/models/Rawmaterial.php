@@ -46,12 +46,21 @@ class Rawmaterial extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('rmc_id, rm_name, rm_code, rmp_unit, rm_quantity, rm_reservelevel', 'required'),
-			array('rmc_id, rm_quantity,rm_reservelevel', 'numerical', 'integerOnly'=>true),
-			array('rmp_unit', 'numerical'),
-			array('rm_name, rm_code, rm_reservelevel', 'length', 'max'=>50),
+			//for value doesnt below 0
+			array('rmp_unit','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('rm_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('rm_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
+			//string length
+			array('rm_name', 'length', 'min'=>3, 'max'=>50),
+			array('rm_code', 'length', 'min'=>3, 'max'=>50),
+			array('rmp_unit', 'length', 'min'=>1, 'max'=>11),
+			array('rm_quantity', 'length', 'min'=>1, 'max'=>11),
+			array('rm_reservelevel', 'length', 'min'=>1, 'max'=>11),
 			
-			array('rm_name','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial is not Valid.')),
-			//array('m_reservelevel','match', 'pattern' => '/^[0-9]+$/u', 'message' => Yii::t('default', 'Rawmaterial is not Valid.')),
+			
+			array('rm_name','match', 'pattern' => '/^[A-Za-z " "]+$/u', 'message' => Yii::t('default', 'Rawmaterial name is not Valid.')),
+
+			array('rm_code','match', 'pattern' => '/^[A-Za-z0-9]+$/u', 'message' => Yii::t('default', 'Rawmaterial code is not Valid.')),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('rm_id, rmc_id, rm_name, rm_code, rmp_unit, rm_quantity, rm_reservelevel', 'safe', 'on'=>'search'),
@@ -79,12 +88,12 @@ class Rawmaterial extends CActiveRecord
 	{
 		return array(
 			'rm_id' => 'Rawmaterial(id)',
-			'rmc_id' => 'Rmc',
-			'rm_name' => 'Rm Name',
-			'rm_code' => 'Rm Code',
-			'rmp_unit' => 'Rmp Unit',
-			'rm_quantity' => 'Rm Quantity',
-			'rm_reservelevel' => 'Rm Reservelevel',
+			'rmc_id' => 'Rawmaterial Category',
+			'rm_name' => 'Rawmaterial',
+			'rm_code' => 'Code',
+			'rmp_unit' => 'Unit Price',
+			'rm_quantity' => 'Quantity',
+			'rm_reservelevel' => 'Reservelevel',
 		);
 	}
 
@@ -100,7 +109,13 @@ class Rawmaterial extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('rm_id',$this->rm_id);
-		$criteria->compare('rmc_id',$this->rmc_id);
+		// --------------- Employee Type Searching ------------//
+		
+		$criteria->with = array( 'rmc' );
+		$criteria->compare( 'rmc.rmc_name', $this->rmc_id, true );
+		
+		// ----------------------------------------------------//
+		//$criteria->compare('rmc_id',$this->rmc_id);
 		$criteria->compare('rm_name',$this->rm_name,true);
 		$criteria->compare('rm_code',$this->rm_code,true);
 		$criteria->compare('rmp_unit',$this->rmp_unit);

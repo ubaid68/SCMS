@@ -32,16 +32,16 @@ class EmployeeTypeController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','create','update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','create'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			//array('deny',  // deny all users
-			//	'users'=>array('*'),
-			//),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
 		);
 	}
 
@@ -67,11 +67,26 @@ class EmployeeTypeController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['EmployeeType']))
+			if(isset($_POST['EmployeeType']))
 		{
 			$model->attributes=$_POST['EmployeeType'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->et_id));
+		
+			try
+			{
+						if($model->save())
+							{
+							//$this->redirect(array('view','id'=>$model->et_id));
+							Yii::app()->user->setFlash('emptsuccess','Employee Type Added Successfully');
+							$this->refresh();
+							}
+			}		
+		catch(Exception $ex)
+		{
+		
+		Yii::app()->user->setFlash('emptduplicate','Employee Type Duplicate Entry..');
+		$this->refresh();
+		}
+		
 		}
 
 		$this->render('create',array(
@@ -98,9 +113,7 @@ class EmployeeTypeController extends Controller
 				$this->redirect(array('view','id'=>$model->et_id));
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+			$this->render('update',array('model'=>$model,));
 	}
 
 	/**

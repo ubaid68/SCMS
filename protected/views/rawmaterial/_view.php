@@ -9,14 +9,14 @@
 	<?php echo CHtml::link(CHtml::encode($data->rm_id), array('view', 'id'=>$data->rm_id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('rmc_id')); ?>:</b>
-	<?php echo CHtml::encode($data->rmc_id); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_name')); ?>:</b>
 	<?php echo CHtml::encode($data->rm_name); ?>
 	<br />
-
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('rmc_id')); ?>:</b>
+	<?php echo CHtml::encode($data->rmc->rmc_name); ?>
+	<br />
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_code')); ?>:</b>
 	<?php echo CHtml::encode($data->rm_code); ?>
 	<br />

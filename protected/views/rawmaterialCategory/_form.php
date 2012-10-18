@@ -3,6 +3,26 @@
 /* @var $model RawmaterialCategory */
 /* @var $form CActiveForm */
 ?>
+<?php
+//flash msg for duplication
+?>
+
+<?php if(Yii::app()->user->hasFlash('rmcategoryduplicate')){ ?>
+
+<div class="flash-error">
+	<?php echo Yii::app()->user->getFlash('rmcategoryduplicate');  ?>
+</div>
+<?php } ?>
+
+<?php
+//success msg for duplication
+?>
+<?php if(Yii::app()->user->hasFlash('rmcategorysuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('rmcategorysuccess');  ?>
+</div>
+<?php } ?>
 
 <div class="form">
 
@@ -23,7 +43,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rmc_qmeasures'); ?>
-		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'rmc_qmeasures'); ?>
 	</div>
 
