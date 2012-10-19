@@ -22,7 +22,12 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'p_id',
-		'pc_id',
+		array(
+					'name'=>'pc_id',
+					'type'=>'raw',
+					'value'=>$model->pc->pc_name,
+				),
+		//'pc_id',
 		'p_name',
 		'p_code',
 		'p_price',

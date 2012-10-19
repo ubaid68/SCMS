@@ -22,8 +22,18 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'supplies_id',
-		's_id',
-		'rm_id',
+		array(
+					'name'=>'s_id',
+					'type'=>'raw',
+					'value'=>$model->s->supplier_name,
+				),
+		array(
+					'name'=>'rm_id',
+					'type'=>'raw',
+					'value'=>$model->rm->rm_name,
+				),
+		//'s_id',
+		//'rm_id',
 		's_date',
 		's_unitprice',
 		's_quantity',

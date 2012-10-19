@@ -22,7 +22,12 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'rm_id',
-		'rmc_id',
+		array(
+					'name'=>'rmc_id',
+					'type'=>'raw',
+					'value'=>$model->rmc->rmc_name,
+				),
+		//'rmc_id',
 		'rm_name',
 		'rm_code',
 		'rmp_unit',

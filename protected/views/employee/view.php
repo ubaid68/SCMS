@@ -22,7 +22,12 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'login_id',
-		'et_id',
+		array(
+					'name'=>'et_id',
+					'type'=>'raw',
+					'value'=>$model->et->et_name,
+				),
+		//'et_id',
 		'user_name',
 		//'password',
 		'u_fname',
