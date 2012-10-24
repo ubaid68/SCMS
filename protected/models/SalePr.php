@@ -173,5 +173,20 @@ class SalePr extends CActiveRecord
 		$this->sp_date=date('d F, Y', strtotime(str_replace("-", "", $this->sp_date)));       
 	}
 	
-	
+	public function getTotalSale($p_id){
+		$models = SalePr::model()->findByAttributes(array('p_id'=>$p_id));
+		//var_dump($models);
+		$cost = 0;
+		if($models != null)
+		{
+			foreach($models as $m){
+				var_dump($m);
+				//$cost = $cost + ($m[7] * $m[8]);
+			}
+		}
+		
+		return $cost;
 	}
+	
+	
+}

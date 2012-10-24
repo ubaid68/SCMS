@@ -18,6 +18,7 @@
  */
 class Product extends CActiveRecord
 {
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -123,4 +124,18 @@ class Product extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public function getTotalSale($sales){
+		//$models = $this->salePrs;
+		//var_dump($sales);
+		$cost = 0;
+		foreach($sales as $s){
+			$cost = $cost + ($s->sp_unit * $s->sp_quantity);
+		}
+		
+		return $cost;
+	}
+	
+	
+	
 }

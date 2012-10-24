@@ -36,7 +36,7 @@ class SalePrController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','getTotalSale'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -158,6 +158,16 @@ class SalePrController extends Controller
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
+	}
+	
+	public function getTotalSale($p_id){
+		$models = $this->model()->findByPk($p_id);
+		$cost = 0;
+		foreach($models as $m){
+			$cost = $cost + ($m->sp_unit * $m->sp_quantity);
+		}
+		
+		return $cost;
 	}
 
 	/**

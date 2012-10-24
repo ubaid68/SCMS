@@ -36,7 +36,7 @@ class ProductController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','mostProfitableProducts'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -158,6 +158,23 @@ class ProductController extends Controller
 			'model'=>$model,
 		));
 	}
+	
+	
+	/**
+	 * Manages all models.
+	 */
+	public function actionMostProfitableProducts()
+	{
+		$model=new Product('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Product']))
+			$model->attributes=$_GET['Product'];
+
+		$this->render('mostProfitableProducts',array(
+			'model'=>$model,
+		));
+	}
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
