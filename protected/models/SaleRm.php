@@ -50,6 +50,7 @@ class SaleRm extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			//min vlaue input by user
 			array('cu_id, login_id, rm_id, st_id, purt_id, srm_date, srmp_unit, srm_quantity, srm_discount', 'required'),
 			array('srmp_unit','numerical', 'integerOnly'=>true, 'min'=>1),
 			array('srm_quantity','numerical', 'integerOnly'=>true, 'min'=>1),

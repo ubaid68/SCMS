@@ -125,8 +125,11 @@ class ProductCategoryController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
+		try{
+			$this->loadModel($id)->delete();
+		}catch(Exception $e){
+			throw new CHttpException(400,'You cannot Delete Product Category (bussiness rule voliation)');
+		}
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

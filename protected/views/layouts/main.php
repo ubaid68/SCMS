@@ -37,6 +37,7 @@
 				array('label'=>'Raw-material category', 'url'=>array('/RawmaterialCategory'), 'visible'=>!Yii::app()->user->isGuest),	
 				array('label'=>'product category', 'url'=>array('/ProductCategory'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'product', 'url'=>array('/Product'), 'visible'=>!Yii::app()->user->isGuest),
+				
 				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				//array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
@@ -47,6 +48,10 @@
 				array('label'=>'purchaser type', 'url'=>array('/PurchaserType'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'sale product', 'url'=>array('/SalePr'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'sale rawmaterial', 'url'=>array('/SaleRm'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'mostProfitableProducts', 'url'=>array('/Product/mostProfitableProducts'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'top seller', 'url'=>array('/Product/topseller'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Recieve Product', 'url'=>array('/finishedProduct'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Send Rawmaterial to factory', 'url'=>array('/factoryMaterial'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

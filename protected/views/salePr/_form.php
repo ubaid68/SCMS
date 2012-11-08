@@ -23,11 +23,7 @@
 )); 
 
 $lis=CHtml::listData(Customer::model()->findAll(), 'cu_id', 'cu_name');
-//$li=(Employee::model()->findByPk(Yii::app()->user->id))->u_fname;
 $user = (Employee::model()->findByPk(Yii::app()->user->id));
-//$li=CHtml::listData(Employee::model()->findAll(), 'login_id', 'u_fname');
-
-
 $l=CHtml::listData(Product::model()->findAll(), 'p_id', 'p_name');
 $list=CHtml::listData(SaleType::model()->findAll(), 'st_id', 'st_name');
 

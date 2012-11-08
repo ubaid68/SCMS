@@ -45,7 +45,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 		<?php echo $form->error($model,'rm_id'); ?>
 	</div>
 	<div class="row">
-			
+		<?php echo $form->labelEx($model,'login_id'); ?>	
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
 	
 		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">

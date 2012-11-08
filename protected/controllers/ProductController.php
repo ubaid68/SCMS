@@ -36,7 +36,7 @@ class ProductController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','mostProfitableProducts'),
+				'actions'=>array('admin','delete','MostProfitableProducts','Topseller','RecieveProduct'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -85,12 +85,45 @@ class ProductController extends Controller
 				$this->refresh();
 			}
 			
+		}
+		
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
+	
+	public function actionRecieveProduct()
+	{
+		$model=new Product;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Product']))
+		{
+			$model->attributes=$_POST['Product'];
+			try{
+					if($model->save())
+					{
+					//$this->redirect(array('view','id'=>$model->p_id));
+					Yii::app()->user->setFlash('pps','Product added Successfully');
+				$this->refresh();
+					}
+			
+			}
+			catch(Exception $ex)
+			{
+				Yii::app()->user->setFlash('ppd','Product Name or code Duplicate Entry..');
+				$this->refresh();
+			}
+			
 			
 			
 		}
 		
 
-		$this->render('create',array(
+		$this->render('recieve',array(
 			'model'=>$model,
 		));
 	}
@@ -102,8 +135,14 @@ class ProductController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		try
+		{
 		$model=$this->loadModel($id);
-
+		}
+		catch(Exception $e)
+		{
+		throw new CHttpException(400,'You cannot Delete Product (bussiness rule voliation)');
+		}
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -174,7 +213,20 @@ class ProductController extends Controller
 			'model'=>$model,
 		));
 	}
+	
+	public function actionTopseller()
+	{
+		$model=new Product('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Product']))
+			$model->attributes=$_GET['Product'];
 
+		$this->render('topseller',array(
+			'model'=>$model,
+		));
+	}
+	
+	
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

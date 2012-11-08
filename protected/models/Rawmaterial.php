@@ -48,11 +48,11 @@ class Rawmaterial extends CActiveRecord
 			array('rmc_id, rm_name, rm_code, rmp_unit, rm_quantity, rm_reservelevel', 'required'),
 			//for value doesnt below 0
 			array('rmp_unit','numerical', 'integerOnly'=>true, 'min'=>1),
-			array('rm_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('rm_quantity','numerical', 'integerOnly'=>true, 'min'=>0),
 			array('rm_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
 			//string length
-			array('rm_name', 'length', 'min'=>3, 'max'=>50),
-			array('rm_code', 'length', 'min'=>3, 'max'=>50),
+			array('rm_name', 'length', 'min'=>3, 'max'=>30),
+			array('rm_code', 'length', 'min'=>3, 'max'=>10),
 			array('rmp_unit', 'length', 'min'=>1, 'max'=>11),
 			array('rm_quantity', 'length', 'min'=>1, 'max'=>11),
 			array('rm_reservelevel', 'length', 'min'=>1, 'max'=>11),

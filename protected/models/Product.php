@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'product':
  * @property integer $p_id
+ 
  * @property integer $pc_id
  * @property string $p_name
  * @property string $p_code
@@ -13,12 +14,14 @@
  * @property string $p_reservelevel
  *
  * The followings are the available model relations:
+ * @property Employee $login
  * @property ProductCategory $pc
  * @property SalePr[] $salePrs
  */
 class Product extends CActiveRecord
 {
 
+	public $total;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -51,10 +54,10 @@ class Product extends CActiveRecord
 			array('p_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
 			array('p_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
 			//string length
-			array('p_name', 'length', 'min'=>3, 'max'=>11),
-			array('p_code', 'length', 'min'=>3, 'max'=>11),
+			array('p_name', 'length', 'min'=>3, 'max'=>30),
+			array('p_code', 'length', 'min'=>3, 'max'=>10),
 			array('p_price', 'length', 'min'=>1, 'max'=>11),
-			array('p_quantity', 'length', 'min'=>1, 'max'=>11),
+			array('p_quantity', 'length', 'min'=>0, 'max'=>11),
 			array('p_reservelevel', 'length', 'min'=>1, 'max'=>11),
 			
 			
@@ -74,6 +77,7 @@ class Product extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			
 			'pc' => array(self::BELONGS_TO, 'ProductCategory', 'pc_id'),
 			'salePrs' => array(self::HAS_MANY, 'SalePr', 'p_id'),
 		);
@@ -86,6 +90,7 @@ class Product extends CActiveRecord
 	{
 		return array(
 			'p_id' => 'Product(ID)',
+			
 			'pc_id' => 'Product Category',
 			'p_name' => 'Name',
 			'p_code' => 'Code',
@@ -104,8 +109,19 @@ class Product extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria;
+		
+		
+		$cost = 0;
+		$sales = $this->salePrs;
+		foreach($sales as $s)
+		{
+			$cost = $cost + ($s->sp_unit * $s->sp_quantity);
+		}
+		
+		$total = $cost;
 
+		$criteria=new CDbCriteria;
+		
 		$criteria->compare('p_id',$this->p_id);
 		// --------------- Employee Type Searching ------------//
 		
@@ -117,23 +133,66 @@ class Product extends CActiveRecord
 		$criteria->compare('p_name',$this->p_name,true);
 		$criteria->compare('p_code',$this->p_code,true);
 		$criteria->compare('p_price',$this->p_price);
+		//$criteria->compare('salePrs',$this->getTotalSale($this->salePrs));
 		$criteria->compare('p_quantity',$this->p_quantity);
 		$criteria->compare('p_reservelevel',$this->p_reservelevel,true);
 
-		return new CActiveDataProvider($this, array(
+	//other criteria...
+	/*$criteria->compare('customField',$this->customField);
+
+	$sort = new CSort();
+	$sort->attributes = array(
+    'customField'=>array(
+        'asc'=>'customField ASC',
+        'desc'=>'customField DESC',
+    ),
+    '*', // this adds all of the other columns as sortable
+	);
+
+	return new CActiveDataProvider($this, array(
+    'criteria'=>$criteria,
+    'sort'=>$sort,
+	));
+	*/
+	
+	return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			));
+			
+			/*
+		return new CActiveDataProvider($this, array(
+			'criteria'=>array(
+				//'condition'=>'status=1',
+				'order'=>'cost DESC',
+				'with'=>array('salePrs'),
+			),
 		));
+		*/
+		
 	}
 	
 	public function getTotalSale($sales){
 		//$models = $this->salePrs;
 		//var_dump($sales);
 		$cost = 0;
-		foreach($sales as $s){
+		foreach($sales as $s)
+		{
 			$cost = $cost + ($s->sp_unit * $s->sp_quantity);
 		}
 		
 		return $cost;
+	}
+	
+	public function getTotalQuantity($sales){
+		//$models = $this->salePrs;
+		//var_dump($sales);
+		$qu = 0;
+		foreach($sales as $s)
+		{
+			$qu = $qu + $s->sp_quantity;
+		}
+		
+		return $qu;
 	}
 	
 	

@@ -1,6 +1,6 @@
 <?php
 
-class RawmaterialController extends Controller
+class FinishedProductController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,36 +62,29 @@ class RawmaterialController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Rawmaterial;
+		$model=new FinishedProduct;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Rawmaterial']))
+		if(isset($_POST['FinishedProduct']))
 		{
-			$model->attributes=$_POST['Rawmaterial'];
-			/*
+			$model->attributes=$_POST['FinishedProduct'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->rm_id));
-			else
 			{
-				Yii::app()->user->setFlash('error','Sorry!!');
-				$this->refresh();
+				$product = Product::model()->findByPk($model->p_id);
+				
+				//$product->p_quantity += $model->fp_quantity;
+				//$model->p->p_quantity += $model->fp_quantity;
+				//$model->p->save();
+				$product->p_quantity = $model->fp_quantity+$product->p_quantity;
+				$product->save();
+				//var_dump($product);
+				//$product->save();
+				//$this->redirect(array('view','id'=>$model->fp_id));
+				Yii::app()->user->setFlash('recieve','Product Recieved Successfully');
+							$this->refresh();
 			}
-			*/
-			//duplication try catch
-			try{
-					if($model->save())
-					{
-					//$this->redirect(array('view','id'=>$model->rm_id));
-					Yii::app()->user->setFlash('successmsg','Rawmaterial Added Successfully ');
-					$this->refresh();
-					}
-			}catch(Exception $ex){
-				Yii::app()->user->setFlash('Duplicate','Rawmaterial Duplicate Entry..');
-				$this->refresh();
-			}
-			
 		}
 
 		$this->render('create',array(
@@ -111,11 +104,11 @@ class RawmaterialController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Rawmaterial']))
+		if(isset($_POST['FinishedProduct']))
 		{
-			$model->attributes=$_POST['Rawmaterial'];
+			$model->attributes=$_POST['FinishedProduct'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->rm_id));
+				$this->redirect(array('view','id'=>$model->fp_id));
 		}
 
 		$this->render('update',array(
@@ -130,14 +123,8 @@ class RawmaterialController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		try
-		{
 		$this->loadModel($id)->delete();
-		}
-		catch(Exception $e)
-		{
-		throw new CHttpException(400,'You cannot Delete Raw-Material (bussiness rule voliation)');
-		}
+
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -148,7 +135,7 @@ class RawmaterialController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Rawmaterial');
+		$dataProvider=new CActiveDataProvider('FinishedProduct');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -159,10 +146,10 @@ class RawmaterialController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Rawmaterial('search');
+		$model=new FinishedProduct('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Rawmaterial']))
-			$model->attributes=$_GET['Rawmaterial'];
+		if(isset($_GET['FinishedProduct']))
+			$model->attributes=$_GET['FinishedProduct'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -176,7 +163,7 @@ class RawmaterialController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Rawmaterial::model()->findByPk($id);
+		$model=FinishedProduct::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -188,12 +175,10 @@ class RawmaterialController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='rawmaterial-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='finished-product-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-	
-	
 }

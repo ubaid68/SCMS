@@ -1,15 +1,15 @@
 <?php
-/* @var $this ProductController */
-/* @var $model Product */
+/* @var $this FinishedProductController */
+/* @var $model FinishedProduct */
 
 $this->breadcrumbs=array(
-	'Products'=>array('index'),
+	'Finished Products'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Product', 'url'=>array('index')),
-	array('label'=>'Create Product', 'url'=>array('create')),
+	array('label'=>'List FinishedProduct', 'url'=>array('index')),
+	array('label'=>'Create FinishedProduct', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('product-grid', {
+	$.fn.yiiGridView.update('finished-product-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Products</h1>
+<h1>Manage Finished Products</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,31 +41,27 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'product-grid',
+	'id'=>'finished-product-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'p_id',
+		'fp_id',
+		
 		
 		array(
-					'name'=>'pc_id',
+					'name'=>'p_id',
 					'type'=>'raw',
-					'value'=>'$data->pc->pc_name',
+					'value'=>'$data->p->p_name',
 				),
-		//'pc_id',
-		'p_name',
-		'p_code',
-		'p_price',
-	/*	array(
-					'header'=>'Quantity',
+		array(
+					'name'=>'login_id',
 					'type'=>'raw',
-					'value'=>'$data->p_quantity.$data->pc->pc_qmeasures' ,
+					'value'=>'$data->login->u_fname',
 				),
-	*/			
-		'p_quantity',
-		/*
-		'p_reservelevel',
-		*/
+		//'login_id',
+		//'p_id',
+		'fp_quantity',
+		'fp_date',
 		array(
 			'class'=>'CButtonColumn',
 		),
