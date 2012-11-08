@@ -2939,3 +2939,31 @@ Stack trace:
 REQUEST_URI=/scms_yii/index.php/factoryMaterial/create
 HTTP_REFERER=http://localhost/scms_yii/index.php/factoryMaterial/create
 ---
+2012/11/08 20:03:58 [error] [exception.CException] exception 'CException' with message 'Property "DefectiveMaterial.sf_date" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('sf_date', '20 November, 20...')
+#1 C:\wamp\www\scms_yii\protected\models\DefectiveMaterial.php(116): CActiveRecord->__set('sf_date', '20 November, 20...')
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1803): DefectiveMaterial->afterFind()
+#3 C:\wamp\www\framework\db\ar\CActiveRecord.php(1291): CActiveRecord->populateRecord(Array)
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(1426): CActiveRecord->query(Object(CDbCriteria))
+#5 C:\wamp\www\scms_yii\protected\controllers\DefectiveMaterialController.php(153): CActiveRecord->findByPk('1')
+#6 C:\wamp\www\scms_yii\protected\controllers\DefectiveMaterialController.php(55): DefectiveMaterialController->loadModel('1')
+#7 [internal function]: DefectiveMaterialController->actionView('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(DefectiveMaterialController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(DefectiveMaterialController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('view')
+#19 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('defectiveMateri...')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\scms_yii\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/scms_yii/index.php/defectiveMaterial/1
+HTTP_REFERER=http://localhost/scms_yii/index.php/defectiveMaterial/create
+---

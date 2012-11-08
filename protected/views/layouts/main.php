@@ -52,6 +52,7 @@
 				array('label'=>'top seller', 'url'=>array('/Product/topseller'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Recieve Product', 'url'=>array('/finishedProduct'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Send Rawmaterial to factory', 'url'=>array('/factoryMaterial'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Defective Rawmaterial from factory', 'url'=>array('/DefectiveMaterial'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

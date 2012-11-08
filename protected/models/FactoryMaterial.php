@@ -75,7 +75,7 @@ class FactoryMaterial extends CActiveRecord
 		return array(
 			'sf_id' => 'Send Material(ID)',
 			'login_id' => 'Sender',
-			'rm_id' => 'Rawmaterial Name',
+			'rm_id' => 'Rawmaterial',
 			'sf_quantity' => 'Quantity',
 			'sf_date' => 'Date',
 		);
@@ -93,6 +93,7 @@ class FactoryMaterial extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('sf_id',$this->sf_id);
+		
 		$criteria2 = new CDbCriteria;
 		
 		$criteria2->with = array( 'rm' );

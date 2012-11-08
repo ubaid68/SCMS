@@ -42,8 +42,12 @@ class DefectiveMaterial extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dm_id, login_id, rm_id, dm_quantity, dm_date', 'required'),
-			array('dm_id, login_id, rm_id, dm_quantity', 'numerical', 'integerOnly'=>true),
+			array('login_id, rm_id, dm_quantity, dm_date', 'required'),
+			//array('login_id, rm_id, dm_quantity', 'numerical', 'integerOnly'=>true),
+			//min vlaue input by user
+			array('dm_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
+			//string length
+			array('dm_quantity', 'length', 'min'=>1, 'max'=>11),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('dm_id, login_id, rm_id, dm_quantity, dm_date', 'safe', 'on'=>'search'),
@@ -69,11 +73,11 @@ class DefectiveMaterial extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'dm_id' => 'Dm',
-			'login_id' => 'Login',
-			'rm_id' => 'Rm',
-			'dm_quantity' => 'Dm Quantity',
-			'dm_date' => 'Dm Date',
+			'dm_id' => 'Defective Rawmaterial(ID)',
+			'login_id' => 'Reciever',
+			'rm_id' => 'Rawmater',
+			'dm_quantity' => 'Quantity',
+			'dm_date' => 'Date',
 		);
 	}
 
@@ -89,13 +93,38 @@ class DefectiveMaterial extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('dm_id',$this->dm_id);
-		$criteria->compare('login_id',$this->login_id);
-		$criteria->compare('rm_id',$this->rm_id);
+		$criteria2 = new CDbCriteria;
+		
+		$criteria2->with = array( 'rm' );
+		$criteria2->compare( 'rm.rm_name', $this->rm_id, true, 'OR' );
+		
+		$criteria3 = new CDbCriteria;
+		
+		$criteria3->with = array( 'login' );
+		$criteria3->compare( 'login.u_fname', $this->login_id, true, 'OR' );
+		
+		$criteria2->mergeWith($criteria3);
+		$criteria->mergeWith($criteria2);
+		//$criteria->compare('login_id',$this->login_id);
+		//$criteria->compare('rm_id',$this->rm_id);
 		$criteria->compare('dm_quantity',$this->dm_quantity);
 		$criteria->compare('dm_date',$this->dm_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	protected function beforeSave()
+	{
+		$this->dm_date=date('Y-m-d', strtotime(str_replace(",", "", $this->dm_date)));
+		return TRUE;
+	}
+
+	protected function afterFind()
+	{
+	
+		parent::afterFind();
+		$this->dm_date=date('d F, Y', strtotime(str_replace("-", "", $this->dm_date)));       
 	}
 }

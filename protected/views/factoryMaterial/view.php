@@ -22,15 +22,16 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'sf_id',
-		array(
-					'name'=>'login_id',
-					'type'=>'raw',
-					'value'=>$model->login->u_fname,
-				),
+
 		array(
 					'name'=>'rm_id',
 					'type'=>'raw',
 					'value'=>$model->rm->rm_name,
+				),
+		array(
+				'name'=>'login_id',
+				'type'=>'raw',
+				'value'=>$model->login->u_fname,
 				),
 		//'login_id',
 		//'rm_id',

@@ -46,8 +46,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'dm_id',
-		'login_id',
-		'rm_id',
+		array(
+					'name'=>'rm_id',
+					'type'=>'raw',
+					'value'=>'$data->rm->rm_name',
+				),
+		array(
+					'name'=>'login_id',
+					'type'=>'raw',
+					'value'=>'$data->login->u_fname',
+				),
+		//'login_id',
+		//'rm_id',
 		'dm_quantity',
 		'dm_date',
 		array(

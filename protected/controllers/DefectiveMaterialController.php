@@ -71,7 +71,10 @@ class DefectiveMaterialController extends Controller
 		{
 			$model->attributes=$_POST['DefectiveMaterial'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->dm_id));
+			{
+				//$this->redirect(array('view','id'=>$model->dm_id));
+				Yii::app()->user->setFlash('drm','Defective Rawmaterial Recieved Successfully');
+			}
 		}
 
 		$this->render('create',array(

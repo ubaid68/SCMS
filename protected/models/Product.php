@@ -51,13 +51,13 @@ class Product extends CActiveRecord
 			array('pc_id, p_name, p_code, p_price, p_quantity, p_reservelevel', 'required'),
 			//for value doesnt below 0
 			array('p_price','numerical', 'integerOnly'=>true, 'min'=>1),
-			array('p_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('p_quantity','numerical', 'integerOnly'=>true, 'min'=>0),
 			array('p_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
 			//string length
 			array('p_name', 'length', 'min'=>3, 'max'=>30),
 			array('p_code', 'length', 'min'=>3, 'max'=>10),
 			array('p_price', 'length', 'min'=>1, 'max'=>11),
-			array('p_quantity', 'length', 'min'=>0, 'max'=>11),
+			array('p_quantity', 'length', 'min'=>1, 'max'=>11),
 			array('p_reservelevel', 'length', 'min'=>1, 'max'=>11),
 			
 			

@@ -8,13 +8,13 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dm_id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->dm_id), array('view', 'id'=>$data->dm_id)); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('login_id')); ?>:</b>
-	<?php echo CHtml::encode($data->login_id); ?>
-	<br />
-
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_id')); ?>:</b>
-	<?php echo CHtml::encode($data->rm_id); ?>
+	<?php echo CHtml::encode($data->rm->rm_name); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('login_id')); ?>:</b>
+	<?php echo CHtml::encode($data->login->u_fname); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dm_quantity')); ?>:</b>
