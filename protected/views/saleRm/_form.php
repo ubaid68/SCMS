@@ -47,7 +47,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	<div class="row">
 		<?php echo $form->labelEx($model,'login_id'); ?>	
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
-	
+		
 		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">
 	
 	</div>
@@ -58,9 +58,14 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'st_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type')); ?>
-		<?php echo $form->error($model,'st_id'); ?>
+		<?php //var_dump($list['1']);?>
+		<?php echo $form->labelEx($model,'st_id'); ?>	
+		<?php echo $form->hiddenField($model,'st_id', array('value'=>$list['1'])); ?>
+		
+		<input type="text" disabled="disabled" value="<?php echo $list['1']; ?>">
+		<?php //echo $form->labelEx($model,'st_id'); ?>
+		<?php //echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type')); ?>
+		<?php //echo $form->error($model,'st_id'); ?>
 	</div>
 
 	<div class="row">
@@ -115,7 +120,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Sale Now' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -89,7 +89,7 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Add Product' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

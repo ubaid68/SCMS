@@ -36,7 +36,7 @@ class SalePrController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','getTotalSale'),
+				'actions'=>array('admin','delete','getTotalSale','InvoicePR'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -66,15 +66,39 @@ class SalePrController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+//var_dump ($model->st['1']);
 		if(isset($_POST['SalePr']))
 		{
+		
 			$model->attributes=$_POST['SalePr'];
+			var_dump ($model->st);
+			if($model->st->st_id=="2")
+			{
+			$model->sp_unit==0;
+			$model->sp_discount==0;
+			}
+			
 			if($model->save())
 			{
-				//$this->redirect(array('view','id'=>$model->sp_id));
+				$p = Product::model()->findByPk($model->p_id);
+				if($model->sp_quantity<=$p->p_quantity)
+				{	
+					$p->p_quantity = $p->p_quantity->$model->sp_quantity;
+					var_dump($p);
+					$p->save();
+					//var_dump($product);
+					//$this->redirect(array('view','id'=>$model->sp_id));
 				Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
-							$this->refresh();	
+							$this->refresh();
+				}
+				else
+				{
+					Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');
+					$this->refresh();
+				}			
+					
+				
+					
 			}
 		}
 
@@ -126,7 +150,14 @@ class SalePrController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('SalePr');
+		$dataProvider=new CActiveDataProvider('SalePr', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'sp_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -143,6 +174,17 @@ class SalePrController extends Controller
 			$model->attributes=$_GET['SalePr'];
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+	public function actionInvoicePR()
+	{
+		$model=new SalePr('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['SalePr']))
+			$model->attributes=$_GET['SalePr'];
+
+		$this->render('invoiceproduct',array(
 			'model'=>$model,
 		));
 	}
@@ -182,4 +224,6 @@ class SalePrController extends Controller
 			Yii::app()->end();
 		}
 	}
-}
+
+	
+	}

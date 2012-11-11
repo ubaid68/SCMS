@@ -51,14 +51,14 @@ class Rawmaterial extends CActiveRecord
 			array('rm_quantity','numerical', 'integerOnly'=>true, 'min'=>0),
 			array('rm_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
 			//string length
-			array('rm_name', 'length', 'min'=>3, 'max'=>30),
+			array('rm_name', 'length', 'min'=>3, 'max'=>50),
 			array('rm_code', 'length', 'min'=>3, 'max'=>10),
 			array('rmp_unit', 'length', 'min'=>1, 'max'=>11),
 			array('rm_quantity', 'length', 'min'=>1, 'max'=>11),
 			array('rm_reservelevel', 'length', 'min'=>1, 'max'=>11),
 			
 			
-			array('rm_name','match', 'pattern' => '/^[A-Za-z " "]+$/u', 'message' => Yii::t('default', 'Rawmaterial name is not Valid.')),
+			//array('rm_name','match', 'pattern' => '/^[A-Za-z " "]+$/u', 'message' => Yii::t('default', 'Rawmaterial name is not Valid.')),
 
 			array('rm_code','match', 'pattern' => '/^[A-Za-z0-9]+$/u', 'message' => Yii::t('default', 'Rawmaterial code is not Valid.')),
 			// The following rule is used by search().
@@ -126,4 +126,27 @@ class Rawmaterial extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-}
+	public function getpath(){
+		
+		if($this->rm_reservelevel<=20)
+		{
+		
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/red.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		elseif($this->rm_reservelevel>20&&$this->rm_reservelevel<100)
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/amber.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		elseif($this->rm_reservelevel>100&&$this->rm_reservelevel<200)
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/green.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		else
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/blue.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		return $qu;
+	}
+	
+
+	}

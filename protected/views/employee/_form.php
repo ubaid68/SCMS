@@ -59,7 +59,7 @@ $list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Add Employee' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

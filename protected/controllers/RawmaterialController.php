@@ -36,7 +36,7 @@ class RawmaterialController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','StockReportRM'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -165,6 +165,17 @@ class RawmaterialController extends Controller
 			$model->attributes=$_GET['Rawmaterial'];
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+	public function actionStockReportRM()
+	{
+		$model=new Rawmaterial('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Rawmaterial']))
+			$model->attributes=$_GET['Rawmaterial'];
+
+		$this->render('stockReportRawmaterial',array(
 			'model'=>$model,
 		));
 	}

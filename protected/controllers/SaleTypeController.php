@@ -181,5 +181,10 @@ class SaleTypeController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+
 	}
-}
+
+	
+	
+	
+	}

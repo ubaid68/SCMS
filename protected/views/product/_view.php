@@ -27,7 +27,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_quantity')); ?>:</b>
-	<?php echo CHtml::encode($data->p_quantity.$data->pc->pc_qmeasures); ?>
+	<?php echo CHtml::encode($data->p_quantity);//.$data->pc->pc_qmeasures); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_reservelevel')); ?>:</b>

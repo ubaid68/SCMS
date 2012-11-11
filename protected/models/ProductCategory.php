@@ -44,8 +44,8 @@ class ProductCategory extends CActiveRecord
 			array('pc_name', 'length', 'min'=>3, 'max'=>50),
 			array('pc_qmeasures', 'length', 'min'=>3, 'max'=>50),
 			array('pc_description', 'length', 'min'=>5, 'max'=>200),
-			array('pc_name','match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (name) is not Valid.')),
-			array('pc_qmeasures','match', 'pattern' => '/^[A-Za-z]+$/u', 'message' => Yii::t('default', 'Rawmaterial category (measures) is not Valid.')),
+			array('pc_name','match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Product category (name) is not Valid.')),
+			array('pc_qmeasures','match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Product (measures) is not Valid.')),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('pc_id, pc_name, pc_qmeasures, pc_description', 'safe', 'on'=>'search'),

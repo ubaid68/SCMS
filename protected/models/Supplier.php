@@ -54,7 +54,7 @@ class Supplier extends CActiveRecord
 			
 			array('s_person','match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'supplier person is not Valid.')),
 			array('s_phone','match', 'pattern' => '/^[0-9]+$/u', 'message' => Yii::t('default', 'supplier phone number is not Valid.')),
-			array('s_address','match', 'pattern' => '/^[A-Za-z0-9" "]+$/u', 'message' => Yii::t('default', 'supplier address is not Valid.')),
+			//array('s_address','match', 'pattern' => '/^[A-Za-z0-9" "]+$/u', 'message' => Yii::t('default', 'supplier address is not Valid.')),
 			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

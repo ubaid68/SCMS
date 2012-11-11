@@ -92,7 +92,7 @@ $list=CHtml::listData(RawmaterialCategory::model()->findAll(), 'rmc_id', 'rmc_na
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Add Raw Material' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

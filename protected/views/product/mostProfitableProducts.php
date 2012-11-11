@@ -19,7 +19,7 @@ $this->breadcrumbs=array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'p_id',
+		//'p_id',
 		array(
 					'name'=>'p_id',
 					'type'=>'raw',

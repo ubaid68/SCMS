@@ -54,14 +54,14 @@ class Product extends CActiveRecord
 			array('p_quantity','numerical', 'integerOnly'=>true, 'min'=>0),
 			array('p_reservelevel','numerical', 'integerOnly'=>true, 'min'=>1),
 			//string length
-			array('p_name', 'length', 'min'=>3, 'max'=>30),
+			array('p_name', 'length', 'min'=>3, 'max'=>50),
 			array('p_code', 'length', 'min'=>3, 'max'=>10),
 			array('p_price', 'length', 'min'=>1, 'max'=>11),
 			array('p_quantity', 'length', 'min'=>1, 'max'=>11),
 			array('p_reservelevel', 'length', 'min'=>1, 'max'=>11),
 			
 			
-			array('p_name','match', 'pattern' => '/^[A-Za-z " "]+$/u', 'message' => Yii::t('default', 'product name is not Valid.')),
+			//array('p_name','match', 'pattern' => '/^[A-Za-z " "]+$/u', 'message' => Yii::t('default', //'product name is not Valid.')),
 			array('p_code','match', 'pattern' => '/^[A-Za-z0-9]+$/u', 'message' => Yii::t('default', 'product code is not Valid.')),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -195,6 +195,27 @@ class Product extends CActiveRecord
 		return $qu;
 	}
 	
+	public function getpath(){
+		
+		if($this->p_reservelevel<=20)
+		{
+		
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/red.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		elseif($this->p_reservelevel>20&&$this->p_reservelevel<100)
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/amber.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		elseif($this->p_reservelevel>100&&$this->p_reservelevel<200)
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/green.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		else
+		{
+		$qu=CHtml::image(Yii::app()->request->baseUrl."/images/blue.png","",array("style"=>"width:25px;height:25px;"));
+		}
+		return $qu;
+	}
 	
 	
 }

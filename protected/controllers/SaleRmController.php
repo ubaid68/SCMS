@@ -36,7 +36,7 @@ class SaleRmController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','InvoiceRM'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -127,7 +127,14 @@ class SaleRmController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('SaleRm');
+		$dataProvider=new CActiveDataProvider('SaleRm', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'srm_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -147,7 +154,17 @@ class SaleRmController extends Controller
 			'model'=>$model,
 		));
 	}
+	public function actionInvoiceRM()
+	{
+		$model=new SaleRm('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['SaleRm']))
+			$model->attributes=$_GET['SaleRm'];
 
+		$this->render('invoiceRM',array(
+			'model'=>$model,
+		));
+	}	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

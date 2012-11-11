@@ -81,7 +81,7 @@ class FactoryMaterialController extends Controller
 				if($model->sf_quantity<=$rm->rm_quantity)
 				{	
 					$rm->rm_quantity = $rm->rm_quantity-$model->sf_quantity;
-					var_dump($rm);
+					//var_dump($rm);
 					$rm->save();
 					//var_dump($product);
 					Yii::app()->user->setFlash('sended','Rawmaterial Sended Successfully');

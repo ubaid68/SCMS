@@ -54,7 +54,7 @@ class SaleRm extends CActiveRecord
 			array('cu_id, login_id, rm_id, st_id, purt_id, srm_date, srmp_unit, srm_quantity, srm_discount', 'required'),
 			array('srmp_unit','numerical', 'integerOnly'=>true, 'min'=>1),
 			array('srm_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
-			array('srm_discount','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('srm_discount','numerical', 'integerOnly'=>true, 'min'=>0),
 			//string length
 			array('srmp_unit', 'length', 'min'=>1, 'max'=>11),
 			array('srm_quantity', 'length', 'min'=>1, 'max'=>11),
@@ -156,9 +156,21 @@ class SaleRm extends CActiveRecord
 		$criteria->compare('srm_quantity',$this->srm_quantity);
 		$criteria->compare('srm_discount',$this->srm_discount);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+		/*return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,)
+		*/
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'srm_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
+		))	
+			;
 	}
 
 	protected function beforeSave()

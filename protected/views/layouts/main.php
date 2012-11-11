@@ -53,6 +53,10 @@
 				array('label'=>'Recieve Product', 'url'=>array('/finishedProduct'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Send Rawmaterial to factory', 'url'=>array('/factoryMaterial'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Defective Rawmaterial from factory', 'url'=>array('/DefectiveMaterial'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Stock Report(Product)', 'url'=>array('/Product/StockReportPR'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Stock Report(Rawmaterial)', 'url'=>array('/Rawmaterial/StockReportRM'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Invoice(product)', 'url'=>array('/SalePr/InvoicePR'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Invoice(Rawmaterial)', 'url'=>array('/SaleRm/InvoiceRM'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

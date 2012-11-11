@@ -36,7 +36,7 @@ class ProductController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','MostProfitableProducts','Topseller','RecieveProduct'),
+				'actions'=>array('admin','delete','MostProfitableProducts','Topseller','StockReportPR'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -93,41 +93,6 @@ class ProductController extends Controller
 		));
 	}
 	
-	public function actionRecieveProduct()
-	{
-		$model=new Product;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Product']))
-		{
-			$model->attributes=$_POST['Product'];
-			try{
-					if($model->save())
-					{
-					//$this->redirect(array('view','id'=>$model->p_id));
-					Yii::app()->user->setFlash('pps','Product added Successfully');
-				$this->refresh();
-					}
-			
-			}
-			catch(Exception $ex)
-			{
-				Yii::app()->user->setFlash('ppd','Product Name or code Duplicate Entry..');
-				$this->refresh();
-			}
-			
-			
-			
-		}
-		
-
-		$this->render('recieve',array(
-			'model'=>$model,
-		));
-	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -225,7 +190,17 @@ class ProductController extends Controller
 			'model'=>$model,
 		));
 	}
-	
+	public function actionStockReportPR()
+	{
+		$model=new Product('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Product']))
+			$model->attributes=$_GET['Product'];
+
+		$this->render('stockReportProduct',array(
+			'model'=>$model,
+		));
+	}
 	
 
 	/**

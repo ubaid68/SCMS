@@ -50,11 +50,11 @@ class SalePr extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('p_id, login_id, cu_id, st_id, purt_id, sp_date, sp_unit, sp_quantity, sp_discount', 'required'),
+			array('p_id, login_id, cu_id, st_id, purt_id, sp_date,sp_unit,sp_quantity,sp_discount', 'required'),
 			//for value doesnt below 0
-			array('sp_unit','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('sp_unit','numerical', 'integerOnly'=>true,'min'=>1),
 			array('sp_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
-			array('sp_discount','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('sp_discount','numerical', 'integerOnly'=>true,'min'=>0),
 			//string length
 			array('sp_unit', 'length', 'min'=>1, 'max'=>11),
 			array('sp_quantity', 'length', 'min'=>1, 'max'=>11),
@@ -96,7 +96,7 @@ class SalePr extends CActiveRecord
 			'sp_date' => 'Date',
 			'sp_unit' => 'Unit Price',
 			'sp_quantity' => 'Quantity',
-			'sp_discount' => 'Discount',
+			'sp_discount' => 'Discount(%)',
 		);
 	}
 
@@ -155,8 +155,19 @@ class SalePr extends CActiveRecord
 		$criteria->compare('sp_quantity',$this->sp_quantity);
 		$criteria->compare('sp_discount',$this->sp_discount);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		//return new CActiveDataProvider($this, array(
+			//'criteria'=>$criteria,)
+		//for reverse sort
+		 return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'sp_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
 		));
 	}
 

@@ -4,7 +4,6 @@
 /* @var $form CActiveForm */
 ?>
 
-
 <?php
 //success msg
 ?>
@@ -12,6 +11,16 @@
 
 <div class="flash-success">
 	<?php echo Yii::app()->user->getFlash('salesuccess');  ?>
+</div>
+<?php } ?>
+
+<?php
+//insufficent quantity
+?>
+<?php if(Yii::app()->user->hasFlash('infq')){ ?>
+
+<div class="flash-error">
+	<?php echo Yii::app()->user->getFlash('infq');  ?>
 </div>
 <?php } ?>
 
@@ -41,11 +50,9 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	</div>
 	<div class="row">
 		
-		
+		<?php echo $form->labelEx($model,'login_id'); ?>
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
 	
-	
-		
 		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">
 	</div>
 
@@ -55,9 +62,13 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 		<?php echo $form->error($model,'cu_id'); ?>
 	</div>
 
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'st_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type')); ?>
+		<?php//var_dump($list['2']);?>
+		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','onchange'=>'st_onChange(this.value);')
+											);
+								?>
 		<?php echo $form->error($model,'st_id'); ?>
 	</div>
 
@@ -96,6 +107,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	<div class="row">
 		<?php echo $form->labelEx($model,'sp_unit'); ?>
 		<?php echo $form->textField($model,'sp_unit'); ?>
+		
 		<?php echo $form->error($model,'sp_unit'); ?>
 	</div>
 
@@ -108,13 +120,34 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	<div class="row">
 		<?php echo $form->labelEx($model,'sp_discount'); ?>
 		<?php echo $form->textField($model,'sp_discount'); ?>
+		
 		<?php echo $form->error($model,'sp_discount'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Sale/Send Now' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script type="text/javascript">
+function st_onChange(data){
+	
+	if(data=='2'){
+	
+	document.getElementById('SalePr_sp_unit').disabled=true;
+	document.getElementById('SalePr_sp_discount').disabled=true;
+	//document.write("hello");
+	//alert(data);
+	}
+	else
+	{
+	
+	document.getElementById('SalePr_sp_unit').disabled=false;
+	document.getElementById('SalePr_sp_discount').disabled=false;
+	}
+	};
+	
+
+</script>
