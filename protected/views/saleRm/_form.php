@@ -15,6 +15,16 @@
 <?php } ?>
 
 <?php
+//insufficent quantity
+?>
+<?php if(Yii::app()->user->hasFlash('infqrm')){ ?>
+
+<div class="flash-error">
+	<?php echo Yii::app()->user->getFlash('infqrm');  ?>
+</div>
+<?php } ?>
+
+<?php
 $lis=CHtml::listData(Customer::model()->findAll(), 'cu_id', 'cu_name');
 
 $user = (Employee::model()->findByPk(Yii::app()->user->id));
@@ -58,14 +68,10 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	</div>
 
 	<div class="row">
-		<?php //var_dump($list['1']);?>
-		<?php echo $form->labelEx($model,'st_id'); ?>	
-		<?php echo $form->hiddenField($model,'st_id', array('value'=>$list['1'])); ?>
 		
-		<input type="text" disabled="disabled" value="<?php echo $list['1']; ?>">
-		<?php //echo $form->labelEx($model,'st_id'); ?>
-		<?php //echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type')); ?>
-		<?php //echo $form->error($model,'st_id'); ?>
+		<?php echo $form->labelEx($model,'st_id'); ?>
+		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','onchange'=>'st_onChange(this.value);')); ?>
+		<?php echo $form->error($model,'st_id'); ?>
 	</div>
 
 	<div class="row">
@@ -126,3 +132,23 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script type="text/javascript">
+function st_onChange(data){
+	
+	if(data=='2'){
+	
+	document.getElementById('SaleRm_srmp_unit').disabled=true;
+	document.getElementById('SaleRm_srm_discount').disabled=true;
+	//document.write("hello");
+	//alert(data);
+	}
+	else
+	{
+	
+	document.getElementById('SaleRm_srmp_unit').disabled=false;
+	document.getElementById('SaleRm_srm_discount').disabled=false;
+	}
+	};
+	
+
+</script>

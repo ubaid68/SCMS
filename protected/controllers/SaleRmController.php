@@ -70,11 +70,38 @@ class SaleRmController extends Controller
 		if(isset($_POST['SaleRm']))
 		{
 			$model->attributes=$_POST['SaleRm'];
+			if($model->st->st_id==='2')
+			{
+				$model->srmp_unit=0;
+				$model->srm_discount=0;
+				//var_dump ($model->st->st_id);
+			}
+			
 			if($model->save())
 			{
+			if(($model->st->st_id==='1') && ($model->srmp_unit==0))
+			{
+				throw new CHttpException(405,'Sale unit price cannot be 0');
+			}
+			
+			$r = Rawmaterial::model()->findByPk($model->rm_id);
+				if($model->srm_quantity <= $r->rm_quantity)
+				{	
+					$r->rm_quantity = $r->rm_quantity - $model->srm_quantity;
+					//var_dump($p);
+					$r->save();
+					//var_dump($product);
+					//$this->redirect(array('view','id'=>$model->sp_id));
+				Yii::app()->user->setFlash('salermsuccess','Rawmaterial Record Added Successfully');
+							$this->refresh();
+				}
+				else
+				{
+					Yii::app()->user->setFlash('infqrm','Insuffient Quantity of Rawmaterial in Stock');
+					$this->refresh();
+				}
 				//$this->redirect(array('view','id'=>$model->srm_id));
-			Yii::app()->user->setFlash('salermsuccess','Product Record Added Successfully');
-							$this->refresh();	
+				
 		
 			}
 		}

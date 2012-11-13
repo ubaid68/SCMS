@@ -65,7 +65,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'st_id'); ?>
-		<?php//var_dump($list['2']);?>
+		<?phpvar_dump($list['2']);?>
 		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','onchange'=>'st_onChange(this.value);')
 											);
 								?>

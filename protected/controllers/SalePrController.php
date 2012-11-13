@@ -69,22 +69,28 @@ class SalePrController extends Controller
 //var_dump ($model->st['1']);
 		if(isset($_POST['SalePr']))
 		{
-		
 			$model->attributes=$_POST['SalePr'];
-			var_dump ($model->st);
-			if($model->st->st_id=="2")
+			//var_dump ($model->st);
+			
+			if($model->st->st_id==='2')
 			{
-			$model->sp_unit==0;
-			$model->sp_discount==0;
+				$model->sp_unit=0;
+				$model->sp_discount=0;
+				//var_dump ($model->st->st_id);
 			}
+			
 			
 			if($model->save())
 			{
+			if(($model->st->st_id==='1') && ($model->sp_unit==0))
+			{
+				throw new CHttpException(405,'Sale unit price cannot be 0');
+			}
 				$p = Product::model()->findByPk($model->p_id);
-				if($model->sp_quantity<=$p->p_quantity)
+				if($model->sp_quantity <= $p->p_quantity)
 				{	
-					$p->p_quantity = $p->p_quantity->$model->sp_quantity;
-					var_dump($p);
+					$p->p_quantity = $p->p_quantity - $model->sp_quantity;
+					//var_dump($p);
 					$p->save();
 					//var_dump($product);
 					//$this->redirect(array('view','id'=>$model->sp_id));

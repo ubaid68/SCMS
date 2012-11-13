@@ -57,6 +57,7 @@
 				array('label'=>'Stock Report(Rawmaterial)', 'url'=>array('/Rawmaterial/StockReportRM'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Invoice(product)', 'url'=>array('/SalePr/InvoicePR'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Invoice(Rawmaterial)', 'url'=>array('/SaleRm/InvoiceRM'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Transaction pr', 'url'=>array('/TransactionPr/Admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

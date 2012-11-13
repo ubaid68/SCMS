@@ -84,7 +84,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'header'=>'Discounted Price',
 			'type'=>'raw',
-			'value'=>'(($data->sp_unit*$data->sp_quantity)*$data->sp_discount)/100'
+			'value'=>'$data->sp_discount==0 ?($data->sp_unit*$data->sp_quantity):((($data->sp_unit*$data->sp_quantity)*$data->sp_discount)/100)'
 		),
 		
 		array(

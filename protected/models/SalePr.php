@@ -50,9 +50,9 @@ class SalePr extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('p_id, login_id, cu_id, st_id, purt_id, sp_date,sp_unit,sp_quantity,sp_discount', 'required'),
+			array('p_id, login_id, cu_id, st_id, purt_id, sp_date,sp_unit,sp_quantity,', 'required'),
 			//for value doesnt below 0
-			array('sp_unit','numerical', 'integerOnly'=>true,'min'=>1),
+			array('sp_unit','numerical', 'integerOnly'=>true,'min'=>0),
 			array('sp_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
 			array('sp_discount','numerical', 'integerOnly'=>true,'min'=>0),
 			//string length
