@@ -1,6 +1,6 @@
 <?php
 
-class SalePrController extends Controller
+class FinishedProductController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -36,7 +36,7 @@ class SalePrController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','getTotalSale','InvoicePR','MostProfitableProduct'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -60,80 +60,36 @@ class SalePrController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-
-
-public function actionCreate()
+	public function actionCreate()
 	{
-		$model=new SalePr;
-		
-		
-	/*if(isset($_POST['SalePr'])){
-	echo "<pre>";
-	print_r($_POST['SalePr']);
-	echo "</pre>";
-	exit();
-	}*/
-	
+		$model=new FinishedProduct;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['SalePr']))
+		if(isset($_POST['FinishedProduct']))
 		{
-		if($_POST['SalePr']['st_id']==null)
-			{
+			$model->attributes=$_POST['FinishedProduct'];
 			if($model->save())
-				{
+			{
+				$product = Product::model()->findByPk($model->p_id);
 				
-				}
-		}		
-		 if($_POST['SalePr']['st_id']=='2' )
-		     {
-			  $model->attributes=$_POST['SalePr'];
-			  $model->sp_unit=0;
-			  $model->sp_discount=0;
-			  $model->sp_totalsale=0;
-			    if($model->save())
-				   {
-				    Yii::app()->user->setFlash('samplesuccess','Product updated as sample');
+				//$product->p_quantity += $model->fp_quantity;
+				//$model->p->p_quantity += $model->fp_quantity;
+				//$model->p->save();
+				$product->p_quantity = $model->fp_quantity+$product->p_quantity;
+				$product->save();
+				//var_dump($product);
+				//$product->save();
+				//$this->redirect(array('view','id'=>$model->fp_id));
+				Yii::app()->user->setFlash('recieve','Product Recieved Successfully');
 							$this->refresh();
-			 
-                    }
-   		      }
-		 elseif($_POST['SalePr']['st_id']=='1' )  
-		     {
-			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']); 
-			   if(($_POST['SalePr']['sp_unit']==0))
-			   {
-				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
-			   }
-			   
-			   if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity) 
-			      {
-			       $p->p_quantity=$p->p_quantity - $_POST['SalePr']['sp_quantity'];
-				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
-			       $p->save();
-	               $model->attributes=$_POST['SalePr'];
-			        if($model->save())
-					   {
-					    Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
-							$this->refresh(); 
-						} 
-			 
-			       }
-				else 
-				{
-				 Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');
-					$this->refresh();
-				}
-			 }
-	    }		
-		
-	
+			}
+		}
+
 		$this->render('create',array(
 			'model'=>$model,
 		));
-	
-	
 	}
 
 	/**
@@ -148,11 +104,11 @@ public function actionCreate()
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['SalePr']))
+		if(isset($_POST['FinishedProduct']))
 		{
-			$model->attributes=$_POST['SalePr'];
+			$model->attributes=$_POST['FinishedProduct'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->sp_id));
+				$this->redirect(array('view','id'=>$model->fp_id));
 		}
 
 		$this->render('update',array(
@@ -179,14 +135,7 @@ public function actionCreate()
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('SalePr', array(
-                    'pagination' => array(
-                        'pageSize' => 20
-                    ),
-                    'criteria'=>array
-					(
-                        'order'=>'sp_id DESC'
-					)));
+		$dataProvider=new CActiveDataProvider('FinishedProduct');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -197,34 +146,12 @@ public function actionCreate()
 	 */
 	public function actionAdmin()
 	{
-		$model=new SalePr('search');
+		$model=new FinishedProduct('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['SalePr']))
-			$model->attributes=$_GET['SalePr'];
+		if(isset($_GET['FinishedProduct']))
+			$model->attributes=$_GET['FinishedProduct'];
 
 		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
-	public function actionMostProfitableProduct()
-	{
-		$model=new SalePr('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['SalePr']))
-			$model->attributes=$_GET['SalePr'];
-
-		$this->render('mostProfitableProduct',array(
-			'model'=>$model,
-		));
-	}
-	public function actionInvoicePR()
-	{
-		$model=new SalePr('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['SalePr']))
-			$model->attributes=$_GET['SalePr'];
-
-		$this->render('invoiceproduct',array(
 			'model'=>$model,
 		));
 	}
@@ -236,20 +163,10 @@ public function actionCreate()
 	 */
 	public function loadModel($id)
 	{
-		$model=SalePr::model()->findByPk($id);
+		$model=FinishedProduct::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
-	}
-	
-	public function getTotalSale($p_id){
-		$models = $this->model()->findByPk($p_id);
-		$cost = 0;
-		foreach($models as $m){
-			$cost = $cost + ($m->sp_unit * $m->sp_quantity);
-		}
-		
-		return $cost;
 	}
 
 	/**
@@ -258,12 +175,10 @@ public function actionCreate()
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='sale-pr-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='finished-product-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-
-	
-	}
+}

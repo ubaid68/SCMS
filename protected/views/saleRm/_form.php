@@ -5,12 +5,21 @@
 ?>
 
 <?php
-//success msg
+//sale success msg
 ?>
 <?php if(Yii::app()->user->hasFlash('salermsuccess')){ ?>
 
 <div class="flash-success">
 	<?php echo Yii::app()->user->getFlash('salermsuccess');  ?>
+</div>
+<?php } ?>
+<?php
+//sale success msg
+?>
+<?php if(Yii::app()->user->hasFlash('samplermsuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('samplermsuccess');  ?>
 </div>
 <?php } ?>
 
@@ -25,6 +34,7 @@
 <?php } ?>
 
 <?php
+//$id=1;
 $lis=CHtml::listData(Customer::model()->findAll(), 'cu_id', 'cu_name');
 
 $user = (Employee::model()->findByPk(Yii::app()->user->id));
@@ -32,6 +42,7 @@ $user = (Employee::model()->findByPk(Yii::app()->user->id));
 $l=CHtml::listData(Rawmaterial::model()->findAll(), 'rm_id', 'rm_name');
 
 $list=CHtml::listData(SaleType::model()->findAll(), 'st_id', 'st_name');
+
 
 $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name');
 

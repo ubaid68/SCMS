@@ -44,7 +44,7 @@ class Supplies extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('s_id, rm_id, s_date, s_unitprice, s_quantity, s_discount', 'required'),
+			array('s_id, rm_id, s_date, s_unitprice, s_quantity', 'required'),
 			array('s_id, rm_id, s_quantity, s_discount', 'numerical', 'integerOnly'=>true),
 			array('s_unitprice', 'numerical'),
 			
@@ -52,7 +52,7 @@ class Supplies extends CActiveRecord
 			//for value doesnt below 0
 			array('s_unitprice','numerical', 'integerOnly'=>true, 'min'=>1),
 			array('s_quantity','numerical', 'integerOnly'=>true, 'min'=>1),
-			array('s_discount','numerical', 'integerOnly'=>true, 'min'=>1),
+			array('s_discount','numerical', 'integerOnly'=>true, 'min'=>0),
 			//string length
 			array('s_unitprice', 'length', 'min'=>1, 'max'=>11),
 			array('s_quantity', 'length', 'min'=>1, 'max'=>11),

@@ -171,7 +171,7 @@ class Product extends CActiveRecord
 		
 	}
 	
-	public function getTotalSale($sales){
+	/*public function getTotalSale($sales){
 		//$models = $this->salePrs;
 		//var_dump($sales);
 		$cost = 0;
@@ -194,7 +194,7 @@ class Product extends CActiveRecord
 		
 		return $qu;
 	}
-	
+	*/
 	public function getpath(){
 		
 		if($this->p_reservelevel<=20)

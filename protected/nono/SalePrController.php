@@ -60,13 +60,12 @@ class SalePrController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-
-
-public function actionCreate()
+	public function actionCreate()
 	{
 		$model=new SalePr;
 		
-		
+		//$p = Product::model()->findByPk($_POST['SalePr']['p_id']);
+		//var_dump($model);
 	/*if(isset($_POST['SalePr'])){
 	echo "<pre>";
 	print_r($_POST['SalePr']);
@@ -76,59 +75,56 @@ public function actionCreate()
 	
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+//var_dump ($model->st['1']);
 		if(isset($_POST['SalePr']))
 		{
-		if($_POST['SalePr']['st_id']==null)
+			$p = Product::model()->findByPk($_POST['SalePr']['p_id']);
+			$model->attributes=$_POST['SalePr'];
+			
+			//var_dump ($model->st);
+			
+			
+			if((($_POST['SalePr']['st_id'])=='1') && (($_POST['SalePr']['sp_unit']==0)))
 			{
-			if($model->save())
+				throw new CHttpException(405,'Sale unit price cannot be 0');
+			}
+			
+			
+			elseif(($_POST['SalePr']['sp_quantity']) <= ($p->p_quantity))
 				{
 				
-				}
-		}		
-		 if($_POST['SalePr']['st_id']=='2' )
-		     {
-			  $model->attributes=$_POST['SalePr'];
-			  $model->sp_unit=0;
-			  $model->sp_discount=0;
-			  $model->sp_totalsale=0;
-			    if($model->save())
-				   {
-				    Yii::app()->user->setFlash('samplesuccess','Product updated as sample');
+					$p->p_quantity = $p->p_quantity - ($_POST['SalePr']['sp_quantity']);
+					//var_dump($p);
+					$p->save();
+					$model->save();
+					//var_dump($product);
+					//$this->redirect(array('view','id'=>$model->sp_id));
+				Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
 							$this->refresh();
-			 
-                    }
-   		      }
-		 elseif($_POST['SalePr']['st_id']=='1' )  
-		     {
-			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']); 
-			   if(($_POST['SalePr']['sp_unit']==0))
-			   {
-				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
-			   }
-			   
-			   if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity) 
-			      {
-			       $p->p_quantity=$p->p_quantity - $_POST['SalePr']['sp_quantity'];
-				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
-			       $p->save();
-	               $model->attributes=$_POST['SalePr'];
-			        if($model->save())
-					   {
-					    Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
-							$this->refresh(); 
-						} 
-			 
-			       }
-				else 
-				{
-				 Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');
-					$this->refresh();
+				
 				}
-			 }
-	    }		
-		
-	
+				elseif(($_POST['SalePr']['sp_quantity']) <= ($p->p_quantity))
+				{
+					Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');
+					$this->refresh();
+				}		
+			else
+			{
+				$model->sp_unit=0;
+				$model->sp_discount=0;
+				$model->save();
+				//var_dump ($model->st->st_id);
+			}
+	}		
+		/*	if($model->save()){
+			
+					
+					
+				
+					
+			
+		}
+	*/
 		$this->render('create',array(
 			'model'=>$model,
 		));

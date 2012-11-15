@@ -63,27 +63,75 @@ class SaleRmController extends Controller
 	public function actionCreate()
 	{
 		$model=new SaleRm;
-
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+	/*if(isset($_POST['SaleRm'])){
+	echo "<pre>";
+	print_r($_POST['SaleRm']);
+	echo "</pre>";
+	exit();
+	}*/
 		if(isset($_POST['SaleRm']))
 		{
-			$model->attributes=$_POST['SaleRm'];
+		if($_POST['SaleRm']['st_id']==null)
+			{
+			if($model->save())
+				{
+				
+				}
+		}		
+		 if($_POST['SaleRm']['st_id']=='2' )
+		     {
+			  $model->attributes=$_POST['SaleRm'];
+			  $model->srmp_unit=0;
+			  $model->srm_discount=0;
+			  //$model->sp_totalsale=0;
+			    if($model->save())
+				   {
+				    Yii::app()->user->setFlash('samplermsuccess','Rawmaterial updated as sample');
+							$this->refresh();
+			 
+                    }
+   		      }
+		 elseif($_POST['SaleRm']['st_id']=='1' )  
+		     {
+			  $r = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']); 
+			   if(($_POST['SaleRm']['srmp_unit']==0))
+			   {
+				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
+			   }
+			   
+			   if($_POST['SaleRm']['srm_quantity'] <= $r->rm_quantity) 
+			      {
+			       $r->rm_quantity=$r->rm_quantity - $_POST['SaleRm']['srm_quantity'];
+				   //$model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
+			       $r->save();
+	               $model->attributes=$_POST['SaleRm'];
+			        if($model->save())
+					   {
+					    Yii::app()->user->setFlash('salermsuccess','Rawmaterial Record Added Successfully');
+							$this->refresh(); 
+						} 
+			 
+			       }
+				else 
+				{
+				 Yii::app()->user->setFlash('infqrm','Insuffient Quantity of product in Stock');
+					$this->refresh();
+				}
+			 }
+	    }	
+			/*if(($model->st->st_id==='1') && ($model->srmp_unit==0))
+			{
+				throw new CHttpException(405,'Sale unit price cannot be 0');
+			}
 			if($model->st->st_id==='2')
 			{
 				$model->srmp_unit=0;
 				$model->srm_discount=0;
 				//var_dump ($model->st->st_id);
 			}
-			
-			if($model->save())
-			{
-			if(($model->st->st_id==='1') && ($model->srmp_unit==0))
-			{
-				throw new CHttpException(405,'Sale unit price cannot be 0');
-			}
-			
 			$r = Rawmaterial::model()->findByPk($model->rm_id);
 				if($model->srm_quantity <= $r->rm_quantity)
 				{	
@@ -101,16 +149,17 @@ class SaleRmController extends Controller
 					$this->refresh();
 				}
 				//$this->redirect(array('view','id'=>$model->srm_id));
-				
+				*/
 		
-			}
-		}
+			
+		
+		
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

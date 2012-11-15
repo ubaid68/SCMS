@@ -5,7 +5,17 @@
 ?>
 
 <?php
-//success msg
+//sample success msg
+?>
+<?php if(Yii::app()->user->hasFlash('samplesuccess')){ ?>
+
+<div class="flash-success">
+	<?php echo Yii::app()->user->getFlash('samplesuccess');  ?>
+</div>
+<?php } ?>
+
+<?php
+//sale success msg
 ?>
 <?php if(Yii::app()->user->hasFlash('salesuccess')){ ?>
 
