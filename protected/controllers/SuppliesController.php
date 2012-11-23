@@ -127,7 +127,14 @@ class SuppliesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Supplies');
+		$dataProvider=new CActiveDataProvider('Supplies', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'supplies_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

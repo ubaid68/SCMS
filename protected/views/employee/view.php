@@ -18,6 +18,7 @@ $this->menu=array(
 
 <h1>View Employee #<?php echo $model->login_id; ?></h1>
 
+
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
@@ -33,4 +34,4 @@ $this->menu=array(
 		'u_fname',
 		'u_lname',
 	),
-)); ?>
+));?>

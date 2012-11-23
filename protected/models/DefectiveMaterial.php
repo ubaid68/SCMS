@@ -110,8 +110,16 @@ class DefectiveMaterial extends CActiveRecord
 		$criteria->compare('dm_quantity',$this->dm_quantity);
 		$criteria->compare('dm_date',$this->dm_date,true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'dm_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
 		));
 	}
 

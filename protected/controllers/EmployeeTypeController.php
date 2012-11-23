@@ -135,7 +135,10 @@ class EmployeeTypeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('EmployeeType');
+		$dataProvider=new CActiveDataProvider('EmployeeType',array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    )));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

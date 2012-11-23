@@ -131,8 +131,16 @@ class Supplies extends CActiveRecord
 		$criteria->compare('s_quantity',$this->s_quantity);
 		$criteria->compare('s_discount',$this->s_discount);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'supplies_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
 		));
 	}
 	

@@ -105,7 +105,7 @@ class SaleRmController extends Controller
 			   if($_POST['SaleRm']['srm_quantity'] <= $r->rm_quantity) 
 			      {
 			       $r->rm_quantity=$r->rm_quantity - $_POST['SaleRm']['srm_quantity'];
-				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
+				   $model->srm_totalsale=$_POST['SaleRm']['srmp_unit']*$_POST['SaleRm']['srm_quantity'];
 			       $r->save();
 	               $model->attributes=$_POST['SaleRm'];
 			        if($model->save())

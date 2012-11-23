@@ -146,7 +146,14 @@ class FactoryMaterialController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('FactoryMaterial');
+		$dataProvider=new CActiveDataProvider('FactoryMaterial', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'sf_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

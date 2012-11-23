@@ -135,7 +135,14 @@ class FinishedProductController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('FinishedProduct');
+		$dataProvider=new CActiveDataProvider('FinishedProduct', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'fp_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

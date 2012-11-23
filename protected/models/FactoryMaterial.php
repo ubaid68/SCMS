@@ -111,8 +111,16 @@ class FactoryMaterial extends CActiveRecord
 		$criteria->compare('sf_quantity',$this->sf_quantity);
 		$criteria->compare('sf_date',$this->sf_date,true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'sf_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 20,
+                        )
+
+
 		));
 	}
 

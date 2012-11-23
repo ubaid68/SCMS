@@ -126,7 +126,10 @@ class EmployeeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Employee');
+		$dataProvider=new CActiveDataProvider('Employee',array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    )));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

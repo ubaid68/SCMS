@@ -125,7 +125,14 @@ class DefectiveMaterialController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('DefectiveMaterial');
+		$dataProvider=new CActiveDataProvider('DefectiveMaterial', array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    ),
+                    'criteria'=>array
+					(
+                        'order'=>'dm_id DESC'
+					)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

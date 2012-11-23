@@ -114,8 +114,16 @@ class FinishedProduct extends CActiveRecord
 
 		
 		
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'fp_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 20,
+                        )
+
+
 		));
 	}
 	protected function beforeSave()

@@ -136,7 +136,10 @@ class PurchaserTypeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PurchaserType');
+		$dataProvider=new CActiveDataProvider('PurchaserType',array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    )));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

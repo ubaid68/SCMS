@@ -145,7 +145,10 @@ class RawmaterialCategoryController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('RawmaterialCategory');
+		$dataProvider=new CActiveDataProvider('RawmaterialCategory',array(
+                    'pagination' => array(
+                        'pageSize' => 20
+                    )));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
