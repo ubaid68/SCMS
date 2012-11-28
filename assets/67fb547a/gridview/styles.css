@@ -12,8 +12,9 @@
 {
 	background: white;
 	border-collapse: collapse;
-	width: 100%;
+	width: 700px;
 	border: 1px #D0E3EF solid;
+	margin-left:10px;
 }
 
 .grid-view table.items th, .grid-view table.items td

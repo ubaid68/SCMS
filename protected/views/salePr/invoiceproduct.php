@@ -43,8 +43,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'sale-pr-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	'dataProvider'=>$model->sea(),
+	//'filter'=>$model,
 	'columns'=>array(
 		'sp_id',
 		//'st_id',
@@ -92,6 +92,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		
 		
 		'sp_unit',
+		
 		
 		//'sp_discount',
 		/*array(

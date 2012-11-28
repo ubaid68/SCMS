@@ -170,6 +170,79 @@ class SalePr extends CActiveRecord
 
 		));
 	}
+	public function sea()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('sp_id',$this->sp_id);
+		// ---------------------more then two searching wd merging--------------------------------------------
+
+		$criteria2 = new CDbCriteria;
+		
+		$criteria2->with = array( 'p' );
+		$criteria2->compare( 'p.p_name', $this->p_id, true, 'OR' );
+		
+		$criteria3 = new CDbCriteria;
+		
+		$criteria3->with = array( 'login' );
+		$criteria3->compare( 'login.u_fname', $this->login_id, true, 'OR' );
+		
+		$criteria4 = new CDbCriteria;
+		
+		$criteria4->with = array( 'cu' );
+		$criteria4->compare( 'cu.cu_name', $this->cu_id, true, 'OR' );
+		
+		$criteria5 = new CDbCriteria;
+		
+		$criteria5->with = array( 'st' );
+		$criteria5->compare( 'st.st_name', $this->st_id, true, 'OR' );
+		
+		$criteria6 = new CDbCriteria;
+		
+		$criteria6->with = array( 'purt' );
+		$criteria6->compare( 'purt.purt_name', $this->purt_id, true, 'OR' );
+		
+		$criteria5->mergeWith($criteria6);
+		$criteria4->mergeWith($criteria5);
+		$criteria3->mergeWith($criteria4);
+		$criteria2->mergeWith($criteria3);
+		$criteria->mergeWith($criteria2);
+		
+		//$criteria->compare('p_id',$this->p_id);
+		//$criteria->compare('login_id',$this->login_id);
+		//$criteria->compare('cu_id',$this->cu_id);
+		//$criteria->compare('st_id',$this->st_id);
+		//$criteria->compare('purt_id',$this->purt_id);
+		$criteria->compare('sp_date',$this->sp_date,true);
+		
+		//$criteria = new CDbCriteria;
+		
+		$criteria->compare('sp_unit',$this->sp_unit);
+		$criteria->condition='sp_unit>0';
+		
+		
+		
+		$criteria->compare('sp_quantity',$this->sp_quantity);
+		$criteria->compare('sp_discount',$this->sp_discount);
+
+		//return new CActiveDataProvider($this, array(
+			//'criteria'=>$criteria,)
+		//for reverse sort
+		 return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'sp_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
+		));
+	}
 
 	protected function beforeSave()
 	{

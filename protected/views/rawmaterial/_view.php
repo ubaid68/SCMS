@@ -5,7 +5,7 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_id')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('rawmaterial(id)')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->rm_id), array('view', 'id'=>$data->rm_id)); ?>
 	<br />
 
@@ -26,7 +26,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_quantity')); ?>:</b>
-	<?php echo CHtml::encode($data->rm_quantity.$data->rmc->rmc_qmeasures); ?>
+	<?php echo CHtml::encode($data->rm_quantity); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_reservelevel')); ?>:</b>
@@ -35,3 +35,4 @@
 
 
 </div>
+<br /><br /><br />

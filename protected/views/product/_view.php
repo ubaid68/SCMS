@@ -8,6 +8,7 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->p_id), array('view', 'id'=>$data->p_id)); ?>
 	<br />
+	
 
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_name')); ?>:</b>
@@ -27,7 +28,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_quantity')); ?>:</b>
-	<?php echo CHtml::encode($data->p_quantity);//.$data->pc->pc_qmeasures); ?>
+	<?php echo CHtml::encode($data->p_quantity); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('p_reservelevel')); ?>:</b>
@@ -36,3 +37,4 @@
 
 
 </div>
+<br /><br /><br />

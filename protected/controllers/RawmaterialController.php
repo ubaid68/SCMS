@@ -27,14 +27,23 @@ class RawmaterialController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+		/*	array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
+		*/	
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','index','view','Delete','admin','StockReportRM'),
+				'roles'=>array('materialManager'),
 			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('StockReportRM'),
+				'roles'=>array('manager'),
+			),
+			array('deny',  // deny all users
+				'roles'=>array('salesMan','productManager'),
+			)
+		/*	
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','StockReportRM'),
 				'users'=>array('admin'),
@@ -42,6 +51,7 @@ class RawmaterialController extends Controller
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
+		*/
 		);
 	}
 
@@ -51,9 +61,16 @@ class RawmaterialController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model=new Rawmaterial;
+		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model))){
+			//print_r("the rule works only for product manager");
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+		}else{
+			//print_r("this user is not product manager");
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -94,9 +111,17 @@ class RawmaterialController extends Controller
 			
 		}
 
+		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
+		{
+			
+		
 		$this->render('create',array(
 			'model'=>$model,
 		));
+		}
+		else{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -118,9 +143,17 @@ class RawmaterialController extends Controller
 				$this->redirect(array('view','id'=>$model->rm_id));
 		}
 
+		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
+		{
+			//print_r("the rule works only for product manager");
+		
 		$this->render('update',array(
 			'model'=>$model,
 		));
+		}else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -148,6 +181,9 @@ class RawmaterialController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$model=new Rawmaterial;
+		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
+		{
 		$dataProvider=new CActiveDataProvider('Rawmaterial',array(
                     'pagination' => array(
                         'pageSize' => 20
@@ -155,6 +191,11 @@ class RawmaterialController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -166,10 +207,17 @@ class RawmaterialController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Rawmaterial']))
 			$model->attributes=$_GET['Rawmaterial'];
-
+		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
+		{
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		
+		}
 	}
 	public function actionStockReportRM()
 	{
@@ -177,10 +225,11 @@ class RawmaterialController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Rawmaterial']))
 			$model->attributes=$_GET['Rawmaterial'];
-
+		
 		$this->render('stockReportRawmaterial',array(
 			'model'=>$model,
 		));
+		
 	}
 
 	/**

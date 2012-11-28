@@ -5,20 +5,17 @@
  *
  * The followings are the available columns in table 'employee':
  * @property integer $login_id
- * @property integer $et_id
  * @property string $user_name
  * @property string $password
  * @property string $u_fname
  * @property string $u_lname
+ * @property string $role
  *
  * The followings are the available model relations:
- * @property EmployeeType $et
- * @property SalePr[] $salePrs
- * @property SaleRm[] $saleRms
+ * @property FactoryMaterial[] $factoryMaterials
  */
 class Employee extends CActiveRecord
 {
-	public $etype;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -45,8 +42,7 @@ class Employee extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('et_id, user_name, password, u_fname, u_lname', 'required'),
-			
+			array('user_name, password, u_fname, u_lname,role', 'required'),
 			
 			array('user_name', 'length', 'min'=>3, 'max'=>50),
 			array('password', 'length', 'min'=>6, 'max'=>50),
@@ -64,13 +60,11 @@ class Employee extends CActiveRecord
 			
 			array('u_lname', 'match', 'pattern' => '/^[A-Za-z" "]+$/u', 'message' => Yii::t('default', 'Last Name Only Alphabets.')),
 			
-			
-			array('et_id', 'numerical', 'integerOnly'=>true),
 			//array('u_fname','CNumberValidator',),
 			array('user_name, password, u_fname, u_lname', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('login_id, et_id, user_name, password, u_fname, u_lname', 'safe', 'on'=>'search'),
+			array('login_id,user_name, password, u_fname, u_lname,role', 'safe', 'on'=>'search'),
 
 		);
 	}
@@ -83,9 +77,7 @@ class Employee extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'et' => array(self::BELONGS_TO, 'EmployeeType', 'et_id'),
-			'salePrs' => array(self::HAS_MANY, 'SalePr', 'login_id'),
-			'saleRms' => array(self::HAS_MANY, 'SaleRm', 'login_id'),
+			'factoryMaterials' => array(self::HAS_MANY, 'FactoryMaterial', 'login_id'),
 		);
 	}
 
@@ -95,12 +87,12 @@ class Employee extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'login_id' => 'Login ID',
-			'et_id' => 'Employee Type',
+			'login_id' => 'Login',
 			'user_name' => 'User Name',
 			'password' => 'Password',
-			'u_fname' => 'First Name',
-			'u_lname' => 'Last Name',
+			'u_fname' => 'U Fname',
+			'u_lname' => 'U Lname',
+			'role' => 'Role',
 		);
 	}
 
@@ -112,22 +104,15 @@ class Employee extends CActiveRecord
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-		
+
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('login_id',$this->login_id);
-		
-		
-		// --------------- Employee Type Searching ------------//
-		
-		$criteria->with = array( 'et' );
-		$criteria->compare( 'et.et_name', $this->et_id, true );
-		
-		// ----------------------------------------------------//
 		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('u_fname',$this->u_fname,true);
 		$criteria->compare('u_lname',$this->u_lname,true);
+		$criteria->compare('role',$this->role,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

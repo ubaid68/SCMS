@@ -1,0 +1,53 @@
+
+.response-msg {
+    font-size: 0.9em;
+    margin: 0 0 10px;
+    padding: 6px 10px 10px 45px;
+}
+.response-msg span {
+    display: block;
+    font-weight: bold;
+    padding: 0 0 4px;
+}
+.error {
+    background: url("../images/icons/error.png") no-repeat scroll 10px 50% #F9E5E6;
+    border: 1px solid #E8AAAD;
+    color: #B50007;
+}
+.notice {
+    background: url("../images/icons/notice.png") no-repeat scroll 10px 50% #F9F9E5;
+    border: 1px solid #E8E3AA;
+    color: #828400;
+}
+.inf {
+    background: url("../images/icons/info.png") no-repeat scroll 10px 50% #E5ECF9;
+    border: 1px solid #AAC6E8;
+    color: #0055B5;
+    padding-left: 50px;
+}
+.success {
+    background: url("../images/icons/success.png") no-repeat scroll 10px 50% #E9F9E5;
+    border: 1px solid #B4E8AA;
+    color: #1C8400;
+}
+#page-wrapper .other-box {
+    margin: 15px 0;
+}
+#page-wrapper .cont {
+    border-top: 1px solid #FFFFFF;
+    line-height: 1.4em;
+    padding: 8px;
+}
+#page-wrapper .other-box h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#page-wrapper .gray-box {
+    background: none repeat scroll 0 0 #EAEAEA;
+    border: 1px solid #C0C0C0;
+}
+#page-wrapper .yellow-box {
+    background: none repeat scroll 0 0 #FFF6BF;
+    border: 1px solid #FDD845;
+    padding: 5px;
+}

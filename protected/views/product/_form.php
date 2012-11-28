@@ -4,9 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<?php
-//flash msg for duplication
-?>
+
 
 <?php if(Yii::app()->user->hasFlash('ppd')){ ?>
 
@@ -15,9 +13,7 @@
 </div>
 <?php } ?>
 
-<?php
-//success msg for
-?>
+
 <?php if(Yii::app()->user->hasFlash('pps')){ ?>
 
 <div class="flash-success">
@@ -43,15 +39,17 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_name'); ?>
-		<?php echo $form->textField($model,'p_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'p_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'p_name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_code'); ?>
-		<?php echo $form->textField($model,'p_code',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'p_code',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'p_code'); ?>
 	</div>
+	
+
 	
 	<div class="row">
 				<?php echo $form->labelEx($model,'pc_id'); ?>
@@ -63,7 +61,7 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 									'url' => CController::createUrl('ProductCategory/GetCategory'),
 									'type' => 'POST',                     
 								   'update'=>'#rmc',
-									)),'style'=>'width:180px;'        
+									)),'class'=>'cjCombo'      
 										)
 									)?>
 									
@@ -72,24 +70,24 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_price'); ?>
-		<?php echo $form->textField($model,'p_price'); ?>
+		<?php echo $form->textField($model,'p_price',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'p_price'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_quantity'); ?>
-		<?php echo $form->textField($model,'p_quantity');?>	
+		<?php echo $form->textField($model,'p_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields'));?>	
 		<div id="rmc" style="display:inline;">  unit</div>
 		<?php echo $form->error($model,'p_quantity'); ?>
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_reservelevel'); ?>
-		<?php echo $form->textField($model,'p_reservelevel',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'p_reservelevel',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'p_reservelevel'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Add Product' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

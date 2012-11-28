@@ -27,21 +27,35 @@ class SaleRmController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+		/*	array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
+		*/	
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','index','view','Delete','admin','InvoiceRM'),
+				'roles'=>array('salesMan'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','InvoiceRM'),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('InvoiceRM','index'),
+				'roles'=>array('manager'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('index'),
+				'roles'=>array('materialManager'),
+			),
+			array('deny',  // deny all users
+				'roles'=>array('productManager','materialManager'),
+			)
+			
+		/*	array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete',,'InvoiceRM'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
+		*/	
 		);
 	}
 
@@ -51,9 +65,16 @@ class SaleRmController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model=new SaleRm;
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
+			//print_r("the rule works only for product manager");
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+		}else{
+			//print_r("this user is not product manager");
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -86,7 +107,7 @@ class SaleRmController extends Controller
 			  $model->attributes=$_POST['SaleRm'];
 			  $model->srmp_unit=0;
 			  $model->srm_discount=0;
-			  $model->sp_totalsale=0;
+			  $model->srm_totalsale=0;
 			    if($model->save())
 				   {
 				    Yii::app()->user->setFlash('samplermsuccess','Rawmaterial updated as sample');
@@ -150,14 +171,16 @@ class SaleRmController extends Controller
 				}
 				//$this->redirect(array('view','id'=>$model->srm_id));
 				*/
-		
-			
-		
-		
-
+	if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		{
 		$this->render('create',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	
 	}
 	/**
@@ -174,14 +197,63 @@ class SaleRmController extends Controller
 
 		if(isset($_POST['SaleRm']))
 		{
-			$model->attributes=$_POST['SaleRm'];
+		if($_POST['SaleRm']['st_id']==null)
+			{
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->srm_id));
-		}
-
-		$this->render('update',array(
+				{
+				
+				}
+		}		
+		 if($_POST['SaleRm']['st_id']=='2' )
+		     {
+			  $model->attributes=$_POST['SaleRm'];
+			  $model->srmp_unit=0;
+			  $model->srm_discount=0;
+			  $model->srm_totalsale=0;
+			    if($model->save())
+				   {
+				    $this->redirect(array('view','id'=>$model->srm_id));
+			 
+                    }
+   		      }
+		 elseif($_POST['SaleRm']['st_id']=='1' )  
+		     {
+			  $r = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']); 
+			   if(($_POST['SaleRm']['srmp_unit']==0))
+			   {
+				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
+			   }
+			   
+			   if($_POST['SaleRm']['srm_quantity'] <= $r->rm_quantity) 
+			      {
+			       $r->rm_quantity=$r->rm_quantity - $_POST['SaleRm']['srm_quantity'];
+				   $model->srm_totalsale=$_POST['SaleRm']['srmp_unit']*$_POST['SaleRm']['srm_quantity'];
+			       $r->save();
+	               $model->attributes=$_POST['SaleRm'];
+			        if($model->save())
+					   {
+					   $this->redirect(array('view','id'=>$model->srm_id));
+						} 
+			 
+			       }
+				else 
+				{
+				 Yii::app()->user->setFlash('infqrm','Insuffient Quantity of product in Stock');
+					$this->refresh();
+				}
+			 }
+	    }
+	if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		{
+		$this->render('create',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
+	
 	}
 
 	/**
@@ -203,6 +275,8 @@ class SaleRmController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$model=new SaleRm;
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
 		$dataProvider=new CActiveDataProvider('SaleRm', array(
                     'pagination' => array(
                         'pageSize' => 20
@@ -214,6 +288,12 @@ class SaleRmController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		}
+		else 
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
+	
 	}
 
 	/**
@@ -225,10 +305,17 @@ class SaleRmController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['SaleRm']))
 			$model->attributes=$_GET['SaleRm'];
-
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		{
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		
+		}
 	}
 	public function actionInvoiceRM()
 	{
@@ -236,10 +323,11 @@ class SaleRmController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['SaleRm']))
 			$model->attributes=$_GET['SaleRm'];
-
-		$this->render('invoiceRM',array(
+		
+		$this->render('invoicematerial',array(
 			'model'=>$model,
 		));
+		
 	}	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

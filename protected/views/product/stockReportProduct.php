@@ -25,7 +25,7 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-
+<div style="margin-right:250px;">
 <h1>View Stock Report(product)</h1>
 
 <p>
@@ -82,3 +82,4 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	),
 )); 
 ?>
+</div>

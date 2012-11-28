@@ -15,7 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage ProductCategory', 'url'=>array('admin')),
 );
 ?>
-
+<div style="margin-right:240px;">
 <h1>Update ProductCategory <?php echo $model->pc_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

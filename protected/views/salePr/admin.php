@@ -25,7 +25,7 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-
+<div style="margin-right:250px;">
 <h1>Manage Sale Prs</h1>
 
 <p>
@@ -71,11 +71,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 					'type'=>'raw',
 					'value'=>'$data->purt->purt_name',
 				),			
-		//'p_id',
-		//'login_id',
-		//'cu_id',
-		//'st_id',
-		//'purt_id',
 		
 		'sp_date',
 		'sp_unit',
@@ -92,3 +87,4 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
+</div>

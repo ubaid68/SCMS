@@ -27,21 +27,30 @@ class ProductCategoryController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+		/*	array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','GetCategory'),
 				'users'=>array('*'),
 			),
+		*/	
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','index','view','GetCategory','admin','Delete'),
+				'roles'=>array('productManager'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('index'),
+				'roles'=>array('manager'),
+			),
+			array('deny',  // deny all users
+				'roles'=>array('salesMan','materialManager'),
+			)
+		/*	array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
+		*/	
 		);
 	}
 
@@ -51,9 +60,18 @@ class ProductCategoryController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model=new ProductCategory;
+		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model)))
+		{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+		}
+		else 
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
+	
 	}
 
 	/**
@@ -89,9 +107,17 @@ class ProductCategoryController extends Controller
 			}
 		}
 
+		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model)))
+		{
+			
+		
 		$this->render('create',array(
 			'model'=>$model,
 		));
+		}
+		else{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -113,9 +139,17 @@ class ProductCategoryController extends Controller
 				$this->redirect(array('view','id'=>$model->pc_id));
 		}
 
+		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model)))
+		{
+			//print_r("the rule works only for product manager");
+		
 		$this->render('update',array(
 			'model'=>$model,
 		));
+		}else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -140,6 +174,8 @@ class ProductCategoryController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$model=new ProductCategory;
+		
 		$dataProvider=new CActiveDataProvider('ProductCategory',array(
                     'pagination' => array(
                         'pageSize' => 20
@@ -147,6 +183,7 @@ class ProductCategoryController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		
 	}
 
 	/**
@@ -159,9 +196,17 @@ class ProductCategoryController extends Controller
 		if(isset($_GET['ProductCategory']))
 			$model->attributes=$_GET['ProductCategory'];
 
+		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model)))
+		{
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		
+		}
 	}
 
 	/**

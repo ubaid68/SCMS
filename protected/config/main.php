@@ -8,6 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'SCMS',
+    //'theme'=>'aquincum',
+	// 'theme'=>'shadow_dancer',
+'theme'=>'fira',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -37,7 +40,10 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		
+		'clientScript' => array(
+            'scriptMap' => array(
+                'jquery-ui.css' => 'fira/css/jquery-ui.css',
+            ),),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -59,6 +65,13 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
+		
+		'authManager'=>array(
+			'class'=>'CDbAuthManager',
+			'connectionID'=>'db',
+			'showErrors'=>true,
+		),
+		
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

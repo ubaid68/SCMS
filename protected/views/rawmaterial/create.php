@@ -12,7 +12,8 @@ $this->menu=array(
 	array('label'=>'Manage Rawmaterial', 'url'=>array('admin')),
 );
 ?>
-
+<div style="margin-right:240px;">
 <h1>Add Rawmaterial</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+</div> 

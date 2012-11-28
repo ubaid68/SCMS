@@ -26,6 +26,10 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
+
+
+	
+	<div style="margin-right:300px;">
 <h1>Manage Products</h1>
 
 <p>
@@ -56,12 +60,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'p_name',
 		'p_code',
 		'p_price',
-	/*	array(
-					'header'=>'Quantity',
-					'type'=>'raw',
-					'value'=>'$data->p_quantity.$data->pc->pc_qmeasures' ,
-				),
-	*/			
 		'p_quantity',
 		/*
 		'p_reservelevel',
@@ -71,3 +69,5 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
+
+</div>

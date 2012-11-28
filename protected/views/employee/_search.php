@@ -17,11 +17,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'et_id'); ?>
-		<?php echo $form->textField($model,'et_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'user_name'); ?>
 		<?php echo $form->textField($model,'user_name',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
@@ -34,6 +29,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'u_lname'); ?>
 		<?php echo $form->textField($model,'u_lname',array('size'=>50,'maxlength'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row buttons">

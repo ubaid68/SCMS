@@ -27,21 +27,44 @@ class SalePrController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+		/*	array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
+		*/	
+			
+				
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','index','view','admin','delete','getTotalSale','MostSaleableProduct','InvoicePR'),
+				'roles'=>array('salesMan'),
 			),
+			
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('MostSaleableProduct','Index'),
+				'roles'=>array('productManager'),
+				),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('InvoicePR','MostSaleableProduct','Index'),
+				'roles'=>array('manager'),
+			),
+			
+			
+			array('deny',  // deny all users
+				'roles'=>array('materialManager','productManager'),
+			),
+		/*	,
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','getTotalSale','InvoicePR','MostProfitableProduct'),
 				'users'=>array('admin'),
-			),
+			)
+			,
+			
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
+			*/
+		
+		
 		);
 	}
 
@@ -51,9 +74,16 @@ class SalePrController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$model=new SalePr;
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
+			//print_r("the rule works only for product manager");
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+		}else{
+			//print_r("this user is not product manager");
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -127,11 +157,16 @@ public function actionCreate()
 				}
 			 }
 	    }		
-		
-	
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		{
 		$this->render('create',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	
 	
 	}
@@ -150,14 +185,64 @@ public function actionCreate()
 
 		if(isset($_POST['SalePr']))
 		{
-			$model->attributes=$_POST['SalePr'];
+		if($_POST['SalePr']['st_id']==null)
+			{
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->sp_id));
-		}
-
+				{
+				
+				}
+		}		
+		 if($_POST['SalePr']['st_id']=='2' )
+		     {
+			  $model->attributes=$_POST['SalePr'];
+			  $model->sp_unit=0;
+			  $model->sp_discount=0;
+			  $model->sp_totalsale=0;
+			    if($model->save())
+				   {
+				    $this->redirect(array('view','id'=>$model->sp_id));
+			 
+                    }
+   		      }
+		 elseif($_POST['SalePr']['st_id']=='1' )  
+		     {
+			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']); 
+			   if(($_POST['SalePr']['sp_unit']==0))
+			   {
+				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
+			   }
+			   
+			   if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity) 
+			      {
+			       $p->p_quantity=$p->p_quantity - $_POST['SalePr']['sp_quantity'];
+				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
+			       $p->save();
+	               $model->attributes=$_POST['SalePr'];
+			        if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sp_id));
+						} 
+			 
+			       }
+				else 
+				{
+				 Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');
+					$this->refresh();
+				}
+			 }
+	    }
+		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		{
+			//print_r("the rule works only for product manager");
+		
 		$this->render('update',array(
 			'model'=>$model,
 		));
+		}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		}
 	}
 
 	/**
@@ -171,8 +256,10 @@ public function actionCreate()
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		if(!isset($_GET['ajax'])){
+		var_dump($id);
+		}
+		//	$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -180,6 +267,8 @@ public function actionCreate()
 	 */
 	public function actionIndex()
 	{
+		$model=new SalePr;
+		
 		$dataProvider=new CActiveDataProvider('SalePr', array(
                     'pagination' => array(
                         'pageSize' => 20
@@ -191,6 +280,7 @@ public function actionCreate()
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		
 	}
 
 	/**
@@ -203,31 +293,55 @@ public function actionCreate()
 		if(isset($_GET['SalePr']))
 			$model->attributes=$_GET['SalePr'];
 
+		//if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+		//{
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+		//}
+		//else
+		//{
+		//throw new CHttpException(401,'You are not authorised to do this');
+		
+		//}
 	}
-	public function actionMostProfitableProduct()
+	public function actionMostSaleableProduct()
 	{
 		$model=new SalePr('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['SalePr']))
-			$model->attributes=$_GET['SalePr'];
+		
+		echo "<pre>";
+		print_r($model);
+		echo "</pre>";
+		//if(model->st_id==1)
+		//{
+		
+		//}
+		//if(isset($_GET['SalePr']))
+		//	$model->attributes=$_GET['SalePr'];
 
-		$this->render('mostProfitableProduct',array(
-			'model'=>$model,
-		));
+		
+		$this->render('mostsaleableproduct',array(
+			'model'=>$model,));
+		
 	}
 	public function actionInvoicePR()
 	{
-		$model=new SalePr('search');
+		$model=new SalePr('sea');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['SalePr']))
 			$model->attributes=$_GET['SalePr'];
-
+		//if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
 		$this->render('invoiceproduct',array(
 			'model'=>$model,
 		));
+		/*}
+		else
+		{
+		throw new CHttpException(401,'You are not authorised to do this');
+		
+		}
+		*/
 	}
 
 	/**
@@ -243,7 +357,8 @@ public function actionCreate()
 		return $model;
 	}
 	
-	public function getTotalSale($p_id){
+	public function getTotalSale($p_id)
+	{
 		$models = $this->model()->findByPk($p_id);
 		$cost = 0;
 		foreach($models as $m){

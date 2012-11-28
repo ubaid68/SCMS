@@ -1,0 +1,73 @@
+
+#detail {
+    margin: 10px;
+}
+#detail h1 {
+    color: #333333;
+    
+    margin: 10px 0;
+}
+#detail .head {
+    background: none repeat scroll 0 0 #EEEEEE;
+    font-weight: bold;
+    width: 200px;
+}
+#detail .head:hover {
+    background-color: #FFFFCF;
+}
+#detail table {
+    margin: 0 0 20px;
+}
+.heading {
+    margin: 10px 0;
+}
+h1.heading {
+    background-color: #EEEEEE;
+    color: #666666;
+    padding: 10px;
+}
+#logo {
+    float: left;
+    width: 370px;
+}
+#logo p {
+    color: #585858;
+    margin-top: -5px;
+}
+#info {
+    float: right;
+    width: 250px;
+}
+#info .head {
+    width: 100px;
+}
+#detail .center {
+    text-align: center;
+}
+#detail h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    text-decoration: underline;
+}
+#terms {
+    width: 400px;
+}
+.empty {
+    border: medium none;
+}
+.total {
+    background-color: #E1E1E1;
+    font-weight: bold;
+}
+#detail .note {
+    color: #999999;
+    margin-top: 70px;
+}
+.worth {
+    background-color: #FFF6BF;
+    padding: 0 10px;
+}
+.worth p {
+    font-size: 16px;
+    padding: 5px 0;
+}

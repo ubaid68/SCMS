@@ -6,15 +6,16 @@ $this->breadcrumbs=array(
 	'Products',
 );
 
-$this->menu=array(
-	array('label'=>'Create Product', 'url'=>array('create')),
-	array('label'=>'Manage Product', 'url'=>array('admin')),
-);
+
 ?>
 
 <h1>View Products</h1>
 
+<div style="margin-right:300px;">
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
+</div>
+
+

@@ -26,8 +26,8 @@ $('.search-form form').submit(function(){
 ");
 $ds='Discounted Price'
 ?>
-
-<h1>Manage Rawmaterials</h1>
+<div style="margin-right:250px;">
+<h1>Manage Rawmaterials</strong></h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -53,7 +53,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 					'value'=>'$data->rmc->rmc_name',
 				),
 		
-		//'rmc_id',
+		
 		'rm_name',
 		'rm_code',
 		'rmp_unit',
@@ -64,3 +64,4 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
+</div>

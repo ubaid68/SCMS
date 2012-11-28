@@ -12,27 +12,16 @@
 	<?php echo Yii::app()->user->getFlash('empsuccess');  ?>
 </div>
 <?php } ?>
-
-
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'employee-form',
 	'enableAjaxValidation'=>false,
-));
-
-$list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
- ?>
+)); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'et_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'et_id',$list,array('prompt'=>'Select Employee Type')); ?>
-		<?php echo $form->error($model,'et_id'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'user_name'); ?>
@@ -58,8 +47,15 @@ $list=CHtml::listData(EmployeeType::model()->findAll(), 'et_id', 'et_name');
 		<?php echo $form->error($model,'u_lname'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->dropDownList($model,'role', array('manager'=>'manager',
+                    'productManager'=>'productManager','materialManager'=>'materialManager','salesMan'=>'salesMan',),array('prompt'=>'Select Role','title'=>'Select your Role in University')); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Add Employee' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

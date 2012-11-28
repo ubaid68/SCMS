@@ -15,7 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage Product', 'url'=>array('admin')),
 );
 ?>
-
+<div style="margin-right:240px;">
 <h1>View Product #<?php echo $model->p_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -35,3 +35,4 @@ $this->menu=array(
 		'p_reservelevel',
 	),
 )); ?>
+</div>

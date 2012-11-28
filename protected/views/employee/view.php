@@ -18,20 +18,14 @@ $this->menu=array(
 
 <h1>View Employee #<?php echo $model->login_id; ?></h1>
 
-
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'login_id',
-		array(
-					'name'=>'et_id',
-					'type'=>'raw',
-					'value'=>$model->et->et_name,
-				),
-		//'et_id',
 		'user_name',
-		//'password',
+		'password',
 		'u_fname',
 		'u_lname',
+		'role',
 	),
-));?>
+)); ?>

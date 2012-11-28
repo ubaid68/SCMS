@@ -1,0 +1,67 @@
+
+.hastable table {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #DEDEDE #DEDEDE -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    margin: 0 0 70px;
+    width: 100%;
+}
+.hastable thead td, .hastable thead th {
+    background-color: #E6E6E6;
+}
+.hastable tr td, .hastable thead th {
+    border-left: 1px solid #CCCCCC;
+    color: #616161;
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+.hastable thead td, .hastable thead th {
+    font-weight: bold;
+    padding: 10px 6px;
+    text-align: left;
+}
+.hastable th, .hastable td {
+    border-bottom: 1px solid #DEDEDE;
+}
+.hastable tbody th {
+    padding: 8px;
+    text-align: left;
+}
+.hastable tbody tr.alt td, .hastable tbody tr.odd td {
+    color: #464646;
+}
+.hastable tbody tr.alt td, .hastable tbody tr.alt th, .hastable tbody tr.odd {
+    background-color: #F5F5F5;
+}
+.hastable tbody tr:hover td, .hastable tbody tr:hover th {
+    background-color: #FFFFCF;
+}
+.headerSortDown, .headerSortUp {
+    background-color: #DCDCDC !important;
+    background-repeat: no-repeat;
+    color: #404040 !important;
+}
+.header span {
+    float: right;
+}
+.hastable tr .center {
+    padding: 15px;
+    width: 5px;
+}
+.hastable table a.btn span.ui-icon {
+    left: 0.1em;
+}
+#pager {
+    padding: 15px;
+}
+#pager input, #pager .pagesize {
+    float: left;
+    margin: 5px;
+}

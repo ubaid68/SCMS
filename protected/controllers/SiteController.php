@@ -29,7 +29,13 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		if(!Yii::app()->user->isGuest){
+			$this->render('index');
+		}else {
+			$this->redirect(Yii::app()->baseUrl.'/index.php/site/Login');
+		}
+		
+		
 	}
 
 	/**
@@ -94,8 +100,15 @@ class SiteController extends Controller
 			if($model->validate() && $model->login())
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
+		if (yii::app()->user->getId() == null)
+		{
 		// display the login form
 		$this->render('login',array('model'=>$model));
+		}
+		else
+		{
+		$this->redirect(Yii::app()->user->returnUrl);
+		}
 	}
 
 	/**
@@ -104,6 +117,8 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect('Login');
+
+		//$this->redirect(Yii::app()->array('/site/login'));
 	}
 }
