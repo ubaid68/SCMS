@@ -8316,3 +8316,429 @@ Stack trace:
 REQUEST_URI=/scms_yiifun/index.php/customer/admin
 HTTP_REFERER=http://localhost/scms_yiifun/index.php/Customer
 ---
+2012/11/23 10:55:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php
+---
+2012/11/23 10:56:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php
+---
+2012/11/23 10:56:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/23 10:56:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('mostProfitableP...')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('SalePr/mostProf...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/SalePr/mostProfitableProduct
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/SalePr/mostProfitableProduct
+---
+2012/11/27 07:53:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('delete')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('salePr/delete')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/salePr/delete/9
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/site/login
+---
+2012/11/27 07:53:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('product/admin')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/scms_yiifun/index.php/product/admin
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/Product
+---
+2012/11/27 08:48:11 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\framework\web\CController.php:1119
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterPostOnly(Object(CFilterChain))
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\framework\web\CWebApplication.php(283): CController->run('delete')
+#9 C:\wamp\www\framework\web\CWebApplication.php(142): CWebApplication->runController('salePr/delete')
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\scms_yiifun\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/scms_yiifun/index.php/salePr/delete/10
+HTTP_REFERER=http://localhost/scms_yiifun/index.php/site/login
+---
