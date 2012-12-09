@@ -13,17 +13,17 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'cu_id'); ?>
-		<?php echo $form->textField($model,'cu_id'); ?>
+		<?php echo $form->textField($model,'cu_id',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'cu_name'); ?>
-		<?php echo $form->textField($model,'cu_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'cu_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'cu_desp'); ?>
-		<?php echo $form->textField($model,'cu_desp',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'cu_desp',array('size'=>50,'maxlength'=>200,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row buttons">

@@ -10,17 +10,27 @@
 <?php if(Yii::app()->user->hasFlash('salermsuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('salermsuccess');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div>
+
+<?php //echo Yii::app()->user->getFlash('salermsuccess');?> 
 </div>
 <?php } ?>
 <?php
 //sale success msg
 ?>
 <?php if(Yii::app()->user->hasFlash('samplermsuccess')){ ?>
-
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('samplermsuccess');  ?>
+<!-- start of messages -->
+<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
 </div>
+
+ <?php //echo Yii::app()->user->getFlash('samplermsuccess');?> 
+ </div>
 <?php } ?>
 
 <?php
@@ -29,7 +39,14 @@
 <?php if(Yii::app()->user->hasFlash('infqrm')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('infqrm');  ?>
+	
+<!-- start of messages -->
+<div class="response-msg  ui-corner-all">
+<span>Insufficent Quantity!</span>
+    
+</div>
+	
+	<?php //echo Yii::app()->user->getFlash('infqrm');  ?>
 </div>
 <?php } ?>
 
@@ -62,32 +79,32 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 		
 	<div class="row">
 		<?php echo $form->labelEx($model,'rm_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'rm_id',$l,array('prompt'=>'Select Rawmaterial')); ?>
+		<?php echo CHtml::activeDropDownList($model,'rm_id',$l,array('prompt'=>'Select Rawmaterial','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'rm_id'); ?>
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'login_id'); ?>	
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
 		
-		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">
+		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>" class="fields">
 	
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'cu_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'cu_id',$lis,array('prompt'=>'Select Customer Name')); ?>
+		<?php echo CHtml::activeDropDownList($model,'cu_id',$lis,array('prompt'=>'Select Customer Name','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'cu_id'); ?>
 	</div>
 
 	<div class="row">
 		
 		<?php echo $form->labelEx($model,'st_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','onchange'=>'st_onChange(this.value);')); ?>
+		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','class'=>'cjCombo','onchange'=>'st_onChange(this.value);')); ?>
 		<?php echo $form->error($model,'st_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'purt_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'purt_id',$listp,array('prompt'=>'Select Purchaser Type')); ?>
+		<?php echo CHtml::activeDropDownList($model,'purt_id',$listp,array('prompt'=>'Select Purchaser Type','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'purt_id'); ?>
 	</div>
 
@@ -107,7 +124,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
                               'dateFormat'=>'d MM, yy',
                               'showAnim' => 'slideDown',
                               ),
-    'htmlOptions'=>array('size'=>30,'class'=>'date'),
+    'htmlOptions'=>array('size'=>30,'class'=>'date','class'=>'fields'),
           )
     );
   
@@ -120,19 +137,19 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'srmp_unit'); ?>
-		<?php echo $form->textField($model,'srmp_unit'); ?>
+		<?php echo $form->textField($model,'srmp_unit',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'srmp_unit'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'srm_quantity'); ?>
-		<?php echo $form->textField($model,'srm_quantity'); ?>
+		<?php echo $form->textField($model,'srm_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'srm_quantity'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'srm_discount'); ?>
-		<?php echo $form->textField($model,'srm_discount'); ?>
+		<?php echo $form->textField($model,'srm_discount',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'srm_discount'); ?>
 	</div>
 

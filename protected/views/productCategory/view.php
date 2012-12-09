@@ -26,4 +26,4 @@ $this->menu=array(
 		'pc_qmeasures',
 		'pc_description',
 	),
-)); ?>
+)); ?></div>

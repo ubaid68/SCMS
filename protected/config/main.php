@@ -8,9 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'SCMS',
-    //'theme'=>'aquincum',
-	// 'theme'=>'shadow_dancer',
-'theme'=>'fira',
+   
+     'theme'=>'fira',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

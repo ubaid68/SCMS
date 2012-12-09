@@ -10,7 +10,10 @@
 <?php if(Yii::app()->user->hasFlash('rmcategoryduplicate')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('rmcategoryduplicate');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>Raw material category Duplicate Entry..</span>
+</div>
+	<?php //echo Yii::app()->user->getFlash('rmcategoryduplicate');  ?>
 </div>
 <?php } ?>
 
@@ -20,7 +23,12 @@
 <?php if(Yii::app()->user->hasFlash('rmcategorysuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('rmcategorysuccess');  ?>
+<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div> 
+
+<?php //echo Yii::app()->user->getFlash('rmcategorysuccess'); ?> 
 </div>
 <?php } ?>
 
@@ -37,19 +45,19 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rmc_name'); ?>
-		<?php echo $form->textField($model,'rmc_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'rmc_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'rmc_name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rmc_qmeasures'); ?>
-		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'rmc_qmeasures',array('size'=>20,'maxlength'=>20,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'rmc_qmeasures'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rmc_description'); ?>
-		<?php echo $form->textField($model,'rmc_description',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'rmc_description',array('size'=>60,'maxlength'=>200,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'rmc_description'); ?>
 	</div>
 

@@ -10,7 +10,12 @@
 <?php if(Yii::app()->user->hasFlash('buysuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('buysuccess');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div>
+
+ <?php// echo Yii::app()->user->getFlash('buysuccess');?>  
 </div>
 <?php } ?>
 
@@ -34,14 +39,14 @@ $event;
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'s_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'s_id',$list,array('prompt'=>'Select Supplier Name')); ?>
+		<?php echo CHtml::activeDropDownList($model,'s_id',$list,array('prompt'=>'Select Supplier Name','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'s_id'); ?>
 	</div>
 
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rm_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'rm_id',$lis,array('prompt'=>'Select Raw-Material')); ?>
+		<?php echo CHtml::activeDropDownList($model,'rm_id',$lis,array('prompt'=>'Select Raw-Material','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'rm_id'); ?>
 	</div>
 

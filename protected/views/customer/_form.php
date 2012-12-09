@@ -10,8 +10,16 @@
 <?php if(Yii::app()->user->hasFlash('cussuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('cussuccess');  ?>
+
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+
+</div> 
+
+<?php //echo Yii::app()->user->getFlash('cussuccess');?>
+
 </div>
+
 <?php } ?>
 
 <div class="form">
@@ -27,13 +35,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cu_name'); ?>
-		<?php echo $form->textField($model,'cu_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'cu_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'cu_name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cu_desp'); ?>
-		<?php echo $form->textField($model,'cu_desp',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'cu_desp',array('size'=>60,'maxlength'=>200,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'cu_desp'); ?>
 	</div>
 

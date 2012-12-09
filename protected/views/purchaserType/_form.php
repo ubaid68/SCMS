@@ -9,7 +9,10 @@
 <?php if(Yii::app()->user->hasFlash('purtduplicate')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('purtduplicate');  ?>
+	<div class="response-msg error ui-corner-all">
+<span>Purchaser type Duplicate Entry..</span>
+</div>
+	<?php //echo Yii::app()->user->getFlash('purtduplicate');  ?>
 </div>
 <?php } ?>
 

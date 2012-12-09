@@ -14,7 +14,8 @@
  * @property double $sp_unit
  * @property integer $sp_quantity
  * @property integer $sp_discount
- *
+ *@property integer $sp_totalsale
+ 
  * The followings are the available model relations:
  * @property PurchaserType $purt
  * @property Employee $login
@@ -170,7 +171,7 @@ class SalePr extends CActiveRecord
 
 		));
 	}
-	public function sea()
+	public function invoiceprsearch()
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
@@ -243,7 +244,54 @@ class SalePr extends CActiveRecord
 
 		));
 	}
+	public function mspsearch()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('sp_id',$this->sp_id);
+		$criteria->compare('p_id',$this->p_id);
+		
+		
+		$criteria->compare('st_id',$this->st_id);
+		$criteria->condition='st_id=1';
+		
+		$criteria->condition='sp_totalsale>0';
+		
+		//$criteria->compare('sp_totalsale',$this->sp_totalsale);
+		//$criteria->compare('login_id',$this->login_id);
+		//$criteria->compare('cu_id',$this->cu_id);
+		//$criteria->compare('purt_id',$this->purt_id);
+		//$criteria->compare('sp_date',$this->sp_date,true);
+		
+		//$criteria = new CDbCriteria;
+		
+		//$criteria->compare('sp_unit',$this->sp_unit);
+		//$criteria->condition='sp_unit>0';
+		
+		
+		
+		//$criteria->compare('sp_quantity',$this->sp_quantity);
+		//$criteria->compare('sp_discount',$this->sp_discount);
+
+		//return new CActiveDataProvider($this, array(
+			//'criteria'=>$criteria,)
+		//for reverse sort
+		 return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       /*'sort' => array(
+                              'defaultOrder' => 'sp_id DESC',  // this is it.
+                      ),
+					  */
+                        'pagination' => array(
+                                'pageSize' => 30,
+                        )
+
+
+		));
+	}
 	protected function beforeSave()
 	{
 		$this->sp_date=date('Y-m-d', strtotime(str_replace(",", "", $this->sp_date)));
@@ -257,24 +305,52 @@ class SalePr extends CActiveRecord
 		$this->sp_date=date('d F, Y', strtotime(str_replace("-", "", $this->sp_date)));       
 	}
 	
-	public function getTotalSale(){
+	/*public function getTotalSale(p_id){
 		
-		$p = Product::model()->findAll();
+		//$p = Product::model()->findAll();
 		//var_dump($p);
-		/*$models = SalePr::model()->findByAttributes(array('p_id'=>$p_id));
+		$models = SalePr::model()->findByAttributes(array('p_id'=>$p_id));
 		var_dump($models);
-		$cost = 0;
+		$sum = 0;
 		if($models != null)
 		{
 			foreach($models as $m){
-				var_dump($m);
-				//$cost = $cost + ($m[7] * $m[8]);
+				//var_dump($m);
+				//$sum = $sum + (sp_totalsale);
 			}
 		}
-		*/
+		
 		return $p;
 		
 	}
-	
+	*/
+	/*public function getTotalSale($p_id)
+	{
+		//$models = $this->model()->findByPk($p_id);
+		$mode = SalePr::model()->findByPk();
+		$sum= 0;
+		//var_dump($mode->sp_totalsale);
+		foreach($mode as $m){
+			$sum = $sum + ($mode->sp_totalsale);
+		}
+		
+		return $sum;
+	}
+	*/
+	public function getTotalSale($p_id)
+	{
+		//$mos = $this->model()->findByPk('sp_id');
+		$mos=SalePr::model()->findAll('p_id');
+		$cost = 0;
+		//var_dump($mos);
+		foreach($mos as $m){
+			$cost = $cost + ($m->sp_totalsale);
+			//echo "<pre>";
+		//var_dump($mos->sp_id);
+		//echo "</pre>";
+		}
+		
+		return $cost;
+	}
 	
 }

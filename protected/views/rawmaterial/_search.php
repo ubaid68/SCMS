@@ -13,37 +13,37 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'rm_id'); ?>
-		<?php echo $form->textField($model,'rm_id'); ?>
+		<?php echo $form->textField($model,'rm_id',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rmc_id'); ?>
-		<?php echo $form->textField($model,'rmc_id'); ?>
+		<?php echo $form->textField($model,'rmc_id',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rm_name'); ?>
-		<?php echo $form->textField($model,'rm_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'rm_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rm_code'); ?>
-		<?php echo $form->textField($model,'rm_code',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'rm_code',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rmp_unit'); ?>
-		<?php echo $form->textField($model,'rmp_unit'); ?>
+		<?php echo $form->textField($model,'rmp_unit',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rm_quantity'); ?>
-		<?php echo $form->textField($model,'rm_quantity'); ?>
+		<?php echo $form->textField($model,'rm_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'rm_reservelevel'); ?>
-		<?php echo $form->textField($model,'rm_reservelevel',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'rm_reservelevel',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row buttons">

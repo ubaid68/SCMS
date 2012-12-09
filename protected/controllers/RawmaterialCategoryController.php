@@ -194,6 +194,7 @@ class RawmaterialCategoryController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		echo $this->layout;
 		$model=new RawmaterialCategory('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['RawmaterialCategory']))

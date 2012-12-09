@@ -9,15 +9,26 @@
 <?php if(Yii::app()->user->hasFlash('ppd')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('ppd');  ?>
+
+<div class="response-msg  ui-corner-all">
+<span>Product Name or code Duplicate Entry..</span>
+</div>
+
+	<?php //echo Yii::app()->user->getFlash('ppd');  ?>
 </div>
 <?php } ?>
 
 
 <?php if(Yii::app()->user->hasFlash('pps')){ ?>
-
+   <!-- start of messages -->
+<!-- start of messages -->
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('pps');  ?>
+<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+</div>
+
+
+	<?php //echo Yii::app()->user->getFlash('pps');  ?>
 </div>
 <?php } ?>
 
@@ -34,6 +45,7 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	
 
 	
 
@@ -77,7 +89,7 @@ $list=CHtml::listData(ProductCategory::model()->findAll(), 'pc_id', 'pc_name');
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_quantity'); ?>
 		<?php echo $form->textField($model,'p_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields'));?>	
-		<div id="rmc" style="display:inline;">  unit</div>
+		<div id="rmc" style="float: right; margin-top: -32px; width: 557px;">  unit</div>
 		<?php echo $form->error($model,'p_quantity'); ?>
 	</div>
 	<div class="row">

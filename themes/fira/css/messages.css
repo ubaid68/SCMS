@@ -10,25 +10,32 @@
     padding: 0 0 4px;
 }
 .error {
-    background: url("../images/icons/error.png") no-repeat scroll 10px 50% #F9E5E6;
+    background:no-repeat scroll 10px 50% #F9E5E6;
     border: 1px solid #E8AAAD;
     color: #B50007;
+	width:250px;
+	
+	margin-left:10px;
+	padding-top:20px;
 }
 .notice {
-    background: url("../images/icons/notice.png") no-repeat scroll 10px 50% #F9F9E5;
+    background: url("../images/notice.png") no-repeat scroll 10px 50% #F9F9E5;
     border: 1px solid #E8E3AA;
     color: #828400;
 }
 .inf {
-    background: url("../images/icons/info.png") no-repeat scroll 10px 50% #E5ECF9;
+    background: url("../images/info.png") no-repeat scroll 10px 50% #E5ECF9;
     border: 1px solid #AAC6E8;
     color: #0055B5;
     padding-left: 50px;
 }
 .success {
-    background: url("../images/icons/success.png") no-repeat scroll 10px 50% #E9F9E5;
+    background:no-repeat scroll 10px 50% #E9F9E5;
     border: 1px solid #B4E8AA;
     color: #1C8400;
+	width:250px;
+	padding-left:40px;
+	margin-left:10px;
 }
 #page-wrapper .other-box {
     margin: 15px 0;
@@ -50,4 +57,26 @@
     background: none repeat scroll 0 0 #FFF6BF;
     border: 1px solid #FDD845;
     padding: 5px;
+}
+.flash-success{
+
+	background: url("../images/success.png") no-repeat scroll 10px 50% #E9F9E5;
+ 
+    border: 1px solid #B4E8AA;
+    color: #1C8400;
+	width:964px;
+	padding-left:10px;
+	padding-top:10px;
+	margin-left:10px;
+}
+.flash-error{
+
+	background: url("../images/error.png") no-repeat scroll 10px 50% #F9E5E6;
+ 
+    border: 1px solid #E8AAAD;
+    color: #B50007;
+	width:964px;
+	padding-left:10px;
+	padding-top:10px;
+	margin-left:10px;
 }

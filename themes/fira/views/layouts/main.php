@@ -12,6 +12,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/superfish.js"></script>
 <!--<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery-ui-1.7.2.js"></script>-->
+ 
 <?php Yii::app()->getClientScript()->registerCoreScript( 'jquery.ui' ); ?>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/tooltip.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/tablesorter.js"></script>
@@ -22,12 +23,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
 <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery-dynamic-form.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/ui.css" />
-<?phpYii::app()->getClientScript()->registerCssFile('/fira/css/ui.css');?>
+<?php Yii::app()->getClientScript()->registerCssFile('/fira/css/ui.css'); ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/forms.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/tables.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/thickbox.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/custom.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/messages.css" />
+<?php Yii::app()->getClientScript()->registerCssFile('/fira/css/messages.css'); ?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/datatable.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/general.css" />
 
@@ -39,10 +41,41 @@ $baseUrl = Yii::app()->theme->baseUrl;
  <?php if(!Yii::app()->user->isGuest)
    {
    ?>
+   
 <div id="header">
 
-  <div id="top-menu"> 
+	
+  <div id="top-menu">
+	<?php 
+	 
+   echo "<font color=#E6E6E6 style='padding-right:1px'>My account </font>|".CHtml::link("Setting",Yii::app()->baseUrl.'/index.php/Employee/Admin',array("style"=>"color:#E6E6E6;padding-left:3px"))."<font color=#E6E6E6 style='padding-left:9px'>Logged in as </font> ";
+	
+	 $user=(Employee::model()->findByPk(Yii::app()->user->id));
+	//echo $user->role;
+	$con=$user->role;
+	switch($con)
+	{
+	case 'manager':
+	echo "<font color=#E6E6E6 style='padding-right:2px'>Manager</font>";
+	break;
+	case 'productManager':
+	echo "<font color=#E6E6E6 style='padding-right:2px'>Product Manager </font>";
+	break;
+	case 'materialManager':
+	echo "<font color=#E6E6E6 style='padding-right:2px'> Raw Material Manager</font>";
+	break;
+	case 'salesMan':
+	echo "<font color=#E6E6E6 style='padding-right:2px'>Salesman</font>";
+	break;
+	}
+	echo "|";
+	echo CHtml::link("Logout",Yii::app()->baseUrl.'/index.php/site/logout',array("style"=>"color:#E6E6E6;padding-left:3px")); 
+	?> 
+  <?php
  
+  ?>
+        
+		
 		<div id="mainmenu">
 		
 	</div>
@@ -73,18 +106,16 @@ $this->widget('zii.widgets.CMenu',array(
       'linkOptions'=>array('id'=>'menuChange'),
       'itemOptions'=>array('id'=>'itemChange'),
       'items'=>array(
-        array('label'=>'Product', 'url'=>array('#'),
-		'linkOptions'=>array('id'=>'menuChange'),
-        'itemOptions'=>array('id'=>'itemChange'),
+        array('label'=>'Product','url'=>array('#'),
+		
 		'items'=>array(
-        array('label'=>'Stock Report', 'url'=>array('/product/StockReportPR')),),),
-        array('label'=>'Raw Material', 'url'=>array('#'),
-		'linkOptions'=>array('id'=>'menuChange'),
-        'itemOptions'=>array('id'=>'itemChange'),
+        array('label'=>'Stock Report','url'=>array('/product/StockReportPR')),),),
+        array('label'=>'Raw Material','url'=>array('#'),
+		
 		'items'=>array(
         array('label'=>'Stock Report', 'url'=>array('/rawmaterial/StockReportRM')),),),
-        array('label'=>'Most Saleable Product(Rs)', 'url'=>array('/product/MostProfitableProducts')),
-		array('label'=>'Most Saleable Product(Qty)', 'url'=>array('/product/MostProfitableProducts')),
+        array('label'=>'Most Saleable Product(Rs)', 'url'=>array('/Msproduct/MostSaleableProductRs')),
+		array('label'=>'Most Saleable Product(Qty)', 'url'=>array('/Msproduct/MostSaleableProductQty')),
       ),
     ),
 	array(
@@ -93,8 +124,14 @@ $this->widget('zii.widgets.CMenu',array(
       'linkOptions'=>array('id'=>'menuCompany'),
       'itemOptions'=>array('id'=>'itemCompany'),
       'items'=>array(
-        array('label'=>'Store Inward', 'url'=>array('#')),
-        array('label'=>'Store Outward', 'url'=>array('#')),
+        array('label'=>'Product Store', 'url'=>array('#'),
+		'items'=>array(
+        array('label'=>'Store Inward', 'url'=>array('/finishedProduct/Index')),
+        array('label'=>'Store Outward', 'url'=>array('/salePr/Index')))),
+        array('label'=>'Raw Material Store', 'url'=>array('#'),
+		'items'=>array(
+        array('label'=>'Store Inward', 'url'=>array('/supplies/Index')),
+        array('label'=>'Store Outward', 'url'=>array('/saleRm/Index')))),
        
       ),
     ),
@@ -125,7 +162,7 @@ $this->widget('zii.widgets.CMenu',array(
         array('label'=>'Add a New Material', 'url'=>array('/rawmaterial/create')),
         array('label'=>'Add a new Category', 'url'=>array('/rawmaterialCategory/create')),
         array('label'=>'Sale Material', 'url'=>array('/saleRm/create')),
-		array('label'=>'Manage Material', 'url'=>array('/rawmaterial/admin')),
+		array('label'=>'Manage Material', 'url'=>array('/rawmaterial/Admin')),
 		array('label'=>'Manage Sale', 'url'=>array('/saleRm/admin')),
 		array('label'=>'Material Invoice', 'url'=>array('/SaleRm/InvoiceRM')),
       ),
@@ -139,24 +176,26 @@ $this->widget('zii.widgets.CMenu',array(
         array('label'=>'View All Users', 'url'=>array('/employee/index')),
         array('label'=>'Add a New User', 'url'=>array('/employee/create')),
         array('label'=>'Manage Users', 'url'=>array('/employee/admin')),
-        array('label'=>'View User Type', 'url'=>array('/employeeType/index')),
-		array('label'=>'Add User Type', 'url'=>array('/employeeType/create')),
-		array('label'=>'Manage User Type', 'url'=>array('/employeeType/admin')),
+		
+		
+       
 	  ),
     ),
 	 array(
-      'label'=>'Supplier',
-      'url'=>array('/product/index'),
+      'label'=>'Supplier & Customers',
+      'url'=>array('/supplier/index'),
       'linkOptions'=>array('id'=>'menuCompany'),
       'itemOptions'=>array('id'=>'itemCompany'),
       'items'=>array(
         array('label'=>'View All Suppliers', 'url'=>array('/supplier/index')),
         array('label'=>'Add a new Suppliers', 'url'=>array('/supplier/create')),
         array('label'=>'Manage Suppliers', 'url'=>array('/supplier/admin')),
-        
+        array('label'=>'View All Customers', 'url'=>array('/customer/index')),
+        array('label'=>'Add a new Customers', 'url'=>array('/customer/create')),
+        array('label'=>'Manage Customers', 'url'=>array('/customer/admin')),
 	  ),
     ),
-	array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+	
 	
 ))); ?>
 
@@ -166,11 +205,10 @@ $this->widget('zii.widgets.CMenu',array(
   <?php }?>   
 <div id="page-wrapper">
   <div id="main-wrapper">
-   <div id="content"> 
-     
-         <?php echo $content; ?>    
-    </div>
-    <div class="clearfix"></div>
+    
+        <?php echo $content; ?>  
+		
+     <div class="clearfix"></div>
   </div>
    <?php if(!Yii::app()->user->isGuest){?>
 <div id="sidebar">
@@ -191,7 +229,7 @@ $this->widget('zii.widgets.CMenu',array(
 				<li><?php echo CHtml::link('Sale Product',array('salePr/create')); ?></li>
 				<li><?php echo CHtml::link('Manage Products',array('product/admin')); ?></li>
 				<li><?php echo CHtml::link('Manage Sale',array('salePr/admin')); ?></li>
-				<li><?php echo CHtml::link('Product Invoice',array('salePr/invoiceproduct')); ?></li>
+				
 				
               </ul>
             </div>
@@ -219,9 +257,19 @@ $this->widget('zii.widgets.CMenu',array(
                 <li><?php echo CHtml::link('View All Users',array('employee/index')); ?></li>
 				<li> <?php echo CHtml::link('Add a new User',array('employee/create')); ?> </li>
 				<li> <?php echo CHtml::link('Manage Users',array('employee/admin')); ?> </li>
-				<li> <?php echo CHtml::link('View User Type',array('employeeType/index')); ?> </li>
-				<li> <?php echo CHtml::link('Add User Type',array('employeeType/create')); ?> </li>
-				<li> <?php echo CHtml::link('Manage User Type',array('employeeType/admin')); ?> </li>
+				
+              </ul>
+            </div>
+			<h3><a href="#">Suppliers & Customers </a></h3>
+            <div>
+              <ul class="side-menu">
+                <li><?php echo CHtml::link('View All Suppliers',array('/supplier/index')); ?></li>
+				<li> <?php echo CHtml::link('Add a new Supplier',array('/supplier/Create')); ?> </li>
+				<li> <?php echo CHtml::link('Manage Suppliers',array('/supplier/admin')); ?> </li>
+				<li><?php echo CHtml::link('View All Customers',array('/customer/index')); ?></li>
+				<li> <?php echo CHtml::link('Add a new Customers',array('/customer/create')); ?> </li>
+				<li> <?php echo CHtml::link('Manage Customers',array('/customer/admin')); ?> </li>
+				
               </ul>
             </div>
           </div>
@@ -231,11 +279,8 @@ $this->widget('zii.widgets.CMenu',array(
               <ul class="side-menu">
                <li><?php echo CHtml::link('Product Stock Report',array('product/StockReportPR')); ?></li>
                 <li><?php echo CHtml::link('Raw Material Stock Report',array('rawmaterial/StockReportRM')); ?></li></a> </li>
-                <li> <a href="?act=reports&sub=lowstock" class="tooltip" title="Product Low Report"> Low Stock </a> </li>
-                <li> <a href="?act=reports&sub=lowstock&type=r" class="tooltip" title="Materials Low Report"> Low Stock </a> </li>
-                <li> <a href="?act=reports&sub=transactions" class="tooltip" title="Transactions"> Transactions </a> </li>
-				<li><?php echo CHtml::link('Most Profitable',array('product/MostProfitableProducts')); ?></li> 
-				<li><?php echo CHtml::link('Top Seller',array('product/Topseller')); ?></li> 
+				<li><?php echo CHtml::link('Most Saleable product(Rs)',array('/Msproduct/MostSaleableProductRs')); ?></li></a>
+				</li><li><?php echo CHtml::link('Most saleable Product(Qty)',array('/Msproduct/MostSaleableProductQty')); ?></li></a> </li>
                 </ul>
             </div>
           </div>
@@ -259,10 +304,10 @@ $this->widget('zii.widgets.CMenu',array(
 <div class="clearfix"></div>
 	<div id="footer">
 		<div id="menu">
-			<a href="#" title="Home">Home</a>
-			<a href="#" title="Administration">Administration</a>
+			<a href="<?php echo Yii::app()->baseUrl.'/index.php/site/Index';?>" title="Home">Home</a>
+			<a href="" title="Administration">Administration</a>
 			<a href="?act=settings" title="Settings">Settings</a>
-			<a href="#" title="Contact">Contact</a>
+			<a href="<?php echo Yii::app()->baseUrl.'/index.php/site/Contact';?>" title="Contact">Contact</a>
 		</div>
 		Copyright &copy; 2012- 2013 
 	</div>

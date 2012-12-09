@@ -10,7 +10,13 @@
 <?php if(Yii::app()->user->hasFlash('samplesuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('samplesuccess');  ?>
+	
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div>
+
+	<?php //echo Yii::app()->user->getFlash('samplesuccess');  ?>
 </div>
 <?php } ?>
 
@@ -18,10 +24,16 @@
 //sale success msg
 ?>
 <?php if(Yii::app()->user->hasFlash('salesuccess')){ ?>
-
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('salesuccess');  ?>
+<div class="response-msg  ui-corner-all">
+<span>Sold successfully!</span>
+    
 </div>
+
+</div>
+
+ 	<?php //echo Yii::app()->user->getFlash('salesuccess');  ?>
+
 <?php } ?>
 
 <?php
@@ -30,7 +42,11 @@
 <?php if(Yii::app()->user->hasFlash('infq')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('infq');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>Insuffiecient Quantity</span>
+</div>
+
+	<?php //echo Yii::app()->user->getFlash('infq');  ?>
 </div>
 <?php } ?>
 
@@ -55,7 +71,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'p_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'p_id',$l,array('prompt'=>'Select Product')); ?>
+		<?php echo CHtml::activeDropDownList($model,'p_id',$l,array('prompt'=>'Select Product','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'p_id'); ?>
 	</div>
 	<div class="row">
@@ -63,12 +79,12 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 		<?php echo $form->labelEx($model,'login_id'); ?>
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
 	
-		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">
+		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>" class="fields">
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cu_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'cu_id',$lis,array('prompt'=>'Select Customer Name')); ?>
+		<?php echo CHtml::activeDropDownList($model,'cu_id',$lis,array('prompt'=>'Select Customer Name','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'cu_id'); ?>
 	</div>
 
@@ -76,7 +92,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 	<div class="row">
 		<?php echo $form->labelEx($model,'st_id'); ?>
 		<?phpvar_dump($list['2']);?>
-		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','onchange'=>'st_onChange(this.value);')
+		<?php echo CHtml::activeDropDownList($model,'st_id',$list,array('prompt'=>'Select Sale Type','class'=>'cjCombo','onchange'=>'st_onChange(this.value);')
 											);
 								?>
 		<?php echo $form->error($model,'st_id'); ?>
@@ -84,7 +100,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'purt_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'purt_id',$listp,array('prompt'=>'Select Purchaser Type')); ?>
+		<?php echo CHtml::activeDropDownList($model,'purt_id',$listp,array('prompt'=>'Select Purchaser Type','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'purt_id'); ?>
 	</div>
 
@@ -104,7 +120,7 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
                               'dateFormat'=>'d MM, yy',
                               'showAnim' => 'slideDown',
                               ),
-    'htmlOptions'=>array('size'=>30,'class'=>'date'),
+    'htmlOptions'=>array('size'=>30,'class'=>'date','class'=>'fields'),
           )
     );
   
@@ -116,20 +132,20 @@ $listp=CHtml::listData(PurchaserType::model()->findAll(), 'purt_id', 'purt_name'
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sp_unit'); ?>
-		<?php echo $form->textField($model,'sp_unit'); ?>
+		<?php echo $form->textField($model,'sp_unit',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		
 		<?php echo $form->error($model,'sp_unit'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sp_quantity'); ?>
-		<?php echo $form->textField($model,'sp_quantity'); ?>
+		<?php echo $form->textField($model,'sp_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'sp_quantity'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sp_discount'); ?>
-		<?php echo $form->textField($model,'sp_discount'); ?>
+		<?php echo $form->textField($model,'sp_discount',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		
 		<?php echo $form->error($model,'sp_discount'); ?>
 	</div>

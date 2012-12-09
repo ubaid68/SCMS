@@ -19,7 +19,10 @@
 <?php if(Yii::app()->user->hasFlash('stysuccess')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('stysuccess');  ?>
+	<div class="response-msg success ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div> 
 </div>
 <?php } ?>
 

@@ -15,7 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage Rawmaterial', 'url'=>array('admin')),
 );
 ?>
-<d
+
 <h1>View Rawmaterial #<?php echo $model->rm_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(

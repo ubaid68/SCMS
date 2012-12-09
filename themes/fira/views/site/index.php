@@ -15,7 +15,26 @@
    
     
       <div class="page-title ui-widget-content ui-corner-all">
-  <h1>Administration Options</h1>
+  <h2><?php
+   $user=(Employee::model()->findByPk(Yii::app()->user->id));
+	//echo $user->role;
+	$con=$user->role;
+	switch($con)
+	{
+	case 'manager':
+	echo "<font>Manager</font>";
+	break;
+	case 'productManager':
+	echo "<font>Product Manager </font>";
+	break;
+	case 'materialManager':
+	echo "<font> Raw Material Manager</font>";
+	break;
+	case 'salesMan':
+	echo "<font>Salesman</font>";
+	break;
+	}
+  ?> Options</h2>
   <br />
 
   <div id="tabs">
@@ -65,7 +84,7 @@
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/defectiveMaterial/Create';?>" class="Receive_back tooltip" title="Receive From Factory (defected material)"> Receive Back </a> </li>
 			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterial/Index';?>" class="User_list tooltip" title="Material List"> Material List </a> </li>
 			
-			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterialcategory/create/Index';?>" class="Box_recycle tooltip" title="View Categories">View Categories</a></li>
+			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterialcategory/Index';?>" class="Box_recycle tooltip" title="View Categories">View Categories</a></li>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/saleRm/Index';?>" class="Sale tooltip" title="View Sale"> View Sales </a> </li>
            	<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/supplies/Index';?>" class="Buy tooltip" title="View Supplies">View Supplies </a> </li>
 			
@@ -129,9 +148,9 @@
 		   
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/product/StockReportPR';?>" class="Report tooltip" title="Stock Product Report"> Product Stock Report </a> </li>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterial/StockReportRM';?>" class="Report tooltip" title="Stock Material Report"> Material Stock Report </a> </li>
-            <!--<li> <a href="?act=reports&sub=transactions" class="Transactions tooltip" title="Transactions"> Transactions </a> </li>-->
-            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/salePr/MostSaleableProduct';?>" class="Top_sale tooltip" title="Most SaleAble Product(Rs)">Most SaleAble Product(Rs) </a> </li>
-            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/salePr/MostSaleableProduct';?>" class="Top_sale tooltip" title="Most SaleAble Product(Qty)">Most SaleAble Product(Qty) </a> </li>
+            
+            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/Msproduct/MostSaleableProductRs';?>" class="Top_sale tooltip" title="Most SaleAble Product(Rs)">Most SaleAble Product(Rs) </a> </li>
+            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/Msproduct/MostSaleableProductQty';?>" class="Top_sale tooltip" title="Most SaleAble Product(Qty)">Most SaleAble Product(Qty) </a> </li>
             
                 <div class="clearfix"></div>
             </li>

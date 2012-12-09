@@ -12,9 +12,10 @@
 {
 	background: white;
 	border-collapse: collapse;
-	width: 700px;
+	width: 976px;
 	border: 1px #D0E3EF solid;
 	margin-left:10px;
+	width: 867px;
 }
 
 .grid-view table.items th, .grid-view table.items td
@@ -22,6 +23,7 @@
 	font-size: 0.9em;
 	border: 1px white solid;
 	padding: 0.3em;
+	width:35px;
 }
 
 .grid-view table.items th
@@ -100,12 +102,14 @@
 {
 	margin: 0 0 5px 0;
 	text-align: right;
+	width:875px;
 }
 
 .grid-view .pager
 {
 	margin: 5px 0 0 0;
 	text-align: right;
+    width: 875px;
 }
 
 .grid-view .empty

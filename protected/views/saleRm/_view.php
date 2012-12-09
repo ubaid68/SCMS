@@ -10,24 +10,24 @@
 	<br />
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('rm_id')); ?>:</b>
-	<?php echo CHtml::encode($data->rm_id); ?>
+	<?php echo CHtml::encode($data->rm->rm_name); ?>
 	<br />
 	
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('login_id')); ?>:</b>
-	<?php echo CHtml::encode($data->login_id); ?>
+	<?php echo CHtml::encode($data->login->u_fname); ?>
 	<br />
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cu_id')); ?>:</b>
-	<?php echo CHtml::encode($data->cu_id); ?>
+	<?php echo CHtml::encode($data->cu->cu_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('st_id')); ?>:</b>
-	<?php echo CHtml::encode($data->st_id); ?>
+	<?php echo CHtml::encode($data->st->st_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('purt_id')); ?>:</b>
-	<?php echo CHtml::encode($data->purt_id); ?>
+	<?php echo CHtml::encode($data->purt->purt_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('srm_date')); ?>:</b>
@@ -50,4 +50,3 @@
 
 
 </div>
-<br /><br /><br />

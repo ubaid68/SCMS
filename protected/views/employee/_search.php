@@ -13,27 +13,27 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'login_id'); ?>
-		<?php echo $form->textField($model,'login_id'); ?>
+		<?php echo $form->textField($model,'login_id',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'user_name'); ?>
-		<?php echo $form->textField($model,'user_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'user_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'u_fname'); ?>
-		<?php echo $form->textField($model,'u_fname',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'u_fname',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'u_lname'); ?>
-		<?php echo $form->textField($model,'u_lname',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'u_lname',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'role'); ?>
-		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'role',array('size'=>50,'maxlength'=>255,'class'=>'fields')); ?>
 	</div>
 
 	<div class="row buttons">

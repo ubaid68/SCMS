@@ -9,7 +9,10 @@
 <?php if(Yii::app()->user->hasFlash('pd')){ ?>
 
 <div class="flash-error">
-	<?php echo Yii::app()->user->getFlash('pd');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>Product Category Duplicate Entry..</span>
+</div>
+	<?php //echo Yii::app()->user->getFlash('pd');  ?>
 </div>
 <?php } ?>
 <?php
@@ -18,7 +21,12 @@
 <?php if(Yii::app()->user->hasFlash('ps')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('ps');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div> 
+
+<?php //echo Yii::app()->user->getFlash('ps'); ?>
 </div>
 <?php } ?>
 <div class="form">
@@ -34,19 +42,19 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pc_name'); ?>
-		<?php echo $form->textField($model,'pc_name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'pc_name',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'pc_name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pc_qmeasures'); ?>
-		<?php echo $form->textField($model,'pc_qmeasures',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'pc_qmeasures',array('size'=>20,'maxlength'=>20,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'pc_qmeasures'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pc_description'); ?>
-		<?php echo $form->textField($model,'pc_description',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'pc_description',array('size'=>60,'maxlength'=>200,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'pc_description'); ?>
 	</div>
 

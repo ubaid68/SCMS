@@ -203,6 +203,9 @@ class RawmaterialController extends Controller
 	 */
 	public function actionAdmin()
 	{
+	    //$this->layout='/layouts/column2';
+		// $this->layout='main';
+		//echo $this->layout;
 		$model=new Rawmaterial('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Rawmaterial']))

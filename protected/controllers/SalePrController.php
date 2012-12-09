@@ -72,6 +72,62 @@ class SalePrController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
+	 public function msproduct($prid)
+	 {
+	 $all=SalePr::model()->findAll('p_id=:p_id AND st_id=:st_id',array(':p_id'=>$prid,'st_id'=>1));
+	 $totalq=0;
+		 $totalc=0;
+	  for($i=0;$i<count($all);$i++)
+	     {
+		     
+		      $totalq=$totalq+$all[$i]->sp_quantity;
+		 
+		       $totalc=$totalc+$all[$i]->sp_totalsale;
+		 
+	      }
+		 $check=Msproduct::model()->find('product_id=:product_id',array(':product_id'=>$prid));
+                 $myid='';
+                 for($p=0;$p<count($check);$p++)
+                 {
+		 $myid=$check[$p]->id;
+                 }
+		if(count($check)>0)
+		 {
+		 //
+		 //$msproduct=new Msproduct;
+		 //$msproduct=$msproduct->loadModel($myid);
+		 $check->product_id=$prid;
+		 $pr=Product::model()->find('p_id=:p_id',array(':p_id'=>$all[0]->p_id));
+		 $check->product_name=$pr->p_name;
+		 $check->total_quantity=$totalq;
+		 $check->total_cost=$totalc;
+		 //$msproduct->ms_id=$check->ms_id;
+		 if($check->save())
+		    {
+			 echo "row updated";
+			 }
+		 else {
+		     print_r($check->getErrors());
+		     }
+		 }
+		 else
+		 {
+		 $msproduct=new Msproduct;
+		 $msproduct->product_id=$prid;
+		 $pr=Product::model()->find('p_id=:p_id',array(':p_id'=>$all[0]->p_id));
+		 $msproduct->product_name=$pr->p_name;
+		 $msproduct->total_quantity=$totalq;
+		 $msproduct->total_cost=$totalc;
+		 //$msproduct->ms_id=$check->ms_id;
+		 if($msproduct->save())
+		    {
+			 echo "new row Added";
+			 }
+		 else {
+		     print_r($msproduct->getErrors());
+		     }
+		 }
+	 }
 	public function actionView($id)
 	{
 		$model=new SalePr;
@@ -124,6 +180,7 @@ public function actionCreate()
 			  $model->sp_totalsale=0;
 			    if($model->save())
 				   {
+				   
 				    Yii::app()->user->setFlash('samplesuccess','Product updated as sample');
 							$this->refresh();
 			 
@@ -145,6 +202,8 @@ public function actionCreate()
 	               $model->attributes=$_POST['SalePr'];
 			        if($model->save())
 					   {
+					    $this->msproduct($model->p_id);
+					
 					    Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
 							$this->refresh(); 
 						} 
@@ -305,29 +364,10 @@ public function actionCreate()
 		
 		//}
 	}
-	public function actionMostSaleableProduct()
-	{
-		$model=new SalePr('search');
-		$model->unsetAttributes();  // clear any default values
-		
-		echo "<pre>";
-		print_r($model);
-		echo "</pre>";
-		//if(model->st_id==1)
-		//{
-		
-		//}
-		//if(isset($_GET['SalePr']))
-		//	$model->attributes=$_GET['SalePr'];
-
-		
-		$this->render('mostsaleableproduct',array(
-			'model'=>$model,));
-		
-	}
+	
 	public function actionInvoicePR()
 	{
-		$model=new SalePr('sea');
+		$model=new SalePr('invoiceprsearch');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['SalePr']))
 			$model->attributes=$_GET['SalePr'];

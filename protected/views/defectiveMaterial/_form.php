@@ -9,7 +9,12 @@
 <?php if(Yii::app()->user->hasFlash('drm')){ ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('drm');  ?>
+	<div class="response-msg  ui-corner-all">
+<span>New Record Added successfully!</span>
+    
+</div>
+
+<?php //echo Yii::app()->user->getFlash('drm'); ?>
 </div>
 <?php } ?>
 <?php
@@ -30,7 +35,7 @@ $user = (Employee::model()->findByPk(Yii::app()->user->id));
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'rm_id'); ?>
-		<?php echo CHtml::activeDropDownList($model,'rm_id',$l,array('prompt'=>'Select Rawmaterial')); ?>
+		<?php echo CHtml::activeDropDownList($model,'rm_id',$l,array('prompt'=>'Select Rawmaterial','class'=>'cjCombo')); ?>
 		<?php echo $form->error($model,'rm_id'); ?>
 	</div>
 
@@ -38,13 +43,13 @@ $user = (Employee::model()->findByPk(Yii::app()->user->id));
 		<?php echo $form->labelEx($model,'login_id'); ?>	
 		<?php echo $form->hiddenField($model,'login_id', array('value'=>$user->login_id)); ?>
 	
-		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>">
+		<input type="text" disabled="disabled" value="<?php echo $user->u_fname; ?>" class="fields">
 	
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dm_quantity'); ?>
-		<?php echo $form->textField($model,'dm_quantity'); ?>
+		<?php echo $form->textField($model,'dm_quantity',array('size'=>50,'maxlength'=>50,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'dm_quantity'); ?>
 	</div>
 
@@ -64,7 +69,7 @@ $user = (Employee::model()->findByPk(Yii::app()->user->id));
                               'dateFormat'=>'d MM, yy',
                               'showAnim' => 'slideDown',
                               ),
-    'htmlOptions'=>array('size'=>30,'class'=>'date'),
+    'htmlOptions'=>array('size'=>30,'class'=>'date','class'=>'fields'),
           )
     );
   

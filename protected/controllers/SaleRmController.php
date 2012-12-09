@@ -276,7 +276,7 @@ class SaleRmController extends Controller
 	public function actionIndex()
 	{
 		$model=new SaleRm;
-		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
+		//if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model))){
 		$dataProvider=new CActiveDataProvider('SaleRm', array(
                     'pagination' => array(
                         'pageSize' => 20
@@ -288,11 +288,11 @@ class SaleRmController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-		}
-		else 
-		{
-		throw new CHttpException(401,'You are not authorised to do this');
-		}
+		//}
+		//else 
+		//{
+		//throw new CHttpException(401,'You are not authorised to do this');
+		//}
 	
 	}
 

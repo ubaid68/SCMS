@@ -37,7 +37,7 @@ class ProductController extends Controller
 				'roles'=>array('productManager'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('StockReportPR'),
+				'actions'=>array('StockReportPR','index'),
 				'roles'=>array('manager'),
 			),
 			array('deny',  // deny all users
@@ -177,16 +177,16 @@ class ProductController extends Controller
 	public function actionIndex()
 	{
 		$model=new Product;
-		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model))){
+		//if(Yii::app()->user->checkAccess("productManager",array('user'=>$model))){
 			//print_r("the rule works only for product manager");
 		$dataProvider=new CActiveDataProvider('Product');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-		}else{
+		//}else{
 			//print_r("this user is not product manager");
-		throw new CHttpException(401,'You are not authorised to do this');
-		}
+		//throw new CHttpException(401,'You are not authorised to do this');
+		//}
 		
 	}
 
