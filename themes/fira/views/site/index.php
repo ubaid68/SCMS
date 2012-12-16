@@ -62,8 +62,8 @@
 			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/finishedProduct/Index';?>" class="Receive tooltip" title="View Receive Product"> View  Received Products </a> </li>
 			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/product/Admin';?>" class="manage tooltip" title="Manage Products"> Manage Products </a> </li>
 			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/productCategory/Admin';?>" class="manage tooltip" title="Manage Categories">Manage Categories</a></li>
-			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/salePr/Create';?>" class="manageSales tooltip" title="Manage Sale"> Manage Sales </a> </li>
-            <li> <a href="?act=materialproducts" class="Clipboard_3 tooltip" title="Add Materials to a Product"> Material Consumption</a>
+			 <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/salePr/admin';?>" class="manageSales tooltip" title="Manage Sale"> Manage Sales </a> </li>
+            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/finishedProduct/admin';?>" class="managerecieveproduct tooltip" title="Manage Recieved product"> Manage Recieve Product </a> </li>
               <div class="clearfix"></div>
             </li>
           </ul>
@@ -93,7 +93,7 @@
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterial/Admin';?>" class="manage tooltip" title="Manage Materials"> Manage Material </a> </li>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/rawmaterialcategory/Admin';?>" class="manage tooltip" title="Manage Category"> Manage Category </a>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/saleRm/Admin';?>" class="manageSales tooltip" title="Manage Sale"> Manage Sales </a> </li>
-			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/supplies/create/Admin';?>" class="manage tooltip" title="Manage Supplies"> Manage Supplies </a>
+			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/supplies/Admin';?>" class="manage tooltip" title="Manage Supplies"> Manage Supplies </a>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/factoryMaterial/Admin';?>" class="manage tooltip" title="Manage Factory Material">Manage Factory Material </a> </li>
 			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/defectiveMaterial/Admin';?>" class="manage tooltip" title="Manage Defective Material">Manage Defective Material</a> </li>
 			
@@ -151,7 +151,8 @@
             
             <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/Msproduct/MostSaleableProductRs';?>" class="Top_sale tooltip" title="Most SaleAble Product(Rs)">Most SaleAble Product(Rs) </a> </li>
             <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/Msproduct/MostSaleableProductQty';?>" class="Top_sale tooltip" title="Most SaleAble Product(Qty)">Most SaleAble Product(Qty) </a> </li>
-            
+            <li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/salePr/InvoicePR';?>" class="invoice tooltip" title="Invoice">Invoice </a> </li>
+			<li> <a href="<?php echo Yii::app()->baseUrl.'/index.php/TransactionPr/admin';?>" class="Transaction tooltip" title="Transaction">Transaction </a> </li>
                 <div class="clearfix"></div>
             </li>
           </ul>
@@ -166,9 +167,41 @@
     </div>
     <div class="clearfix"></div>
   </div>
-  
-
+   
+   
 </div>
+     <div style="background-color:#e0e0e0; ">
+     
+        <?php// echo Yii::app()->baseUrl.'/index.php/TransactionPr/Admin';
+		
+	
+		//$mo=new TransactionPr('search');
+    
+		//$this->renderPartial('//TransactionPr/admin', array('model'=>$mo))
+		
+		//Yii::app()->controller->renderFile(Yii::app()->basePath.'/TransactionPr/admin',$params);
+		
+				?>
+		<?php /*$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'transaction-pr-grid',
+	'dataProvider'=>$prmodel,
+	//'filter'=>$model,
+	'columns'=>array(
+		'tpr_id',
+		'type',
+		'name',
+		'quantity',
+		array(
+		'class'=>'CButtonColumn',
+		//	'template'=>'{delete}',
+		//	'template'=>'{update}',
+		//	'template'=>'{view}',
+		),
+	
+	
+	),
+)); */?>
+ </div>
 
 	</body>
 </html>

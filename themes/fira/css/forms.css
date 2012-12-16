@@ -53,7 +53,7 @@ div.form select
 }
 #Employee_role
 {
-	margin-left:21px;
+	/*margin-left:21px;*/
 	width: 281px;
 }
 #Rawmaterial_rmc_id
@@ -184,9 +184,10 @@ div.form select.error
 {
 	background: #FEE;
 	border-color: #C00;
-	padding-left:5px;
+	/*padding-left:5px;*/
 	width:268px;
 	/*height:2px;*/
+	padding:5px;
 }
 
 
@@ -386,7 +387,7 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	font-weight:bold;
 	font-size:16px;
 	margin:10px 10px 0 10px;
-	width:841px; border:1px solid #dddddd:
+	width:840px; border:1px solid #dddddd:
 }
 #content h2
 {

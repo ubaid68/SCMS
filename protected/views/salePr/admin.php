@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 <div style="margin-right:250px;">
-<h1>Manage Sale Prs</h1>
+<h1>Manage Sale Product</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

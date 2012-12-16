@@ -79,33 +79,43 @@ class FactoryMaterialController extends Controller
 
 		if(isset($_POST['FactoryMaterial']))
 		{
-			$model->attributes=$_POST['FactoryMaterial'];
-			if($model->save())
+			$rm = Rawmaterial::model()->findByPk($_POST['FactoryMaterial']['rm_id']);
+			if($_POST['FactoryMaterial']['rm_id']==null)
 			{
-			
-			$rm = Rawmaterial::model()->findByPk($model->rm_id);
-				//var_dump($rm);
-				//$product->p_quantity += $model->fp_quantity;
-				//$model->p->p_quantity += $model->fp_quantity;
-				//$model->p->save();
-				if($model->sf_quantity<=$rm->rm_quantity)
-				{	
-					$rm->rm_quantity = $rm->rm_quantity-$model->sf_quantity;
-					//var_dump($rm);
-					$rm->save();
-					//var_dump($product);
-					Yii::app()->user->setFlash('sended','Rawmaterial Sended Successfully');
-					//$this->refresh();
-					
+				if($model->save())
+				{
+				
 				}
+			}	
+			elseif($_POST['FactoryMaterial']['sf_quantity'] <= $rm->rm_quantity)
+			{	
+					$rm->rm_quantity = $rm->rm_quantity - $_POST['FactoryMaterial']['sf_quantity'];
+					$rm->save();
+					$model->attributes=$_POST['FactoryMaterial'];
+				
+					$mod=new TransactionPr;
+					$mod->type='Send to factory (RM)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['FactoryMaterial']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['FactoryMaterial']['sf_quantity'];
+					$mod->save();
+					
+				if($model->save())
+				{
+					
+					Yii::app()->user->setFlash('sended','Rawmaterial Sended Successfully');
+					$this->refresh();
+				}
+			}
+				
 				else
 				{
 					Yii::app()->user->setFlash('insuf','Insuffient Quantity of Rawmaterial in Stock');
-					//	$this->refresh();
+						$this->refresh();
 				}
 					//$this->redirect(array('view','id'=>$model->sf_id));
 			
-			}
+			
 		}
 
 		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
@@ -133,9 +143,69 @@ class FactoryMaterialController extends Controller
 
 		if(isset($_POST['FactoryMaterial']))
 		{
-			$model->attributes=$_POST['FactoryMaterial'];
-			if($model->save())
+			$rm = Rawmaterial::model()->findByPk($_POST['FactoryMaterial']['rm_id']);
+			
+			//if updated quantity is equal to exixting quantity 
+			if($_POST['FactoryMaterial']['sf_quantity'] == $model->sf_quantity) 
+			{
+				$model->attributes=$_POST['FactoryMaterial'];
+			
+				
+				if($model->save())
+				{
 				$this->redirect(array('view','id'=>$model->sf_id));
+				}
+			}
+			//if updated quantity is greater then exixting quantity  
+			if($_POST['FactoryMaterial']['sf_quantity'] <= $rm->rm_quantity && $_POST['FactoryMaterial']['sf_quantity'] > $model->sf_quantity) 
+			{
+			         
+				$temp=$_POST['FactoryMaterial']['sf_quantity'] - $model->sf_quantity;
+			    $rm->rm_quantity =$rm->rm_quantity - $temp;
+				$rm->save();
+	            $model->attributes=$_POST['FactoryMaterial'];
+					
+				$mod=new TransactionPr;
+				$mod->type='Send to factory (RM)(U)';
+				$pmodel=Rawmaterial::model()->findByPk($_POST['FactoryMaterial']['rm_id']);
+				$mod->name=$pmodel->rm_name;		
+				$mod->quantity=$_POST['FactoryMaterial']['sf_quantity'];
+				
+				$mod->save();
+				
+					if($model->save())
+					{
+				    $this->redirect(array('view','id'=>$model->sf_id));
+			 
+					}
+						
+			}
+			
+			//if updated quantity is less then exixting quantity	
+				if($_POST['FactoryMaterial']['sf_quantity'] <= $rm->rm_quantity && $_POST['FactoryMaterial']['sf_quantity'] < $model->sf_quantity) 
+				{
+			       $temp=$model->sf_quantity-$_POST['FactoryMaterial']['sf_quantity'];
+					$rm->rm_quantity=$rm->rm_quantity + $temp;
+					$rm->save();
+					$model->attributes=$_POST['FactoryMaterial'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Send to factory (RM)(U)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['FactoryMaterial']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['FactoryMaterial']['sf_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sf_id));
+						} 
+				 
+			 
+			    
+				}
+			
 		}
 		if(Yii::app()->user->checkAccess("materialManager",array('user'=>$model)))
 		{

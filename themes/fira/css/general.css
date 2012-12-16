@@ -1244,8 +1244,10 @@ button {
     background-image: url("../images/viewfactory.png");
 
 }
-	
-	
+#page-wrapper #main-wrapper #main-content .page-title .other ul#dashboard-buttons li a.invoice {
+    background-image: url("../images/invoice.png");
+
+}
 }
 h1 {
     font-size: 40px;

@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View FactoryMaterial #<?php echo $model->sf_id; ?></h1>
+<h1>View Send Materials #<?php echo $model->sf_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

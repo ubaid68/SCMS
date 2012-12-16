@@ -26,7 +26,7 @@
     
 </div>
 
-<?php// echo Yii::app()->user->getFlash('sended'); ?>
+<?php // echo Yii::app()->user->getFlash('sended'); ?>
 </div>
 <?php } ?>
 

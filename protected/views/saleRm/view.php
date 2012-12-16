@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View SaleRm #<?php echo $model->srm_id; ?></h1>
+<h1>View Sale Raw Material #<?php echo $model->srm_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

@@ -89,7 +89,7 @@ class SalePrController extends Controller
 		 $myid=$check->id;
 		if(count($check)>0)
 		 {
-		 //
+		 
 		 $msproduct=new Msproduct;
 		 $msproduct=$msproduct->loadModel($check->ms_id);
 		 $msproduct->product_id=$prid;
@@ -196,9 +196,10 @@ public function actionCreate()
 				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
 			       $p->save();
 	               $model->attributes=$_POST['SalePr'];
+				   $this->msproduct($_POST['SalePr']['p_id']);
 			        if($model->save())
 					   {
-					    $this->msproduct($model->p_id);
+					    //$this->msproduct($model->p_id);
 					
 					    Yii::app()->user->setFlash('salesuccess','Product Record Added Successfully');
 							$this->refresh(); 

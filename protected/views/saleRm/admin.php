@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <div style="margin-right:250px;">
-<h1>Manage Sale Rms</h1>
+<h1>Manage Sale Raw Material</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -85,7 +85,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'header'=>'Discounted Price',
 			'type'=>'raw',
-			'value'=>'(($data->srmp_unit*$data->srm_quantity)*$data->srm_discount)/100'
+			//'value'=>'2'	
+			//'value'=>'(($data->srmp_unit*$data->srm_quantity)*$data->srm_discount)/100'
+			'value'=>'$data->srm_discount==0 ?($data->srmp_unit*$data->srm_quantity):((($data->srmp_unit*$data->srm_quantity)*$data->srm_discount)/100)'
 		),
 		
 		array(

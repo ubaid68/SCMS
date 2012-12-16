@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update SaleRm <?php echo $model->srm_id; ?></h1>
+<h1>Update Sale Raw material <?php echo $model->srm_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

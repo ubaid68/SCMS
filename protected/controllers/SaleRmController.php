@@ -104,16 +104,33 @@ class SaleRmController extends Controller
 		}		
 		 if($_POST['SaleRm']['st_id']=='2' )
 		     {
-			  $model->attributes=$_POST['SaleRm'];
+			$rm = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
 			  $model->srmp_unit=0;
 			  $model->srm_discount=0;
 			  $model->srm_totalsale=0;
-			    if($model->save())
-				   {
-				    Yii::app()->user->setFlash('samplermsuccess','Rawmaterial updated as sample');
-							$this->refresh();
+			  
+			  if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity) 
+			    {
+			       $rm->rm_quantity=$rm->rm_quantity - $_POST['SaleRm']['srm_quantity'];
+			       $rm->save();
+	               
+					$model->attributes=$_POST['SaleRm'];
+				
+					$mod=new TransactionPr;
+					$mod->type='Send Sample(RM)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+				
+					$mod->save();
+				
+					if($model->save())
+					{
+						Yii::app()->user->setFlash('samplermsuccess','Rawmaterial updated as sample');
+						$this->refresh();
 			 
                     }
+				}	
    		      }
 		 elseif($_POST['SaleRm']['st_id']=='1' )  
 		     {
@@ -129,9 +146,18 @@ class SaleRmController extends Controller
 				   $model->srm_totalsale=$_POST['SaleRm']['srmp_unit']*$_POST['SaleRm']['srm_quantity'];
 			       $r->save();
 	               $model->attributes=$_POST['SaleRm'];
-			        if($model->save())
-					   {
-					    Yii::app()->user->setFlash('salermsuccess','Rawmaterial Record Added Successfully');
+			        
+					$mod=new TransactionPr;
+					$mod->type='Sale (RM)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+				
+					$mod->save();
+					
+						if($model->save())
+						{
+							Yii::app()->user->setFlash('salermsuccess','Rawmaterial Record Added Successfully');
 							$this->refresh(); 
 						} 
 			 
@@ -143,34 +169,7 @@ class SaleRmController extends Controller
 				}
 			 }
 	    }	
-			/*if(($model->st->st_id==='1') && ($model->srmp_unit==0))
-			{
-				throw new CHttpException(405,'Sale unit price cannot be 0');
-			}
-			if($model->st->st_id==='2')
-			{
-				$model->srmp_unit=0;
-				$model->srm_discount=0;
-				//var_dump ($model->st->st_id);
-			}
-			$r = Rawmaterial::model()->findByPk($model->rm_id);
-				if($model->srm_quantity <= $r->rm_quantity)
-				{	
-					$r->rm_quantity = $r->rm_quantity - $model->srm_quantity;
-					//var_dump($p);
-					$r->save();
-					//var_dump($product);
-					//$this->redirect(array('view','id'=>$model->sp_id));
-				Yii::app()->user->setFlash('salermsuccess','Rawmaterial Record Added Successfully');
-							$this->refresh();
-				}
-				else
-				{
-					Yii::app()->user->setFlash('infqrm','Insuffient Quantity of Rawmaterial in Stock');
-					$this->refresh();
-				}
-				//$this->redirect(array('view','id'=>$model->srm_id));
-				*/
+			
 	if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
 		{
 		$this->render('create',array(
@@ -197,64 +196,173 @@ class SaleRmController extends Controller
 
 		if(isset($_POST['SaleRm']))
 		{
-		if($_POST['SaleRm']['st_id']==null)
+			if($_POST['SaleRm']['st_id']==null)
 			{
 			if($model->save())
 				{
 				
 				}
-		}		
+			}		
 		 if($_POST['SaleRm']['st_id']=='2' )
-		     {
-			  $model->attributes=$_POST['SaleRm'];
+			{
+			 $rm = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+			  
+			 // $model->attributes=$_POST['SaleRm'];
 			  $model->srmp_unit=0;
 			  $model->srm_discount=0;
 			  $model->srm_totalsale=0;
-			    if($model->save())
-				   {
+			 	
+			  //if updated quantity is equal to exixting quantity 
+			   if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] == $model->srm_quantity) 
+			    {
+					
+					$model->attributes=$_POST['SaleRm'];
+				  
+				  if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->srm_id));
+						} 
+				
+			    }
+				//if updated quantity is greater then exixting quantity  
+			if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] > $model->srm_quantity) 
+			{
+			         
+				$temp=$_POST['SaleRm']['srm_quantity'] - $model->srm_quantity;
+			    $rm->rm_quantity =$rm->rm_quantity - $temp;
+				$rm->save();
+	            $model->attributes=$_POST['SaleRm'];
+					
+				$mod=new TransactionPr;
+				$mod->type='Send Sample (Rm)(U)';
+				$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+				$mod->name=$pmodel->rm_name;		
+				$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+				
+				$mod->save();
+				
+					if($model->save())
+					{
 				    $this->redirect(array('view','id'=>$model->srm_id));
 			 
-                    }
-   		      }
-		 elseif($_POST['SaleRm']['st_id']=='1' )  
-		     {
-			  $r = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']); 
-			   if(($_POST['SaleRm']['srmp_unit']==0))
-			   {
-				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
-			   }
-			   
-			   if($_POST['SaleRm']['srm_quantity'] <= $r->rm_quantity) 
-			      {
-			       $r->rm_quantity=$r->rm_quantity - $_POST['SaleRm']['srm_quantity'];
-				   $model->srm_totalsale=$_POST['SaleRm']['srmp_unit']*$_POST['SaleRm']['srm_quantity'];
-			       $r->save();
-	               $model->attributes=$_POST['SaleRm'];
-			        if($model->save())
+					}
+						
+			}				
+				
+				//if updated quantity is less then exixting quantity	
+				if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] < $model->srm_quantity) 
+				{
+			       $temp=$model->srm_quantity-$_POST['SaleRm']['srm_quantity'];
+					$rm->rm_quantity=$rm->rm_quantity + $temp;
+					$rm->save();
+					$model->attributes=$_POST['SaleRm'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Send Sample (P)(U)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
 					   {
-					   $this->redirect(array('view','id'=>$model->srm_id));
+					    $this->redirect(array('view','id'=>$model->srm_id));
+						} 
+				 
+			 
+			    
+				}
+				
+		}	
+			elseif($_POST['SaleRm']['st_id']=='1' )  
+			{
+			 $rm = Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']); 
+				if(($_POST['SaleRm']['srmp_unit']==0))
+				{
+					throw new CHttpException(405,'unit price cannot be zero at the time of sale');
+				}
+				
+				//if updated quantity is equal to exixting quantity 
+			   if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] == $model->srm_quantity) 
+			    {
+					
+					$model->attributes=$_POST['SaleRm'];
+				  
+				  if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->srm_id));
+						} 
+				
+			    }
+			   
+			    //if updated quantity is greater then exixting quantity
+			   if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] > $model->srm_quantity) 
+			    {
+			       $temp=$_POST['SaleRm']['srm_quantity']-$model->srm_quantity;
+					$rm->rm_quantity=$rm->rm_quantity - $temp;
+					$rm->save();
+					$model->attributes=$_POST['SaleRm'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Sale (RM)(U)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+					$mod->save();
+					
+
+					if($model->save())
+					   {
+							$this->redirect(array('view','id'=>$model->srm_id));
+						}
+				}			
+				//if updated quantity is less then exixting quantity
+				if($_POST['SaleRm']['srm_quantity'] <= $rm->rm_quantity && $_POST['SaleRm']['srm_quantity'] < $model->srm_quantity) 
+			    {
+			       $temp=$model->srm_quantity-$_POST['SaleRm']['srm_quantity'];
+					$rm->rm_quantity=$rm->rm_quantity + $temp;
+					$rm->save();
+					
+					$model->attributes=$_POST['SaleRm'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Sale (RM)(U)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['SaleRm']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['SaleRm']['srm_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->srm_id));
 						} 
 			 
-			       }
+			    }
+				
 				else 
 				{
 				 Yii::app()->user->setFlash('infqrm','Insuffient Quantity of product in Stock');
 					$this->refresh();
 				}
-			 }
+			}
 	    }
-	if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
-		{
-		$this->render('create',array(
-			'model'=>$model,
-		));
-		}
-		else
-		{
-		throw new CHttpException(401,'You are not authorised to do this');
-		}
+			if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+			{
+				$this->render('create',array(
+				'model'=>$model,
+				));
+			}
+			else
+			{
+				throw new CHttpException(401,'You are not authorised to do this');
+			}
 	
+		
 	}
+	
+
 
 	/**
 	 * Deletes a particular model.

@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update FactoryMaterial <?php echo $model->sf_id; ?></h1>
+<h1>Update Send Material <?php echo $model->sf_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

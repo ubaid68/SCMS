@@ -13,7 +13,7 @@ $this->menu=array(
 ?>
 
 <div style="margin-right:250px;">
-<h1>Sale Rms</h1>
+<h1>View Sale Raw Material</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

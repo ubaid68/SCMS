@@ -86,20 +86,25 @@ class FinishedProductController extends Controller
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['FinishedProduct']))
-		{
+		{	
+			$product = Product::model()->findByPk($model->p_id);
+			$product->p_quantity = $model->fp_quantity+$product->p_quantity;
+				
+				$mod=new TransactionPr;
+				$mod->type='Recieve (P)';
+				$pmodel=Product::model()->findByPk($_POST['FinishedProduct']['p_id']);
+				$mod->name=$pmodel->p_name;		
+				$mod->quantity=$_POST['FinishedProduct']['fp_quantity'];
+				
+				$mod->save();	
+				$product->save();
+			
 			$model->attributes=$_POST['FinishedProduct'];
+			
 			if($model->save())
 			{
-				$product = Product::model()->findByPk($model->p_id);
 				
-				//$product->p_quantity += $model->fp_quantity;
-				//$model->p->p_quantity += $model->fp_quantity;
-				//$model->p->save();
-				$product->p_quantity = $model->fp_quantity+$product->p_quantity;
-				$product->save();
-				//var_dump($product);
-				//$product->save();
-				//$this->redirect(array('view','id'=>$model->fp_id));
+				
 				Yii::app()->user->setFlash('recieve','Product Recieved Successfully');
 							$this->refresh();
 			}
@@ -130,9 +135,64 @@ class FinishedProductController extends Controller
 
 		if(isset($_POST['FinishedProduct']))
 		{
-			$model->attributes=$_POST['FinishedProduct'];
-			if($model->save())
+			$p = Product::model()->findByPk($_POST['FinishedProduct']['p_id']);
+		
+			//if updated quantity is equal to exixting quantity
+			if($_POST['FinishedProduct']['fp_quantity'] == $model->fp_quantity)
+			{
+				
+				$model->attributes=$_POST['FinishedProduct'];
+			
+				if($model->save())
+				{
 				$this->redirect(array('view','id'=>$model->fp_id));
+				}
+			}
+		
+			//if updated quantity is greater then exixting quantity
+			if($_POST['FinishedProduct']['fp_quantity'] > $model->fp_quantity)
+			{
+				$temp=$_POST['FinishedProduct']['fp_quantity'] - $model->fp_quantity;
+					$p->p_quantity=$p->p_quantity + $temp;
+					$p->save();
+					$model->attributes=$_POST['FinishedProduct'];
+			
+				$mod=new TransactionPr;
+				$mod->type='Recieve (P)(U)';
+				$pmodel=Product::model()->findByPk($_POST['FinishedProduct']['p_id']);
+				$mod->name=$pmodel->p_name;		
+				$mod->quantity=$_POST['FinishedProduct']['fp_quantity'];
+				
+				$mod->save();	
+			
+				if($model->save())
+				{
+				$this->redirect(array('view','id'=>$model->fp_id));
+				}
+			}
+		
+			//if updated quantity is less then exixting quantity
+			if($_POST['FinishedProduct']['fp_quantity'] < $model->fp_quantity)
+			{
+				$temp=$model->fp_quantity - $_POST['FinishedProduct']['fp_quantity'] ;
+					$p->p_quantity=$p->p_quantity - $temp;
+					$p->save();
+					$model->attributes=$_POST['FinishedProduct'];
+			
+				$mod=new TransactionPr;
+				$mod->type='Recieve (P)(U)';
+				$pmodel=Product::model()->findByPk($_POST['FinishedProduct']['p_id']);
+				$mod->name=$pmodel->p_name;		
+				$mod->quantity=$_POST['FinishedProduct']['fp_quantity'];
+				
+				$mod->save();	
+			
+				if($model->save())
+				{
+				$this->redirect(array('view','id'=>$model->fp_id));
+				}
+			}
+		
 		}
 
 		if(Yii::app()->user->checkAccess("productManager",array('user'=>$model)))

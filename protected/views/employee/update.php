@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Employee <?php echo $model->login_id; ?></h1>
+<h1>Update User <?php echo $model->login_id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

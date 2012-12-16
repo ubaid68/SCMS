@@ -208,6 +208,7 @@ $this->widget('zii.widgets.CMenu',array(
     
         <?php echo $content; ?>  
 		
+		
      <div class="clearfix"></div>
   </div>
    <?php if(!Yii::app()->user->isGuest){?>

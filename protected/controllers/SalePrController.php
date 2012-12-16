@@ -174,18 +174,34 @@ public function actionCreate()
 		}		
 		 if($_POST['SalePr']['st_id']=='2' )
 		     {
-			  $model->attributes=$_POST['SalePr'];
+			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']);
 			  $model->sp_unit=0;
 			  $model->sp_discount=0;
 			  $model->sp_totalsale=0;
-			    if($model->save())
+			  
+			  if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity) 
+			    {
+			       $p->p_quantity=$p->p_quantity - $_POST['SalePr']['sp_quantity'];
+			       $p->save();
+	               $model->attributes=$_POST['SalePr'];
+			
+				$mod=new TransactionPr;
+				$mod->type='Send Sample(P)';
+				$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+				$mod->name=$pmodel->p_name;		
+				$mod->quantity=$_POST['SalePr']['sp_quantity'];
+				
+				$mod->save();	
+			   
+					if($model->save())
 				   {
 				   
 				    Yii::app()->user->setFlash('samplesuccess','Product updated as sample');
 							$this->refresh();
 			 
-                    }
-   		      }
+					}	
+				}
+   		    }
 		 elseif($_POST['SalePr']['st_id']=='1' )  
 		     {
 			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']); 
@@ -200,7 +216,16 @@ public function actionCreate()
 				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
 			       $p->save();
 	               $model->attributes=$_POST['SalePr'];
-			        if($model->save())
+			       
+					$mod=new TransactionPr;
+					$mod->type='Sale (P)';
+					$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+					$mod->name=$pmodel->p_name;		
+					$mod->quantity=$_POST['SalePr']['sp_quantity'];
+				
+					$mod->save();					   
+					
+					if($model->save())
 					   {
 					    $this->msproduct($model->p_id);
 					
@@ -253,16 +278,71 @@ public function actionCreate()
 		}		
 		 if($_POST['SalePr']['st_id']=='2' )
 		     {
-			  $model->attributes=$_POST['SalePr'];
+			 $p = Product::model()->findByPk($_POST['SalePr']['p_id']);
+			
 			  $model->sp_unit=0;
 			  $model->sp_discount=0;
 			  $model->sp_totalsale=0;
-			    if($model->save())
-				   {
+			//if updated quantity is equal to exixting quantity   
+				if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] == $model->sp_quantity) 
+			    {
+					
+					$model->attributes=$_POST['SalePr'];
+				  
+				  if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sp_id));
+						} 
+			 
+			    }
+			
+			//if updated quantity is greater then exixting quantity  
+			if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] > $model->sp_quantity) 
+			{
+			         
+				$temp=$_POST['SalePr']['sp_quantity'] - $model->sp_quantity;
+			    $p->p_quantity =$p->p_quantity - $temp;
+				$p->save();
+	            $model->attributes=$_POST['SalePr'];
+					
+				$mod=new TransactionPr;
+				$mod->type='Send Sample (P)(U)';
+				$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+				$mod->name=$pmodel->p_name;		
+				$mod->quantity=$_POST['SalePr']['sp_quantity'];
+				
+				$mod->save();
+				
+					if($model->save())
+					{
 				    $this->redirect(array('view','id'=>$model->sp_id));
 			 
-                    }
-   		      }
+					}
+						
+			}
+			//if updated quantity is less then exixting quantity	
+				if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] < $model->sp_quantity) 
+			    {
+			       $temp=$model->sp_quantity - $_POST['SalePr']['sp_quantity'];
+					$p->p_quantity=$p->p_quantity + $temp;
+					$p->save();
+					$model->attributes=$_POST['SalePr'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Sale (P)(U)';
+					$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+					$mod->name=$pmodel->p_name;		
+					$mod->quantity=$_POST['SalePr']['sp_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sp_id));
+						} 
+			 
+			    }
+   		    }
 		 elseif($_POST['SalePr']['st_id']=='1' )  
 		     {
 			  $p = Product::model()->findByPk($_POST['SalePr']['p_id']); 
@@ -270,19 +350,63 @@ public function actionCreate()
 			   {
 				throw new CHttpException(405,'unit price cannot be zero at the time of sale');
 			   }
-			   
-			   if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity) 
+			   //if updated quantity is greater then exixting quantity
+			   if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] > $model->sp_quantity) 
 			      {
-			       $p->p_quantity=$p->p_quantity - $_POST['SalePr']['sp_quantity'];
-				   $model->sp_totalsale=$_POST['SalePr']['sp_unit']*$_POST['SalePr']['sp_quantity'];
-			       $p->save();
-	               $model->attributes=$_POST['SalePr'];
-			        if($model->save())
+			       $temp=$_POST['SalePr']['sp_quantity']-$model->sp_quantity;
+					$p->p_quantity=$p->p_quantity - $temp;
+					$p->save();
+					$model->attributes=$_POST['SalePr'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Sale (P)(U)';
+					$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+					$mod->name=$pmodel->p_name;		
+					$mod->quantity=$_POST['SalePr']['sp_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
 					   {
 					    $this->redirect(array('view','id'=>$model->sp_id));
 						} 
 			 
 			       }
+				 //if updated quantity is less then exixting quantity
+				if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] < $model->sp_quantity) 
+			      {
+			       $temp=$model->sp_quantity - $_POST['SalePr']['sp_quantity'];
+					$p->p_quantity=$p->p_quantity + $temp;
+					$p->save();
+					$model->attributes=$_POST['SalePr'];
+		
+					$mod=new TransactionPr;
+					$mod->type='Sale (P)(U)';
+					$pmodel=Product::model()->findByPk($_POST['SalePr']['p_id']);
+					$mod->name=$pmodel->p_name;		
+					$mod->quantity=$_POST['SalePr']['sp_quantity'];
+					$mod->save();
+					
+
+				   if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sp_id));
+						} 
+			 
+			    }	
+				//if updated quantity is equal to exixting quantity   
+				if($_POST['SalePr']['sp_quantity'] <= $p->p_quantity && $_POST['SalePr']['sp_quantity'] == $model->sp_quantity) 
+			      {
+			       				
+					$model->attributes=$_POST['SalePr'];
+				   if($model->save())
+					   {
+					    $this->redirect(array('view','id'=>$model->sp_id));
+						} 
+			 
+			    }	   
+				   
+				   
 				else 
 				{
 				 Yii::app()->user->setFlash('infq','Insuffient Quantity of product in Stock');

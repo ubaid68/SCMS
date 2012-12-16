@@ -13,7 +13,7 @@ $this->menu=array(
 );
 ?>
 <div style="margin-right:250px;">
-<h1>Create SalePr</h1>
+<h1>Sale Product</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 </div>

@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View SalePr #<?php echo $model->sp_id; ?></h1>
+<h1>View Sale Product #<?php echo $model->sp_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

@@ -80,15 +80,36 @@ class SuppliesController extends Controller
 
 		if(isset($_POST['Supplies']))
 		{
-			$model->attributes=$_POST['Supplies'];
-
-			if($model->save())
+			if($_POST['Supplies']['rm_id']==null)
 			{
-				Yii::app()->user->setFlash('buysuccess','Rawmaterial successfully purchased');
-							$this->refresh();
+				if($model->save())
+				{
+				
+				}
 			}
-				//$this->redirect(array('view','id'=>$model->supplies_id));
-		}
+			else{	
+			$r= Rawmaterial::model()->findByPk($_POST['Supplies']['rm_id']);
+			$r->rm_quantity=$r->rm_quantity + $_POST['Supplies']['s_quantity'];
+			$r->save();
+			$model->attributes=$_POST['Supplies'];
+			
+			$mod=new TransactionPr;
+				$mod->type='Buy (RM)';
+				$pmodel=Rawmaterial::model()->findByPk($_POST['Supplies']['rm_id']);
+				$mod->name=$pmodel->rm_name;		
+				$mod->quantity=$_POST['Supplies']['s_quantity'];
+				$mod->save();
+				
+				if($model->save())
+				{
+			
+					Yii::app()->user->setFlash('buysuccess','Rawmaterial successfully purchased');
+							$this->refresh();
+				}
+			}
+		}	
+	
+		
 		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
 		{
 		$this->render('create',array(
@@ -98,8 +119,8 @@ class SuppliesController extends Controller
 		else{
 		throw new CHttpException(401,'You are not authorised to do this');
 		}
+	
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -114,25 +135,85 @@ class SuppliesController extends Controller
 
 		if(isset($_POST['Supplies']))
 		{
-			$model->attributes=$_POST['Supplies'];
-			if($model->save())
+			$rm = Rawmaterial::model()->findByPk($_POST['Supplies']['rm_id']);
+			
+			//if updated quantity is equal to exixting quantity 
+			if($_POST['Supplies']['s_quantity'] == $model->s_quantity) 
+			{
+				$model->attributes=$_POST['Supplies'];
+			
+				
+				if($model->save())
+				{
 				$this->redirect(array('view','id'=>$model->supplies_id));
-		}
-
-		if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
-		{
-			//print_r("the rule works only for product manager");
+				}
+			}
+			//if updated quantity is greater then exixting quantity
+			if($_POST['Supplies']['s_quantity'] > $model->s_quantity) 
+			{
+			         
+				$temp=$_POST['Supplies']['s_quantity'] - $model->s_quantity;
+			    var_dump($temp);
+				$rm->rm_quantity =$rm->rm_quantity + $temp;
+				$rm->save();
+	            $model->attributes=$_POST['Supplies'];
+					
+				$mod=new TransactionPr;
+				$mod->type='Buy (Rm)(U)';
+				$pmodel=Rawmaterial::model()->findByPk($_POST['Supplies']['rm_id']);
+				$mod->name=$pmodel->rm_name;		
+				$mod->quantity=$_POST['Supplies']['s_quantity'];
+				
+				$mod->save();
+				
+					if($model->save())
+					{
+				    $this->redirect(array('view','id'=>$model->supplies_id));
+					}
+			}
+			
+			//if updated quantity is less then exixting quantity	
+			if($_POST['Supplies']['s_quantity'] < $model->s_quantity) 
+			{
+			       $temp= $model->s_quantity - $_POST['Supplies']['s_quantity'];
+					
+					$rm->rm_quantity=$rm->rm_quantity - $temp;
+					$rm->save();
+					$model->attributes=$_POST['Supplies'];
 		
-		$this->render('update',array(
-			'model'=>$model,
-		));
-		}
-		else
-		{
-		throw new CHttpException(401,'You are not authorised to do this');
-		}
-	}
+					$mod=new TransactionPr;
+					$mod->type='Buy (RM)(U)';
+					$pmodel=Rawmaterial::model()->findByPk($_POST['Supplies']['rm_id']);
+					$mod->name=$pmodel->rm_name;		
+					$mod->quantity=$_POST['Supplies']['s_quantity'];
+					$mod->save();
+					
 
+				if($model->save())
+				{
+					$this->redirect(array('view','id'=>$model->supplies_id));
+				} 
+				 
+			}
+		
+		
+		}
+		
+		
+			if(Yii::app()->user->checkAccess("salesMan",array('user'=>$model)))
+			{
+				//print_r("the rule works only for product manager");
+		
+				$this->render('update',array(
+				'model'=>$model,
+				));
+			}
+			else
+			{
+				throw new CHttpException(401,'You are not authorised to do this');
+			}
+		
+	}
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

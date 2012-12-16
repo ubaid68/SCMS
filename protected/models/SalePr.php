@@ -165,7 +165,7 @@ class SalePr extends CActiveRecord
                               'defaultOrder' => 'sp_id DESC',  // this is it.
                       ),
                         'pagination' => array(
-                                'pageSize' => 30,
+                                'pageSize' => 20,
                         )
 
 

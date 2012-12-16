@@ -15,7 +15,7 @@
     
 </div>
 
- <?php// echo Yii::app()->user->getFlash('buysuccess');?>  
+ <?php //echo Yii::app()->user->getFlash('buysuccess');?>  
 </div>
 <?php } ?>
 
@@ -67,7 +67,7 @@ $event;
                               'dateFormat'=>'d MM, yy',
                               'showAnim' => 'slideDown',
                               ),
-    'htmlOptions'=>array('size'=>30,'class'=>'date'),
+    'htmlOptions'=>array('size'=>30,'class'=>'date','class'=>'fields'),
           )
     );
   
@@ -79,19 +79,19 @@ $event;
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'s_unitprice'); ?>
-		<?php echo $form->textField($model,'s_unitprice'); ?>
+		<?php echo $form->textField($model,'s_unitprice',array('size'=>30,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'s_unitprice'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'s_quantity'); ?>
-		<?php echo $form->textField($model,'s_quantity'); ?>
+		<?php echo $form->textField($model,'s_quantity',array('size'=>30,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'s_quantity'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'s_discount'); ?>
-		<?php echo $form->textField($model,'s_discount'); ?>
+		<?php echo $form->textField($model,'s_discount',array('size'=>30,'class'=>'fields')); ?>
 		<?php echo $form->error($model,'s_discount'); ?>
 	</div>
 

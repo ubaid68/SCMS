@@ -5,12 +5,9 @@
  *
  * The followings are the available columns in table 'transaction_pr':
  * @property integer $tpr_id
- * @property integer $fp_id
- * @property integer $sp_id
- *
- * The followings are the available model relations:
- * @property FinishedProduct $fp
- * @property SalePr $sp
+ * @property string $type
+ * @property string $name
+ * @property integer $quantity
  */
 class TransactionPr extends CActiveRecord
 {
@@ -40,11 +37,13 @@ class TransactionPr extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fp_id, sp_id', 'required'),
-			array('fp_id, sp_id', 'numerical', 'integerOnly'=>true),
+			array('type, name, quantity', 'required'),
+			array('quantity', 'numerical', 'integerOnly'=>true),
+			array('type', 'length', 'max'=>50),
+			array('name', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('tpr_id, fp_id, sp_id', 'safe', 'on'=>'search'),
+			array('tpr_id, type, name, quantity', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +55,6 @@ class TransactionPr extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fp' => array(self::BELONGS_TO, 'FinishedProduct', 'fp_id'),
-			'sp' => array(self::BELONGS_TO, 'SalePr', 'sp_id'),
 		);
 	}
 
@@ -68,8 +65,9 @@ class TransactionPr extends CActiveRecord
 	{
 		return array(
 			'tpr_id' => 'Tpr',
-			'fp_id' => 'Fp',
-			'sp_id' => 'Sp',
+			'type' => 'Type',
+			'name' => 'Name',
+			'quantity' => 'Quantity',
 		);
 	}
 
@@ -85,11 +83,20 @@ class TransactionPr extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('tpr_id',$this->tpr_id);
-		$criteria->compare('fp_id',$this->fp_id);
-		$criteria->compare('sp_id',$this->sp_id);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('quantity',$this->quantity);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+		return new CActiveDataProvider(get_class($this), array(
+                        'criteria' => $criteria,
+                       'sort' => array(
+                              'defaultOrder' => 'tpr_id DESC',  // this is it.
+                      ),
+                        'pagination' => array(
+                                'pageSize' => 20,
+                        )
+
+
 		));
 	}
 }
